@@ -21,4 +21,6 @@ class LookFragment : Fragment() {
         return binding.root
     }
 
+
+
 }

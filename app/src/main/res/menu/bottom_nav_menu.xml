@@ -18,7 +18,7 @@
         android:id="@+id/searchFragment"
         android:icon="@drawable/main_btm_search_selector"
         app:showAsAction="always"
-        android:title="검색" />
+        android:title="시그널 찾기" />
     <item
         android:id="@+id/lockerFragment"
         android:icon="@drawable/main_btm_my_selector"

@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/BottomNaviTemplate/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/HonbabSignal/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/HonbabSignal/app/src/main/res/layout/activity_map.xml" value="0.1" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/HonbabSignal/app/src/main/res/layout/fragment_home.xml" value="0.14356884057971014" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/HonbabSignal/app/src/main/res/layout/fragment_look.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/HonbabSignal/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1296875" />
       </map>
     </option>
