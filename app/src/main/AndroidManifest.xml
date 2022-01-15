@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HonbabSignal">
+
+        <meta-data
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="hs74nz38zh" />
+
         <activity android:name="com.example.HonbabSignal.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.HonbabSignal.MapActivity"/>
     </application>
 
 </manifest>
