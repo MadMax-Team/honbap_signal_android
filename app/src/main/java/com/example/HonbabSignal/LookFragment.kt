@@ -21,13 +21,13 @@ class LookFragment : Fragment() {
     ): View {
         binding = FragmentLookBinding.inflate(inflater, container, false)
 
-        //lookBtn 누르면 MapActivity로 넘어가기
-        binding.lookBtn.setOnClickListener {
-            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
-
-            val intent = Intent(activity, MapActivity::class.java)
-            startActivity(intent)
-        }
+//        //lookBtn 누르면 MapActivity로 넘어가기
+//        binding.lookBtn.setOnClickListener {
+//            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
+//
+//            val intent = Intent(activity, MapActivity::class.java)
+//            startActivity(intent)
+//        }
         return binding.root
     }
 }
