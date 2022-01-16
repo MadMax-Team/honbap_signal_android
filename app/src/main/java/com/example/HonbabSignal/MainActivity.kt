@@ -4,15 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityMainBinding
+import com.naver.maps.map.LocationTrackingMode
+import com.naver.maps.map.NaverMap
+import com.naver.maps.map.OnMapReadyCallback
+import com.naver.maps.map.util.FusedLocationSource
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
 
         initNavigation()
 
@@ -57,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             .commitAllowingStateLoss()
 
     }
+
 
 }
 
