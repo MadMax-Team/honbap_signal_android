@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.HonbabSignal.MapActivity"/>
+        <activity android:name="com.example.HonbabSignal.LogInActivity"/>
     </application>
 
 </manifest>
