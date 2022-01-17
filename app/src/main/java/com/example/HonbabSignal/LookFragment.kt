@@ -29,6 +29,9 @@ class LookFragment : Fragment() {
     ): View {
         binding = FragmentLookBinding.inflate(inflater, container, false)
 
+//        //FusedLocationSource는 런타임 권한 처리를 위해 생성자에 액티비티 객체를 전달하고 권한 요청 코드를 지정해야함함
+//        locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
+
         //lookBtn 누르면 MapActivity로 넘어가기
         binding.lookBtn.setOnClickListener {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
