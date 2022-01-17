@@ -22,8 +22,6 @@ class LookFragment : Fragment() {
     lateinit var naverMap: NaverMap
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,32 +42,6 @@ class LookFragment : Fragment() {
         return binding.root
     }
 
-//    override fun onRequestPermissionsResult(requestCode: Int,
-//                                            permissions: Array<String>,
-//                                            grantResults: IntArray) {
-//        if (locationSource.onRequestPermissionsResult(requestCode, permissions,
-//                grantResults)) {
-//            if (!locationSource.isActivated) { // 권한 거부됨
-//                naverMap.locationTrackingMode = LocationTrackingMode.None
-//            }
-//            return
-//        }
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//    }
-//
-//    override fun onMapReady(naverMap: NaverMap) {
-//        this.naverMap = naverMap
-//        naverMap.locationSource = locationSource
-//        naverMap.locationTrackingMode = LocationTrackingMode.Follow
-//
-//        naverMap.addOnLocationChangeListener { location ->
-//            Toast.makeText(activity,"${location.latitude}, ${location.longitude}",Toast.LENGTH_LONG).show()
-//        }
-//
-//    }
-//
-//    companion object {
-//        private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
-//    }
+
 
 }
