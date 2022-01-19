@@ -99,11 +99,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toStartOf="@id/log_in_sign_in_tv"
+        app:layout_constraintEnd_toStartOf="@id/log_in_sign_up_tv"
         app:layout_constraintTop_toBottomOf="@id/log_in_login_btn"
         app:layout_constraintStart_toEndOf="@id/log_in_find_id_tv"/>
     <TextView
-        android:id="@+id/log_in_sign_in_tv"
+        android:id="@+id/log_in_sign_up_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원가입"
