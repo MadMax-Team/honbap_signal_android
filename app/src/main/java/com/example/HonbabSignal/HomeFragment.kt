@@ -29,6 +29,15 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, LogInActivity::class.java)
             startActivity(intent)
         }
+
+        //home에서 회원가입 버튼 누르면 signup activity로 넘어갑니다
+        binding.homeSignUpTv.setOnClickListener {
+            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
+
+            val intent = Intent(activity, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
