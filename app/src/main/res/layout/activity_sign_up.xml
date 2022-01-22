@@ -24,7 +24,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="5dp"
         android:background="@null"
-        android:hint="아이디(이메일)"
+        android:hint="아이디"
         android:inputType="text"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/sign_up_singup_tv"
@@ -55,30 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sign_up_id_underscore_view"/>
 
-    <EditText
-        android:id="@+id/sign_up_name_et"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:background="@null"
-        android:hint="이름"
-        android:inputType="textPersonName"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_email_error_tv"
-
-        />
-    <View
-        android:id="@+id/sign_up_name_underscore_view"
-        android:layout_width="0dp"
-        android:layout_height="1px"
-        android:layout_marginTop="15dp"
-        android:background="#a8a8a8"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_name_et"
-        app:layout_constraintStart_toStartOf="@id/sign_up_name_et"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_name_et" />
 
     <EditText
         android:id="@+id/sign_up_nick_name_et"
@@ -88,11 +64,11 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:background="@null"
-        android:hint="닉네임"
+        android:hint="비밀번호"
         android:inputType="textPersonName"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_name_underscore_view"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_error_tv"
 
         />
     <View
@@ -109,7 +85,7 @@
         android:id="@+id/sign_up_pwd_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="비밀번호"
+        android:hint="비밀번호 확인"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="35dp"
         android:layout_marginTop="15dp"
@@ -134,7 +110,7 @@
         android:id="@+id/sign_up_pwd_check_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="비밀번호확인"
+        android:hint="닉네임"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="35dp"
         android:layout_marginTop="20dp"
@@ -153,21 +129,6 @@
         app:layout_constraintStart_toStartOf="@id/sign_up_pwd_check_et"
         app:layout_constraintTop_toBottomOf="@id/sign_up_pwd_check_et" />
 
-    <TextView
-        android:id="@+id/sign_up_sign_up_btn_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="가입완료"
-        android:padding="10dp"
-        android:gravity="center"
-        android:background="#90ee90"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:layout_marginTop="13dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
     <EditText
         android:id="@+id/sign_up_sex_et"
         android:layout_width="150dp"
@@ -176,7 +137,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:background="@null"
-        android:hint="성별"
+        android:hint="이메일"
         android:inputType="text"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -202,7 +163,7 @@
         android:layout_marginEnd="5dp"
         android:background="@null"
         android:hint="휴대폰 번호"
-        android:inputType="text"
+        android:inputType="number"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/sign_up_sex_underscore_view"
         app:layout_constraintStart_toStartOf="parent"
@@ -229,4 +190,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/sign_up_sign_up_btn_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="가입완료"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#90ee90"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

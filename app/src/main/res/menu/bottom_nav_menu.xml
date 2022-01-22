@@ -13,7 +13,7 @@
         android:id="@+id/lookFragment"
         android:icon="@drawable/main_btm_look_selector"
         app:showAsAction="always"
-        android:title="둘러보기" />
+        android:title="지도" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/main_btm_search_selector"
@@ -23,6 +23,6 @@
         android:id="@+id/lockerFragment"
         android:icon="@drawable/main_btm_my_selector"
         app:showAsAction="always"
-        android:title="보관함" />
+        android:title="커뮤니티" />
 
 </menu>
