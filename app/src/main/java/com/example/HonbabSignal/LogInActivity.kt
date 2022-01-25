@@ -13,8 +13,6 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import com.kakao.sdk.auth.LoginClient
-
 
 class LogInActivity : AppCompatActivity() {
     lateinit var binding: ActivityLogInBinding
