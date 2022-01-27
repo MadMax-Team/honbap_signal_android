@@ -19,10 +19,17 @@
         android:icon="@drawable/main_btm_search_selector"
         app:showAsAction="always"
         android:title="시그널 찾기" />
+
     <item
-        android:id="@+id/lockerFragment"
+        android:id="@+id/LockerFragment"
         android:icon="@drawable/main_btm_my_selector"
         app:showAsAction="always"
         android:title="커뮤니티" />
+
+    <item
+        android:id="@+id/DmListFragment"
+        android:icon="@drawable/main_btm_my_selector"
+        app:showAsAction="always"
+        android:title="메세지" />
 
 </menu>

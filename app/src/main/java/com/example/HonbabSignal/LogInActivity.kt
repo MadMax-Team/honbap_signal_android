@@ -12,15 +12,11 @@ import com.kakao.auth.AuthType
 import com.kakao.sdk.auth.AuthApiClient
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.common.model.ClientError
-import com.kakao.sdk.common.model.ClientErrorCause
-import com.kakao.sdk.common.model.KakaoSdkError
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 
 class LogInActivity : AppCompatActivity() {
     lateinit var binding: ActivityLogInBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +24,8 @@ class LogInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //키 해시 구하기
-        val keyHash = Utility.getKeyHash(this)
-        Log.d("Hash", keyHash)
-
+        //val keyHash = Utility.getKeyHash(this)
+        //Log.d("Hash", keyHash)
 
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
@@ -99,6 +94,7 @@ class LogInActivity : AppCompatActivity() {
             }
         }
 
+        //카카오 연결 끊기 부분
         UserApiClient.instance.unlink { error ->
             if (error != null) {
                 Log.e("Logout", "연결 끊기 실패", error)
@@ -107,10 +103,21 @@ class LogInActivity : AppCompatActivity() {
             }
         }
 
+        // 사용자 정보 요청 (기본)
+        UserApiClient.instance.me { user, error ->
+            if (error != null) {
+                Log.e(TAG, "사용자 정보 요청 실패", error)
+            }
+            else if (user != null) {
+                Log.d("userInfo", "사용자 정보 요청 성공" +
+                        "\n이메일: ${user.kakaoAccount?.email}" +
+                        "\n닉네임: ${user.kakaoAccount?.profile?.nickname}")
+            }
+        }
+
         //회원가입 버튼 누르면 signup activity로 넘어갑니다
         binding.logInSignUpTv.setOnClickListener{
             startActivity(Intent(this@LogInActivity,SignUpActivity::class.java))
         }
-
     }//onCreate꺼임
 }
