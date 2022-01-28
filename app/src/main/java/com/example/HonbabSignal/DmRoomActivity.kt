@@ -22,11 +22,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DmRoomActivity: AppCompatActivity() {
+
     //internal lateinit var perferences:SharedPreferences
     private lateinit var dm_Text : EditText
     private lateinit var dm_Send_Button: Button
     private lateinit var screen_name : TextView
     lateinit var binding: ActivityDmRoomBinding
+
     //리사이클러뷰
     var arrayList = arrayListOf<DmModel>()
     val mAdapter = DmRoomAdapter(this,arrayList)
@@ -38,24 +40,23 @@ class DmRoomActivity: AppCompatActivity() {
         binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_dm_room)
 
-
         //preferences = getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
         //var users : Array<String> = arrayOf()
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter
+
         //레이아웃 매니저 선언
-        val lm = LinearLayoutManager(this)
-        binding.dmRoomRecyclerview.layoutManager = lm
+        //val lm = LinearLayoutManager(this)
+        //binding.dmRoomRecyclerview.layoutManager = lm
         binding.dmRoomRecyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
 
         val myName = intent.getIntExtra("name",0)
         //screen_name = findViewById(R.id.dm_room_test_name)
         //screen_name.setText(myName)
 
-        //dm_Send_Button = findViewById(R.id.dm_Send_Button)
+         //dm_Send_Button = findViewById(R.id.dm_Send_Button)
         dm_Text = findViewById(R.id.dm_Text)
-
 
         //socket이랑 연결
         //SocketHandler.setSocket()
@@ -66,15 +67,15 @@ class DmRoomActivity: AppCompatActivity() {
         //preferences = getSharedPerferences("USERSIGN", Context.MODE_PRIVATE)
 
         //어댑터 선언
-        //dm_recyclerview.adapter = mAdapter
+        binding.dmRoomRecyclerview.adapter = mAdapter
+
         //레이아웃 매니저 선언
-        //val lm = LinearLayoutManager(this)
-        //dm_recyclerview.layoutManager = lm
-        //dm_recyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
+        val lm = LinearLayoutManager(this)
+        binding.dmRoomRecyclerview.layoutManager = lm
+        binding.dmRoomRecyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
 
         //dm_Send_Button = findViewById(R.id.dm_room_sendbutton)
         //dm_Text = findViewById(R.id.dm_room_edittext)
-
 
         //사용할 socket잡기
         //val mSocket = SocketHandler.getSocket()
@@ -101,8 +102,6 @@ class DmRoomActivity: AppCompatActivity() {
         mAdapter.addItem(item)
         mAdapter.notifyDataSetChanged()
 
-
-
         //데이터 보내기
         //mSocket.emit("say",dm_Text)
 
@@ -111,7 +110,7 @@ class DmRoomActivity: AppCompatActivity() {
     }
 
 
-    //기존 채팅들 불러오기
+//기존 채팅들 불러오기
 
 
 }
