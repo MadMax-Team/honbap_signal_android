@@ -24,6 +24,10 @@ class SignUpActivity : AppCompatActivity(){
 
         binding.signUpSignUpBtnTv.setOnClickListener{
 
+            binding.signUpIdErrorTv.visibility = View.INVISIBLE
+            binding.signUpNickNameErrorTv.visibility = View.INVISIBLE
+            binding.signUpEmailErrorTv.visibility = View.INVISIBLE
+            binding.signUpPhoneNumErrorTv.visibility = View.INVISIBLE
             //retrofit 개체 생성
             var retrofit = Retrofit.Builder()
                 .baseUrl("http://52.78.100.231:3001")
@@ -61,8 +65,12 @@ class SignUpActivity : AppCompatActivity(){
                 Toast.makeText(this, "전화번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpSexEt.text.toString() != binding.signUpPwdCheckEt.text.toString()) {
+            if (binding.signUpSexEt.text.toString().isEmpty()) {
                 Toast.makeText(this, "성별이 비어있습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (binding.signUpPwdEt.text.toString() != binding.signUpPwdCheckEt.text.toString()) {
+                Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -101,11 +109,13 @@ class SignUpActivity : AppCompatActivity(){
                 }
                 //서버와의 통신에 실패했을때
                 override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+                    Log.d("DEBUG", t.message.toString())
                     var dialog = AlertDialog.Builder(this@SignUpActivity)
 
                     dialog.setTitle("실패!")
                     dialog.setMessage("통신에 실패했습니다!")
                     dialog.show()
+                    binding.signUpLoadingPb.visibility = View.GONE
                 }
             })
         }
