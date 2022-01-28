@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="채팅 치는 부분"
+        android:text="get chatting"
         app:layout_constraintBottom_toTopOf="@id/button"/>
 
     <Button

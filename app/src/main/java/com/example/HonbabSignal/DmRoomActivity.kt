@@ -22,68 +22,38 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DmRoomActivity: AppCompatActivity() {
-
-    //internal lateinit var perferences:SharedPreferences
-    private lateinit var dm_Text : EditText
-    private lateinit var dm_Send_Button: Button
-    private lateinit var screen_name : TextView
     lateinit var binding: ActivityDmRoomBinding
+    private lateinit var dm_Send_Button: Button
+    private lateinit var dm_Text : EditText
 
-    //리사이클러뷰
+    //recyclerView
     var arrayList = arrayListOf<DmModel>()
     val mAdapter = DmRoomAdapter(this,arrayList)
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
 
         Log.d("say","i'm in DB ROOM")
-        super.onCreate(savedInstanceState, persistentState)
+        super.onCreate(savedInstanceState)
         binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_dm_room)
-
-        //preferences = getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
-        //var users : Array<String> = arrayOf()
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter
 
-        //레이아웃 매니저 선언
-        //val lm = LinearLayoutManager(this)
-        //binding.dmRoomRecyclerview.layoutManager = lm
-        binding.dmRoomRecyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
 
-        val myName = intent.getIntExtra("name",0)
-        //screen_name = findViewById(R.id.dm_room_test_name)
-        //screen_name.setText(myName)
 
-         //dm_Send_Button = findViewById(R.id.dm_Send_Button)
-        dm_Text = findViewById(R.id.dm_Text)
+        dm_Send_Button = findViewById(R.id.button)
+        dm_Text = findViewById(R.id.editText)
 
         //socket이랑 연결
         //SocketHandler.setSocket()
         //SocketHandler.establishConnection()
 
-        Log.d("say","i'm in DB ROOM3")
-        //dm list에서 정보가져옴
-        //preferences = getSharedPerferences("USERSIGN", Context.MODE_PRIVATE)
-
-        //어댑터 선언
-        binding.dmRoomRecyclerview.adapter = mAdapter
-
-        //레이아웃 매니저 선언
-        val lm = LinearLayoutManager(this)
-        binding.dmRoomRecyclerview.layoutManager = lm
-        binding.dmRoomRecyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
-
-        //dm_Send_Button = findViewById(R.id.dm_room_sendbutton)
-        //dm_Text = findViewById(R.id.dm_room_edittext)
-
-        //사용할 socket잡기
-        //val mSocket = SocketHandler.getSocket()
-
+        Log.d("say","i'm in DB ROOM2")
 
         dm_Send_Button.setOnClickListener {
-            //아이템 추가 부분
-            //sendMessage()
+            sendMessage()
+            Log.d("say","click dm_Send_Button")
         }
     }
 
@@ -95,11 +65,11 @@ class DmRoomActivity: AppCompatActivity() {
         val sdf = SimpleDateFormat("yyyy-MM-dd")
         val getTime = sdf.format(date)
 
-
         //example에는 원래는 이미지 url이 들어가야할 자리
         //preferences.getString("name","")
         val item = DmModel("고악",dm_Text.text.toString(),"example",getTime)
         mAdapter.addItem(item)
+        Log.d("say","addItem")
         mAdapter.notifyDataSetChanged()
 
         //데이터 보내기
@@ -109,25 +79,4 @@ class DmRoomActivity: AppCompatActivity() {
         dm_Text.setText("")
     }
 
-
-//기존 채팅들 불러오기
-
-
 }
-        //데이터 수신
-        // args[0]은 서버의 데이터입니다. //
-        //데이터 유형에 따라 "as Int"를 변경합니다.
-        // 예 "as String" 또는 아무 것도 쓰지 않습니다
-        // 데이터 로깅은 선택 사항입니다.
-//        mSocket.on("eventName") { args ->
-//            if (args[0] != null) {
-//                val counter = args[0] as Int
-//                Log.i("I",counter.toString())
-//                runOnUiThread {
-//                    // 데이터를 받은 후 작업을 실행하는 곳입니다.
-//                }
-//            }
-//        }
-//    }
-//
-//}
