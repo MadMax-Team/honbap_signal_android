@@ -9,12 +9,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/dm_Me_Name"
+        android:id="@+id/item_my_dm_me_name"
         android:layout_width="wrap_content"
         android:layout_height="1dp" />
 
     <TextView
-        android:id="@+id/dm_Text"
+        android:id="@+id/item_my_dm_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
@@ -27,7 +27,7 @@
         android:textSize="20dp" />
 
     <TextView
-        android:id="@+id/dm_Time"
+        android:id="@+id/item_my_dm_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right|center_vertical"

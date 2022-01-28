@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/dm_You_Image"
+            android:id="@+id/item_your_dm_image"
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_weight="1"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/dm_You_Name"
+                android:id="@+id/item_your_dm_you_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="김xx"
@@ -35,7 +35,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
-                android:id="@+id/dm_Text"
+                android:id="@+id/item_your_dm_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
@@ -47,12 +47,13 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/dm_Time"
+                android:id="@+id/item_your_dm_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:gravity="center_vertical"
                 android:text="시간" />
+
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
