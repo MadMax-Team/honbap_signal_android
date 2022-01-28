@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.HonbabSignal.databinding.ItemMyDmBinding
 import java.net.URL
@@ -46,43 +48,46 @@ class DmRoomAdapter(val context: Context, val arrayList: ArrayList<DmModel>)
     inner class Holder1(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         //친구목록 모델의 변수들 정의하는부분
-        val dm_Text = itemView.findViewById(R.id.dm_Text)
-        val dm_Time = itemView?.findViewById(R.id.dm_Time)
+        val dm_Text = itemView?.findViewById<View>(R.id.dm_Text)
+        //val dm_Time = itemView?.findViewById(R.id.dm_Time)
     }
 
     //상대가 친 채팅 뷰홀더
     inner class Holder2(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         //친구목록 모델의 변수들 정의하는부분
-        val dm_You_Image = itemView?.findViewById(R.id.dm_You_Image)
-        val dm_You_Name = itemView?.findViewById(R.id.dm_You_Name)
-        val dm_Text = itemView?.findViewById(R.id.dm_Text)
-        val dm_Time = itemView?.findViewById(R.id.dm_Time)
+        val dm_You_Image = itemView?.findViewById<View>(R.id.dm_You_Image)
+        val dm_You_Name = itemView?.findViewById<View>(R.id.dm_You_Name)
+        val dm_Text = itemView?.findViewById<View>(R.id.dm_Text)
+        //val dm_Time = itemView?.findViewById(R.id.dm_Time)
+
     }
 
     override fun getItemViewType(position: Int): Int {//여기서 뷰타입을 1, 2로 바꿔서 지정해줘야 내채팅 너채팅을 바꾸면서 쌓을 수 있음
         //이전 페이지에서 데려온 아이들 (없어서 오류나는 중)
-        preferences = context.getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
+        //preferences = context.getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
 
         //내 아이디와 arraylist의 name이 같다면 내꺼 아니면 상대꺼
-        return if (arrayList.get(position).name == preferences.getString("name","")) {
+        //return if (arrayList.get(position).name == preferences.getString("name","")) {
+        return if (arrayList.get(position).name == "고악") {
             1
         } else {
             2
         }
     }
 
-    override fun onBindViewHolder(viewHolder: DmRoomAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder:  RecyclerView.ViewHolder, position: Int) {
         //onCreateViewHolder에서 리턴받은 뷰홀더가 Holder라면 내채팅, item_my_chat의 뷰들을 초기화 해줌
         if (viewHolder is Holder1) {
-            (viewHolder as Holder1).dm_Text?.setText(arrayList.get(position).script)
+            
+            //(viewHolder as Holder1).dm_Text?.setText(arrayList.get(position).script)
             //(holder as Holder1).dm_Time?.setText(arrayList.get(position).date_time)
         }
         //onCreateViewHolder에서 리턴받은 뷰홀더가 Holder2라면 상대의 채팅, item_your_chat의 뷰들을 초기화 해줌
         else if(viewHolder is Holder2) {
-            (viewHolder as Holder2).dm_You_Image?.setImageResource(R.mipmap.ic_launcher)
-            (viewHolder as Holder2).dm_You_Name?.setText(arrayList.get(position).name)
-            (viewHolder as Holder2).dm_Text?.setText(arrayList.get(position).script)
+            //(viewHolder as Holder2).dm_You_Image?.setImageResource(R.mipmap.ic_launcher)
+            //(viewHolder as Holder2).dm_You_Name?.setText(arrayList.get(position).name)
+            //(viewHolder as Holder2).dm_Text?.setText(arrayList.get(position).script)
             //(holder as Holder2).dm_Time?.setText(arrayList.get(position).date_time)
         }
     }

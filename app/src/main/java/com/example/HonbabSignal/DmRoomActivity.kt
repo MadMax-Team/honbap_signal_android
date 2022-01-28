@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.HonbabSignal.SocketHandler.mSocket
+import com.example.HonbabSignal.databinding.ActivityDmRoomBinding
+import com.example.HonbabSignal.databinding.FragmentDmListBinding
 import io.socket.client.Socket.EVENT_CONNECT
 import io.socket.emitter.Emitter
 import org.json.JSONException
@@ -24,7 +26,7 @@ class DmRoomActivity: AppCompatActivity() {
     private lateinit var dm_Text : EditText
     private lateinit var dm_Send_Button: Button
     private lateinit var screen_name : TextView
-
+    lateinit var binding: ActivityDmRoomBinding
     //리사이클러뷰
     var arrayList = arrayListOf<DmModel>()
     val mAdapter = DmRoomAdapter(this,arrayList)
@@ -33,22 +35,25 @@ class DmRoomActivity: AppCompatActivity() {
 
         Log.d("say","i'm in DB ROOM")
         super.onCreate(savedInstanceState, persistentState)
+        binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_dm_room)
+
+
         //preferences = getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
         //var users : Array<String> = arrayOf()
 
         //어댑터 선언
-        dm_recyclerview.adapter = mAdapter
+        binding.dmRoomRecyclerview.adapter = mAdapter
         //레이아웃 매니저 선언
         val lm = LinearLayoutManager(this)
-        chat_recyclerview.layoutManager = lm
-        chat_recyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
+        binding.dmRoomRecyclerview.layoutManager = lm
+        binding.dmRoomRecyclerview.setHasFixedSize(true)//아이템이 추가삭제될때 크기측면에서 오류 안나게 해줌
 
         val myName = intent.getIntExtra("name",0)
         //screen_name = findViewById(R.id.dm_room_test_name)
         //screen_name.setText(myName)
 
-        dm_Send_Button = findViewById(R.id.dm_Send_Button)
+        //dm_Send_Button = findViewById(R.id.dm_Send_Button)
         dm_Text = findViewById(R.id.dm_Text)
 
 
@@ -91,8 +96,8 @@ class DmRoomActivity: AppCompatActivity() {
 
 
         //example에는 원래는 이미지 url이 들어가야할 자리
-        preferences.getString("name","")
-        val item = DmModel("고악",dm_Text.text.toString(),"example")
+        //preferences.getString("name","")
+        val item = DmModel("고악",dm_Text.text.toString(),"example",getTime)
         mAdapter.addItem(item)
         mAdapter.notifyDataSetChanged()
 

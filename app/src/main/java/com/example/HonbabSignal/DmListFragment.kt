@@ -19,7 +19,12 @@ class DmListFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDmListBinding.inflate(inflater, container, false)
+        binding.dmListLookBtn.setOnClickListener {
+            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
+            val intent = Intent(activity, DmRoomActivity::class.java)
+            startActivity(intent)
+        }
 
         //데이터 리스트 생성 (서버 없어서 해봄)
         friendDatas.apply{
