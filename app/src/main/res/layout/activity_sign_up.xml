@@ -42,10 +42,22 @@
         app:layout_constraintEnd_toEndOf="@id/sign_up_id_et"
         app:layout_constraintStart_toStartOf="@id/sign_up_id_et"
         app:layout_constraintTop_toBottomOf="@id/sign_up_id_et"/>
+    <TextView
+        android:id="@+id/sign_up_id_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#EF0000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_id_underscore_view"/>
 
     //비밀번호
     <EditText
-        android:id="@+id/sign_pwd_et"
+        android:id="@+id/sign_up_pwd_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -64,9 +76,9 @@
         android:layout_height="1px"
         android:layout_marginTop="15dp"
         android:background="#a8a8a8"
-        app:layout_constraintTop_toBottomOf="@id/sign_pwd_et"
-        app:layout_constraintStart_toStartOf="@id/sign_pwd_et"
-        app:layout_constraintEnd_toEndOf="@id/sign_pwd_et"/>
+        app:layout_constraintTop_toBottomOf="@id/sign_up_pwd_et"
+        app:layout_constraintStart_toStartOf="@id/sign_up_pwd_et"
+        app:layout_constraintEnd_toEndOf="@id/sign_up_pwd_et"/>
     //비밀번호 확인
     <EditText
         android:id="@+id/sign_up_pwd_check_et"
@@ -140,6 +152,18 @@
         app:layout_constraintEnd_toEndOf="@id/sign_up_nick_name_et"
         app:layout_constraintStart_toStartOf="@id/sign_up_nick_name_et"
         app:layout_constraintTop_toBottomOf="@id/sign_up_nick_name_et" />
+    <TextView
+        android:id="@+id/sign_up_nick_name_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#EF0000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_nick_name_underscore_view"/>
 
     //이메일
 
@@ -215,7 +239,7 @@
         android:layout_marginStart="20dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_id_underscore_view"/>
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_underscore_view"/>
 //
 
     <EditText
@@ -242,6 +266,19 @@
         app:layout_constraintEnd_toEndOf="@+id/sign_up_phone_num_et"
         app:layout_constraintStart_toStartOf="@+id/sign_up_phone_num_et"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_phone_num_et"/>
+
+    <TextView
+        android:id="@+id/sign_up_phone_num_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#EF0000"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_phone_num_underscore_view"/>
 
     <EditText
         android:id="@+id/sign_up_sex_et"
