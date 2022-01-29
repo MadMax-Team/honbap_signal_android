@@ -15,7 +15,6 @@ interface SignUpService {
         @Field("userId") userId:String,
         @Field("password") password:String,
         @Field("userName") userName:String,
-        @Field("nickName") nickName : String,
         @Field("email") email : String,
         @Field("phoneNum") phoneNum : String,
         @Field("sex") sex: String

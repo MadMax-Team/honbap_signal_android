@@ -25,7 +25,6 @@ class SignUpActivity : AppCompatActivity(){
         binding.signUpSignUpBtnTv.setOnClickListener{
 
             binding.signUpIdErrorTv.visibility = View.INVISIBLE
-            binding.signUpNickNameErrorTv.visibility = View.INVISIBLE
             binding.signUpEmailErrorTv.visibility = View.INVISIBLE
             binding.signUpPhoneNumErrorTv.visibility = View.INVISIBLE
             //retrofit 개체 생성
@@ -51,10 +50,6 @@ class SignUpActivity : AppCompatActivity(){
                 Toast.makeText(this, "이름이 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpNickNameEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "닉네임이 비어있습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             if (binding.signUpEmailEt.text.toString()
                     .isEmpty() || binding.signUpDirectInputEt.text.toString().isEmpty()
             ) {
@@ -78,7 +73,6 @@ class SignUpActivity : AppCompatActivity(){
             var userId: String = binding.signUpIdEt.text.toString()
             var password : String = binding.signUpPwdEt.text.toString()
             var userName : String = binding.signUpNameEt.text.toString()
-            var nickname : String = binding.signUpNickNameEt.text.toString()
             var email:String = binding.signUpIdEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
             var phoneNum : String = binding.signUpPhoneNumEt.text.toString()
             var sex : String = binding.signUpSexEt.text.toString()
@@ -91,7 +85,6 @@ class SignUpActivity : AppCompatActivity(){
                 userId,
                 password,
                 userName,
-                nickname,
                 email,
                 phoneNum,
                 sex
@@ -127,10 +120,6 @@ class SignUpActivity : AppCompatActivity(){
             2001,2002,3001 -> {
                 binding.signUpIdErrorTv.visibility = View.VISIBLE
                 binding.signUpIdErrorTv.text = message
-            }
-            2003,2004,3002 ->{
-                binding.signUpNickNameErrorTv.visibility = View.VISIBLE
-                binding.signUpNickNameErrorTv.text = message
             }
             2005,2006,2007,3003 ->{
                 binding.signUpEmailErrorTv.visibility = View.VISIBLE
