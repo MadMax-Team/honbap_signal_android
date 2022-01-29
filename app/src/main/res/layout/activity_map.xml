@@ -14,12 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-
     <com.naver.maps.map.widget.ZoomControlView
         android:id="@+id/zoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:layout_gravity="end|bottom" />
+
+    <Button
+        android:id="@+id/map_activity_signal_list"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
 
 </FrameLayout>

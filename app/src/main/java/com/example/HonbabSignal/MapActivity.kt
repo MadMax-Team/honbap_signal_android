@@ -26,8 +26,6 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
 
 
-
-
         //지도 사용권한을 받아옴
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
 
