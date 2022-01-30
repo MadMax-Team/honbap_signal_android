@@ -2,7 +2,6 @@ package com.example.HonbabSignal
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -88,10 +87,10 @@ class SignUpActivity : AppCompatActivity(){
                 email,
                 phoneNum,
                 sex
-            ).enqueue(object:Callback<AuthResponse>{
+            ).enqueue(object:Callback<SignUpAuthResponse>{
                 //서버와의 통신에 성공했을때(응답값을 받아왔을때) 실행되는 코드
-                override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
-                    var resp = response.body()!!
+                override fun onResponse(call: Call<SignUpAuthResponse>, responseSignUp: Response<SignUpAuthResponse>) {
+                    var resp = responseSignUp.body()!!
 
                     when(resp.code){
                         1000-> {binding.signUpLoadingPb.visibility = View.GONE
@@ -101,7 +100,7 @@ class SignUpActivity : AppCompatActivity(){
 
                 }
                 //서버와의 통신에 실패했을때
-                override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
+                override fun onFailure(call: Call<SignUpAuthResponse>, t: Throwable) {
                     Log.d("DEBUG", t.message.toString())
                     var dialog = AlertDialog.Builder(this@SignUpActivity)
 

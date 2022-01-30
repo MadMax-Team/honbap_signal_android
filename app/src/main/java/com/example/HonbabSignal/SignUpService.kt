@@ -1,7 +1,6 @@
 package com.example.HonbabSignal
 
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -18,5 +17,5 @@ interface SignUpService {
         @Field("email") email : String,
         @Field("phoneNum") phoneNum : String,
         @Field("sex") sex: String
-    ): Call<AuthResponse>
+    ): Call<SignUpAuthResponse>
 }
