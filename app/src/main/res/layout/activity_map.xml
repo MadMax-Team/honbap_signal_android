@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -68,7 +68,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 뷰페이저 (layout_behavior를 "@string/appbar_scrolling_view_behavior"로 설정해야함! ) -->
+<!--    // 뷰페이저 (layout_behavior를 "@string/appbar_scrolling_view_behavior"로 설정해야함! ) -->
 <!--    <androidx.viewpager2.widget.ViewPager2-->
 <!--        android:id="@+id/viewPager2"-->
 <!--        android:layout_width="match_parent"-->
@@ -76,7 +76,7 @@
 <!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/map_activity_RV"
+        android:id="@+id/map_activity_recyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         android:layout_width="match_parent"

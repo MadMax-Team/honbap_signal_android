@@ -6,6 +6,7 @@ import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.databinding.ActivityLogInBinding
 import com.example.HonbabSignal.databinding.ActivityMainBinding
 import com.example.HonbabSignal.databinding.ActivityMapBinding
 import com.naver.maps.map.*
@@ -24,7 +25,10 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        binding = ActivityMapBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
         mapView = findViewById<MapView>(R.id.map_view)
         mapView.onCreate(savedInstanceState)
 
@@ -47,11 +51,25 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
         }
 
         //recyclerView
+        Log.d("say","make recyclerview")
         val mapSignalListAdapter = MapSignalListAdapter(mapSignalListDatas)
+
         //리사이클러뷰와 어댑터 연결
-        binding.mapActivityRV.adapter = mapSignalListAdapter
+        binding.mapActivityRecyclerView.adapter = mapSignalListAdapter
 
         //리스너 객체 생성 및 전달
+        mapSignalListAdapter.setMytemClickListener(object : MapSignalListAdapter.MyitemClickListener{
+            override fun onItemClick(mapSignal: MapSignal) {
+                Log.d("say","I will")
+                val intent = Intent(this@MapActivity, MapActivity::class.java)
+
+                Log.d("say",mapSignal.name.toString())
+                //intent.putExtra("name",friend.name)
+                startActivity(intent)
+            }
+
+        })
+
 
     }
     override fun onStart() {
