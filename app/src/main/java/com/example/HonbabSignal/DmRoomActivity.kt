@@ -18,12 +18,14 @@ import com.google.firebase.ktx.Firebase
 import com.google.android.gms.tasks.OnSuccessListener
 import android.R.attr.button
 import android.content.ContentValues.TAG
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import android.widget.Toast
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,16 +36,13 @@ import com.google.firebase.firestore.ktx.firestore
 
 class DmRoomActivity: AppCompatActivity() {
     private val fireDatabase = FirebaseDatabase.getInstance().reference
-    private val db = FirebaseFirestore.getInstance()    // Firestore 인스턴스
     lateinit var binding: ActivityDmRoomBinding
-    private var chatRoomUid : String? = null
     private var destinationUid : String? = null
     private var uid : String? = null
     private lateinit var registration: ListenerRegistration    // 문서 수신
     private lateinit var dm_Send_Button: Button
     private lateinit var dm_Text : EditText
     private lateinit var mAdapter: DmRoomAdapter
-
     private lateinit var database: DatabaseReference
 
     //recyclerView
@@ -76,28 +75,31 @@ class DmRoomActivity: AppCompatActivity() {
         Log.d("say","i'm in DB ROOM2")
 
        val enterTime = Date(System.currentTimeMillis())
-        database = Firebase.database.reference
+
 
         dm_Send_Button.setOnClickListener {
 
-//            val user = hashMapOf(
-//                "name" to "고악",
-//                "script" to "보내지나?"
-//            )
-//            Log.d(TAG, "일안해..?")
-//
-//            db.collection("test")
-//                .add(user)
-//                .addOnSuccessListener { documentReference ->
-//                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-//                }
-//                .addOnFailureListener { e ->
-//                    Log.w(TAG, "Error adding document", e)
-//                }
-            database.child("users").setValue(dm_Text.text.toString())
+            val item = DmModel("고악",dm_Text.text.toString(),"example",null,null)
+
+            //내 uid
+            item.uid = Firebase.auth.currentUser?.uid.toString()
+
+            //상대방 uid
+            item.destinationUid = Firebase.auth.currentUser?.uid.toString()
 
 
-            val item = DmModel("고악",dm_Text.text.toString(),"example")
+            //database.child("users").setValue(dm_Text.text.toString())
+
+            //유저네임 보내기
+            //database.child("Room").child("userName").setValue()
+            //메세지 보내기
+            database.child("Room").child("message").setValue(dm_Text.text.toString())
+
+            Handler().postDelayed({ println(uid)
+                fireDatabase.child("chatrooms").child(uid.toString()).child("comments").push().setValue(dm_Text)
+                dm_Text.text = null }, 1000L)
+            Log.d("chatUidNull dest", "$destinationUid")
+
 
             mAdapter.addItem(item)
             Log.d("say","click dm_Send_Button")
@@ -105,13 +107,13 @@ class DmRoomActivity: AppCompatActivity() {
         }
 
 
-
-        }
+    }
 
 //        lastVisibleItemPosition =
 //            (recyclerView.layoutManager as LinearLayoutManager)
 //                .findLastCompletelyVisibleItemPosition()
     }
+
 
 
     fun sendMessage() {

@@ -1,5 +1,6 @@
 package com.example.HonbabSignal
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -19,6 +20,8 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationSource: FusedLocationSource
     private lateinit var naverMap: NaverMap
 
+    private var mapSignalListDatas = ArrayList<MapSignal>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
@@ -36,6 +39,19 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
                     fm.beginTransaction().add(R.id.map, it).commit()
                 }
         mapFragment.getMapAsync(this);
+
+        //임시 데이터리스트 생성(서버 없어서 해봄)
+        mapSignalListDatas.apply{
+            add(MapSignal("고악",R.drawable.kakao_default_profile_image,"대전"))
+            add(MapSignal("고악",R.drawable.kakao_default_profile_image,"대전"))
+        }
+
+        //recyclerView
+        val mapSignalListAdapter = MapSignalListAdapter(mapSignalListDatas)
+        //리사이클러뷰와 어댑터 연결
+        binding.mapActivityRV.adapter = mapSignalListAdapter
+
+        //리스너 객체 생성 및 전달
 
     }
     override fun onStart() {
@@ -73,7 +89,6 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
         mapView.onLowMemory()
     }
 
-
     override fun onRequestPermissionsResult(requestCode: Int,
                                             permissions: Array<String>,
                                             grantResults: IntArray) {
@@ -100,9 +115,7 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
 
         naverMap.locationSource = locationSource
 
-
         naverMap.locationTrackingMode = LocationTrackingMode.Follow
-
 
         //좌표 변경 시 토스트로 표시
         naverMap.addOnLocationChangeListener { location ->
