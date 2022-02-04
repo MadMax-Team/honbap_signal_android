@@ -26,7 +26,7 @@ class DmRoomAdapter(val context: Context, val arrayList: ArrayList<DmModel>)
     fun addItem(item: DmModel) {//아이템 추가
         if (arrayList != null) {
             arrayList.add(item)
-            Toast.makeText(this.context, item.name, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this.context, item.name, Toast.LENGTH_SHORT).show()
             notifyDataSetChanged()
         }
 

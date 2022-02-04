@@ -35,7 +35,7 @@ import com.google.firebase.firestore.ktx.firestore
 
 
 class DmRoomActivity: AppCompatActivity() {
-    private val fireDatabase = FirebaseDatabase.getInstance().reference
+    private val fireDatabase = FirebaseDatabase.getInstance()
     lateinit var binding: ActivityDmRoomBinding
     private var destinationUid : String? = null
     private var uid : String? = null
@@ -54,17 +54,19 @@ class DmRoomActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        database = fireDatabase.reference
         mAdapter = DmRoomAdapter(this,arrayList)
         Log.d("say","i'm in DB ROOM")
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
 
         //메세지를 보낸 시간
-         val time = System.currentTimeMillis()
-         val dateFormat = SimpleDateFormat("MM월dd일 hh:mm")
-         val curTime = dateFormat.format(Date(time)).toString()
-         destinationUid = intent.getStringExtra("destinationUid")
-         uid = Firebase.auth.currentUser?.uid.toString()
+        val time = System.currentTimeMillis()
+        val dateFormat = SimpleDateFormat("MM월dd일 hh:mm")
+        val curTime = dateFormat.format(Date(time)).toString()
+        destinationUid = intent.getStringExtra("destinationUid")
+
+        //destinationUid = intent.getStringExtra("destinationUid")
+        uid = Firebase.auth.currentUser?.uid.toString()
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter
@@ -74,36 +76,41 @@ class DmRoomActivity: AppCompatActivity() {
 
         Log.d("say","i'm in DB ROOM2")
 
-       val enterTime = Date(System.currentTimeMillis())
+        val enterTime = Date(System.currentTimeMillis())
 
+        Handler().postDelayed({ println(uid)
+            //메시지 받기
+            val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").get()
+            val item = DmModel("정아",temp.toString(),"example",null,null)
+            mAdapter.addItem(item)
+            dm_Text.text = null
+        }, 1000L)
 
         dm_Send_Button.setOnClickListener {
 
             val item = DmModel("고악",dm_Text.text.toString(),"example",null,null)
 
             //내 uid
-            item.uid = Firebase.auth.currentUser?.uid.toString()
+            item.uid = uid
 
             //상대방 uid
-            item.destinationUid = Firebase.auth.currentUser?.uid.toString()
+            item.destinationUid = destinationUid
 
-
-            //database.child("users").setValue(dm_Text.text.toString())
 
             //유저네임 보내기
             //database.child("Room").child("userName").setValue()
+
             //메세지 보내기
-            database.child("Room").child("message").setValue(dm_Text.text.toString())
-
-            Handler().postDelayed({ println(uid)
-                fireDatabase.child("chatrooms").child(uid.toString()).child("comments").push().setValue(dm_Text)
-                dm_Text.text = null }, 1000L)
-            Log.d("chatUidNull dest", "$destinationUid")
-
+            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastPerson").setValue(uid)
+            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastMessage").setValue(dm_Text.text.toString())
 
             mAdapter.addItem(item)
             Log.d("say","click dm_Send_Button")
             dm_Text.setText("")
+
+            Log.d("chatUidNull dest", "$destinationUid")
+
+
         }
 
 
@@ -112,35 +119,20 @@ class DmRoomActivity: AppCompatActivity() {
 //        lastVisibleItemPosition =
 //            (recyclerView.layoutManager as LinearLayoutManager)
 //                .findLastCompletelyVisibleItemPosition()
-    }
+}
 
 
 
-    fun sendMessage() {
-        val now = System.currentTimeMillis()
-        val date = Date(now)
-        //나중에 바꿔줄것 밑의 yyyy-MM-dd는 그냥 20xx년 xx월 xx일만 나오게 하는 식
-        val sdf = SimpleDateFormat("yyyy-MM-dd")
-        val getTime = sdf.format(date)
+fun sendMessage() {
+    val now = System.currentTimeMillis()
+    val date = Date(now)
+    //나중에 바꿔줄것 밑의 yyyy-MM-dd는 그냥 20xx년 xx월 xx일만 나오게 하는 식
+    val sdf = SimpleDateFormat("yyyy-MM-dd")
+    val getTime = sdf.format(date)
 
-//        val user = hashMapOf(
-//            "first" to "Ada",
-//            "last" to "Lovelace",
-//            "born" to 1815
-//        )
-//
-//        fireDatabase.collection("users").add(user)
-//            .addOnSuccessListener {
-//                binding.editText.text.clear()
-//
-//            }
-//            .addOnFailureListener { e ->
-//                Toast.makeText(context, "전송하는데 실패했습니다", Toast.LENGTH_SHORT).show()
-//                Log.w("ChatFragment", "Error occurs: $e")
-//            }
 
-        //example에는 원래는 이미지 url이 들어가야할 자리
-        //preferences.getString("name","")
+    //example에는 원래는 이미지 url이 들어가야할 자리
+    //preferences.getString("name","")
 //        val item = DmModel("고악",dm_Text.text.toString(),"example",getTime)
 //
 //        mAdapter.addItem(item)
@@ -149,12 +141,10 @@ class DmRoomActivity: AppCompatActivity() {
 //
 //        //채팅 입력창 초기화
 //        dm_Text.setText("")
-    }
+}
 
 
-        // 채팅창이 공백일 경우 버튼 비활성화
+// 채팅창이 공백일 경우 버튼 비활성화
 //        binding.editText.addTextChangedListener { text ->
 //            binding.button.isEnabled = text.toString() != ""
 //      }
-
-
