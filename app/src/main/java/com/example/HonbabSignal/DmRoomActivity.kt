@@ -66,7 +66,7 @@ class DmRoomActivity: AppCompatActivity() {
         destinationUid = intent.getStringExtra("destinationUid")
 
         //destinationUid = intent.getStringExtra("destinationUid")
-        uid = Firebase.auth.currentUser?.uid.toString()
+        uid = "고악2"
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter

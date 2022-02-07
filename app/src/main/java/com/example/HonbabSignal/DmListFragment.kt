@@ -45,10 +45,11 @@ class DmListFragment : Fragment(){
         //******************************************************************************
         //처음 DmRoom 생성하는 경우
         //나에게 생성되는 uid 하위목록에 목적지(채팅하는 사람)uid가 있는지 확인 -> 없으면 방만듦
-        val destinationUid = "임시 상대 uid"
-        val uid = Firebase.auth.currentUser?.uid.toString()
+        val destinationUid = "고악1"
+        //val uid = Firebase.auth.currentUser?.uid.toString()
+        val uid = "고악2"
         val testBtn = binding.dmListTestBtn
-
+        Log.d("dm",uid)
         testBtn.setOnClickListener(){
             //서버에서 채팅창 있는지 확인해줌
             //없으면 생성
