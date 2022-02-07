@@ -1,37 +1,17 @@
 package com.example.HonbabSignal
 
-import android.R.attr
 import android.os.Bundle
 import android.util.Log
-import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityDmRoomBinding
-import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import java.text.SimpleDateFormat
 import java.util.*
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import com.google.android.gms.tasks.OnSuccessListener
-import android.R.attr.button
-import android.content.ContentValues.TAG
 import android.os.Handler
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
-import android.widget.Toast
-import com.google.firebase.Timestamp
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.firestore
 
 
 class DmRoomActivity: AppCompatActivity() {
