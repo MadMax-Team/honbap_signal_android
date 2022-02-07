@@ -23,7 +23,7 @@ interface SignUpService {
     @GET("/user/signup/{userId}")
             fun getUserIdx(
                 @Path("userId") userId:String
-            ):Call<profileAuthResponse>
+            ):Call<UserIdxAuthResponse>
 
 
     //유저의 프로필 정보를 업로드 하는 POST
