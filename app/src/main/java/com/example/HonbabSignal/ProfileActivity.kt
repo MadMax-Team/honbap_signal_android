@@ -56,8 +56,6 @@ class ProfileActivity : AppCompatActivity() {
                 var phoneNum : String = intent.getStringExtra("phoneNum")!!
                 var sex : String = intent.getStringExtra("sex")!!
 
-                Log.e("현재 birth값",birth)
-
                 binding.profileLoadingPb.visibility = View.VISIBLE
                 //signUp (POST)실행
                 signUpService.signUp(
@@ -80,10 +78,10 @@ class ProfileActivity : AppCompatActivity() {
                                 //signUp(POST)가 성공했을때
                                 //user의 index를 받아오는 GET실행
                                 signUpService.getUserIdx(userId)
-                                    .enqueue(object : Callback<profileAuthResponse> {
+                                    .enqueue(object : Callback<UserIdxAuthResponse> {
                                         override fun onResponse(
-                                            call: Call<profileAuthResponse>,
-                                            response: Response<profileAuthResponse>
+                                            call: Call<UserIdxAuthResponse>,
+                                            response: Response<UserIdxAuthResponse>
                                         ) {
                                             var respIdx = response.body()!!
                                             Log.d("GET관련 code",respIdx.code.toString())
@@ -163,7 +161,7 @@ class ProfileActivity : AppCompatActivity() {
                                         }
 
                                         override fun onFailure(
-                                            call: Call<profileAuthResponse>,
+                                            call: Call<UserIdxAuthResponse>,
                                             t: Throwable
                                         ) {
                                             Log.d("DEBUGInGetUserIdx", t.message.toString())
