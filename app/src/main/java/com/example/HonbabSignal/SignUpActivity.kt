@@ -28,6 +28,10 @@ class SignUpActivity : AppCompatActivity(){
                 Toast.makeText(this, "아이디가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (binding.signUpIdEt.text.toString().isEmpty()) {
+                Toast.makeText(this, "아이디가 비어있습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (binding.signUpPwdEt.text.toString().isEmpty()) {
                 Toast.makeText(this, "비밀번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -65,8 +69,8 @@ class SignUpActivity : AppCompatActivity(){
             var userId: String = binding.signUpIdEt.text.toString()
             var password : String = binding.signUpPwdEt.text.toString()
             var userName : String = binding.signUpNameEt.text.toString()
-            var birth : String = binding.signUpBirthYearEt.toString() + "년" + binding.signUpBirthMonthEt.toString() + "월" + binding.signUpBirthDayEt.toString()
-            var email:String = binding.signUpIdEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
+            var birth : String = binding.signUpBirthYearEt.text.toString() + "년" + binding.signUpBirthMonthEt.text.toString() + "월" + binding.signUpBirthDayEt.text.toString() + "일"
+            var email:String = binding.signUpEmailEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
             var phoneNum : String = binding.signUpPhoneNumEt.text.toString()
             var sex : String = binding.signUpSexEt.text.toString()
 

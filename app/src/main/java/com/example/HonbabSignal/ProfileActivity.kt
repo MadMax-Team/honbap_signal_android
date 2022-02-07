@@ -28,13 +28,14 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding
+
         //사진찾기 버튼을 눌렀을때 갤러리로 들어가서 사진을 클릭하면 그걸 가지고 이미지 뷰로 옵니다.
         binding.profileOpenGalleryBtn.setOnClickListener{loadImage()}
 
-        if(intent.hasExtra("userId")||intent.hasExtra("password")||intent.hasExtra("userName")||
-            intent.hasExtra("birth")||intent.hasExtra("userId")||intent.hasExtra("email")||
-            intent.hasExtra("phoneNum")||intent.hasExtra("sex")){
+        //intent(회원가입정보 1 똑바로 넘어왔을경우)
+        if(intent.hasExtra("userId")&&intent.hasExtra("password")&&intent.hasExtra("userName")&&
+            intent.hasExtra("birth")&&intent.hasExtra("email")&&
+            intent.hasExtra("phoneNum")&&intent.hasExtra("sex")){
             binding.profileSignUpBtnTv.setOnClickListener{
                 //retrofit 개체 생성
                 var retrofit = Retrofit.Builder()
@@ -46,16 +47,19 @@ class ProfileActivity : AppCompatActivity() {
                 var signUpService = retrofit.create(SignUpService::class.java)
                 //밑으로 retrofit사용
 
-                //정보세팅
-                var userId: String = intent.hasExtra("userId").toString()
-                var password : String = intent.hasExtra("password").toString()
-                var userName : String = intent.hasExtra("userName").toString()
-                var birth : String = intent.hasExtra("birth").toString()
-                var email:String = intent.hasExtra("email").toString()
-                var phoneNum : String = intent.hasExtra("phoneNum").toString()
-                var sex : String = intent.hasExtra("sex").toString()
+                //정보세팅(회원정보)
+                var userId: String = intent.getStringExtra("userId")!!
+                var password : String = intent.getStringExtra("password")!!
+                var userName : String = intent.getStringExtra("userName")!!
+                var birth : String = intent.getStringExtra("birth")!!
+                var email:String = intent.getStringExtra("email")!!
+                var phoneNum : String = intent.getStringExtra("phoneNum")!!
+                var sex : String = intent.getStringExtra("sex")!!
+
+                Log.e("현재 birth값",birth)
 
                 binding.profileLoadingPb.visibility = View.VISIBLE
+                //signUp (POST)실행
                 signUpService.signUp(
                     userId,
                     password,
@@ -65,35 +69,135 @@ class ProfileActivity : AppCompatActivity() {
                     phoneNum,
                     sex
                 ).enqueue(object: Callback<SignUpAuthResponse> {
+
                     //서버와의 통신에 성공했을때(응답값을 받아왔을때) 실행되는 코드
                     override fun onResponse(call: Call<SignUpAuthResponse>, responseSignUp: Response<SignUpAuthResponse>) {
-                        var resp = responseSignUp.body()!!
+                        var respSign = responseSignUp.body()!!
+                        Log.d("SignUpcode",respSign.code.toString())
+                        when (respSign.code) {
+                            1000 -> {
+                                Log.d("signUp:", "signup1 success")
+                                //signUp(POST)가 성공했을때
+                                //user의 index를 받아오는 GET실행
+                                signUpService.getUserIdx(userId)
+                                    .enqueue(object : Callback<profileAuthResponse> {
+                                        override fun onResponse(
+                                            call: Call<profileAuthResponse>,
+                                            response: Response<profileAuthResponse>
+                                        ) {
+                                            var respIdx = response.body()!!
+                                            Log.d("GET관련 code",respIdx.code.toString())
+                                            when (respIdx.code) {
+                                                1000 -> {
+                                                    //userIdx 세팅
+                                                    var userIdx = respIdx.userIdx
+                                                    Log.d("getUserIdx:", "get user index success")
+                                                    //userIdx받아오는 GET성공했을때
+                                                    //profile 정보 서버에 업로드(POST)
 
-                        when(resp.code){
-                            1000-> {binding.profileLoadingPb.visibility = View.GONE
+                                                    //정보세팅(프로필, userIdx제외한 나머지 정보)
+                                                    var nickName: String = binding.profileNickNameEt.toString()
+                                                    var profileImg: String = binding.profileProfileImgIv.toString()
+                                                    var taste: String = binding.profileTasteEt.toString()
+                                                    var hateFood :String = binding.profileHateFoodEt.toString()
+                                                    var interest : String = binding.profileInterestEt.toString()
+                                                    var avgSpeed : String = binding.profileAvgSpeedEt.toString()
+                                                    var preferArea : String = binding.profilePreferAreaEt.toString()
+                                                    var mbti : String = binding.profileMbtiEt.toString()
+                                                    var userIntreoduce = binding.profileUserIntroduceEt.toString()
 
-                                }
-                            else -> {onSignUpFailure(resp.code, resp.message)
-                                        finish()}
+                                                    signUpService.profileUp(
+                                                        userIdx,
+                                                        nickName,
+                                                        profileImg,
+                                                        taste,
+                                                        hateFood,
+                                                        interest,
+                                                        avgSpeed,
+                                                        preferArea,
+                                                        mbti,
+                                                        userIntreoduce
+                                                    )
+                                                        .enqueue(object :
+                                                            Callback<SignUpAuthResponse> {
+                                                            override fun onResponse(
+                                                                call: Call<SignUpAuthResponse>,
+                                                                response: Response<SignUpAuthResponse>
+                                                            ) {
+                                                                var respProfile = response.body()!!
+                                                                when (respProfile.code) {
+                                                                    1000 -> {
+                                                                        Log.d(
+                                                                            "profileUp:",
+                                                                            "profileUp success"
+                                                                        )
+                                                                        binding.profileLoadingPb.visibility =
+                                                                            View.GONE
+                                                                        finish()
+                                                                    }
+
+                                                                }
+                                                            }
+
+                                                            override fun onFailure(
+                                                                call: Call<SignUpAuthResponse>,
+                                                                t: Throwable
+                                                            ) {
+                                                                Log.d(
+                                                                    "DEBUGInprofileUp",
+                                                                    t.message.toString()
+                                                                )
+                                                                var dialog =
+                                                                    AlertDialog.Builder(this@ProfileActivity)
+
+                                                                dialog.setTitle("실패!")
+                                                                dialog.setMessage("통신에 실패했습니다!")
+                                                                dialog.show()
+                                                                binding.profileLoadingPb.visibility =
+                                                                    View.GONE
+                                                            }
+
+                                                        })
+                                                }
+                                            }
+                                        }
+
+                                        override fun onFailure(
+                                            call: Call<profileAuthResponse>,
+                                            t: Throwable
+                                        ) {
+                                            Log.d("DEBUGInGetUserIdx", t.message.toString())
+                                            var dialog = AlertDialog.Builder(this@ProfileActivity)
+
+                                            dialog.setTitle("실패!")
+                                            dialog.setMessage("통신에 실패했습니다!")
+                                            dialog.show()
+                                            binding.profileLoadingPb.visibility = View.GONE
+                                        }
+
+
+                                    })
+                            }
+                            else -> {
+                                onSignUpFailure(respSign.code, respSign.message)
+                                finish()
+                            }
+                        }
+                    }
+                        //서버와의 통신에 실패했을때
+                        override fun onFailure(call: Call<SignUpAuthResponse>, t: Throwable) {
+                            Log.d("DEBUGInSignUp", t.message.toString())
+                            var dialog = AlertDialog.Builder(this@ProfileActivity)
+
+                            dialog.setTitle("실패!")
+                            dialog.setMessage("통신에 실패했습니다!")
+                            dialog.show()
+                            binding.profileLoadingPb.visibility = View.GONE
                         }
 
-                    }
-                    //서버와의 통신에 실패했을때
-                    override fun onFailure(call: Call<SignUpAuthResponse>, t: Throwable) {
-                        Log.d("DEBUG", t.message.toString())
-                        var dialog = AlertDialog.Builder(this@ProfileActivity)
-
-                        dialog.setTitle("실패!")
-                        dialog.setMessage("통신에 실패했습니다!")
-                        dialog.show()
-                        binding.profileLoadingPb.visibility = View.GONE
-                    }
                 })
-            }
         }
-
-
-
+        }
     }
 
     private fun loadImage() {
@@ -131,9 +235,9 @@ class ProfileActivity : AppCompatActivity() {
 
         when (code) {
             2001, 2002, 3001 -> {
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-                return
-            }
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            return
+        }
             2005, 2006, 2007, 3003 -> {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 return
@@ -144,5 +248,4 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
     }
-
 }

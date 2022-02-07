@@ -227,7 +227,7 @@
         android:id="@+id/sign_up_birth_day_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="월"
+        android:text="일"
         android:layout_marginTop="15dp"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/sign_up_birth_day_et"
