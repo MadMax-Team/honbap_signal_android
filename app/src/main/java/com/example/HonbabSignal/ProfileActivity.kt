@@ -23,6 +23,7 @@ class ProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfileBinding
     private val OPEN_GALLERY = 1
     val Gallery = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -48,7 +49,7 @@ class ProfileActivity : AppCompatActivity() {
                 //밑으로 retrofit사용
 
                 //정보세팅(회원정보)
-                var userId: String = intent.getStringExtra("userId")!!
+                var userId : String = intent.getStringExtra("userId")!!
                 var password : String = intent.getStringExtra("password")!!
                 var userName : String = intent.getStringExtra("userName")!!
                 var birth : String = intent.getStringExtra("birth")!!
@@ -77,6 +78,8 @@ class ProfileActivity : AppCompatActivity() {
                                 Log.d("signUp:", "signup1 success")
                                 //signUp(POST)가 성공했을때
                                 //user의 index를 받아오는 GET실행
+                                var userId : String = intent.getStringExtra("userId")!!
+                                Log.d("GET들어가기전 userId",userId)
                                 signUpService.getUserIdx(userId)
                                     .enqueue(object : Callback<UserIdxAuthResponse> {
                                         override fun onResponse(
@@ -88,21 +91,23 @@ class ProfileActivity : AppCompatActivity() {
                                             when (respIdx.code) {
                                                 1000 -> {
                                                     //userIdx 세팅
-                                                    var userIdx = respIdx.userIdx
+                                                    var userIdx = respIdx.result[0].userIdx
+                                                    Log.d("현재 userIdx값",userIdx.toString())
                                                     Log.d("getUserIdx:", "get user index success")
                                                     //userIdx받아오는 GET성공했을때
                                                     //profile 정보 서버에 업로드(POST)
 
                                                     //정보세팅(프로필, userIdx제외한 나머지 정보)
-                                                    var nickName: String = binding.profileNickNameEt.toString()
-                                                    var profileImg: String = binding.profileProfileImgIv.toString()
-                                                    var taste: String = binding.profileTasteEt.toString()
-                                                    var hateFood :String = binding.profileHateFoodEt.toString()
-                                                    var interest : String = binding.profileInterestEt.toString()
-                                                    var avgSpeed : String = binding.profileAvgSpeedEt.toString()
-                                                    var preferArea : String = binding.profilePreferAreaEt.toString()
-                                                    var mbti : String = binding.profileMbtiEt.toString()
-                                                    var userIntreoduce = binding.profileUserIntroduceEt.toString()
+                                                    var nickName: String = binding.profileNickNameEt.text.toString()
+                                                    var profileImg: String = binding.profileProfileImgIv?.toString()
+                                                    var taste: String = binding.profileTasteEt?.text.toString()
+                                                    var hateFood :String = binding.profileHateFoodEt?.text.toString()
+                                                    var interest : String = binding.profileInterestEt?.text.toString()
+                                                    var avgSpeed : String = binding.profileAvgSpeedEt?.text.toString()
+                                                    var preferArea : String = binding.profilePreferAreaEt?.text.toString()
+                                                    var mbti : String = binding.profileMbtiEt?.text.toString()
+                                                    var userIntroduce = binding.profileUserIntroduceEt?.text.toString()
+                                                    Log.d("정보세팅은 끝","밑으로 프로필 업 레트로핏 실행 +현재 nickName : "+ nickName)
 
                                                     signUpService.profileUp(
                                                         userIdx,
@@ -114,15 +119,11 @@ class ProfileActivity : AppCompatActivity() {
                                                         avgSpeed,
                                                         preferArea,
                                                         mbti,
-                                                        userIntreoduce
-                                                    )
-                                                        .enqueue(object :
-                                                            Callback<SignUpAuthResponse> {
-                                                            override fun onResponse(
-                                                                call: Call<SignUpAuthResponse>,
-                                                                response: Response<SignUpAuthResponse>
-                                                            ) {
+                                                        userIntroduce
+                                                    ).enqueue(object : Callback<SignUpAuthResponse> {
+                                                            override fun onResponse(call: Call<SignUpAuthResponse>, response: Response<SignUpAuthResponse>) {
                                                                 var respProfile = response.body()!!
+                                                                Log.d("프로필통신을 통해서 온 코드",respProfile.code.toString())
                                                                 when (respProfile.code) {
                                                                     1000 -> {
                                                                         Log.d(
@@ -133,6 +134,8 @@ class ProfileActivity : AppCompatActivity() {
                                                                             View.GONE
                                                                         finish()
                                                                     }
+                                                                    else -> {onSignUpFailure(respSign.code, respSign.message)
+                                                                            }
 
                                                                 }
                                                             }
@@ -149,7 +152,7 @@ class ProfileActivity : AppCompatActivity() {
                                                                     AlertDialog.Builder(this@ProfileActivity)
 
                                                                 dialog.setTitle("실패!")
-                                                                dialog.setMessage("통신에 실패했습니다!")
+                                                                dialog.setMessage("프로필업 통신에 실패했습니다!")
                                                                 dialog.show()
                                                                 binding.profileLoadingPb.visibility =
                                                                     View.GONE
@@ -241,6 +244,10 @@ class ProfileActivity : AppCompatActivity() {
                 return
             }
             2008, 2009, 3004 -> {
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                return
+            }
+            2003, 2004, 3002, 4000 ->{
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 return
             }

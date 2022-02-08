@@ -27,6 +27,7 @@ interface SignUpService {
 
 
     //유저의 프로필 정보를 업로드 하는 POST
+    @FormUrlEncoded
     @POST("/user/signup/plusinfo")
     fun profileUp(
         @Field("userIdx") userIdx : Int,

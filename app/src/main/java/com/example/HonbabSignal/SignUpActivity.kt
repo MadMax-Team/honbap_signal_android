@@ -83,6 +83,7 @@ class SignUpActivity : AppCompatActivity(){
             intent.putExtra("phoneNum",phoneNum)
             intent.putExtra("sex",sex)
             startActivity(intent)
+            finish()
 
         }
     }
