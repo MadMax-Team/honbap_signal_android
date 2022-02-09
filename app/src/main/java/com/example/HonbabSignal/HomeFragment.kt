@@ -38,6 +38,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        //(test용) home에서 프로필 버튼을 누르면 profile activity로 넘어갑니다
+        binding.homeProfileTv.setOnClickListener {
+            val intent = Intent(activity, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 

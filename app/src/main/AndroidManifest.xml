@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+
     <application
         android:name = ".GlobalApplication"
         android:allowBackup="true"
@@ -53,7 +54,7 @@
         <activity android:name="com.example.HonbabSignal.LogInActivity"/>
         <activity android:name="com.example.HonbabSignal.SignUpActivity"/>
         <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>
-        //<activity android:name="com.example.HonbabSignal.EditingProfileActivity"/>
+        <activity android:name="com.example.HonbabSignal.ProfileActivity"/>
     </application>
 
 </manifest>
