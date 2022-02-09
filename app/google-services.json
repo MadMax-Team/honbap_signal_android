@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "349537905114",
+    "project_id": "honbab-dm",
+    "storage_bucket": "honbab-dm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349537905114:android:270c8ccb12de0de483f8e3",
+        "android_client_info": {
+          "package_name": "com.example.HonbabSignal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349537905114-km5ohbhsj0787k4s9mic5s90m8aptk3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgv-_z3-d44KPdG-a7Wr8rAqNdVSP2d_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349537905114-km5ohbhsj0787k4s9mic5s90m8aptk3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
