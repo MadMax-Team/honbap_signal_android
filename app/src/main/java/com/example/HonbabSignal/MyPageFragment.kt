@@ -6,12 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.HonbabSignal.databinding.FragmentLockerBinding
+import com.example.HonbabSignal.databinding.FragmentMyPageBinding
 
 
-class LockerFragment : Fragment() {
+class MyPageFragment : Fragment() {
 
-    lateinit var binding: FragmentLockerBinding
+    lateinit var binding: FragmentMyPageBinding
 
 
     override fun onCreateView(
@@ -19,7 +19,7 @@ class LockerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLockerBinding.inflate(inflater, container, false)
+        binding = FragmentMyPageBinding.inflate(inflater, container, false)
 
         binding.lockerBtn.setOnClickListener {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
