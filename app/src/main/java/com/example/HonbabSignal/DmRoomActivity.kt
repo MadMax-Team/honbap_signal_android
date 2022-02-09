@@ -1,17 +1,46 @@
 package com.example.HonbabSignal
 
+import android.R.attr
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityDmRoomBinding
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.FirebaseApp
 import java.text.SimpleDateFormat
 import java.util.*
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
+import com.google.android.gms.tasks.OnSuccessListener
+import android.R.attr.button
+import android.content.ContentValues.TAG
 import android.os.Handler
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
+import android.widget.Toast
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
+import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.database.DatabaseError
+
+import androidx.annotation.NonNull
+
+import com.google.firebase.database.DataSnapshot
+
+import com.google.firebase.database.ValueEventListener
+
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.getValue
 
 
 class DmRoomActivity: AppCompatActivity() {
@@ -46,7 +75,7 @@ class DmRoomActivity: AppCompatActivity() {
         destinationUid = intent.getStringExtra("destinationUid")
 
         //destinationUid = intent.getStringExtra("destinationUid")
-        uid = "고악2"
+        uid = "고악1"
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter
@@ -58,13 +87,51 @@ class DmRoomActivity: AppCompatActivity() {
 
         val enterTime = Date(System.currentTimeMillis())
 
-        Handler().postDelayed({ println(uid)
-            //메시지 받기
-            val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").get()
-            val item = DmModel("정아",temp.toString(),"example",null,null)
-            mAdapter.addItem(item)
-            dm_Text.text = null
-        }, 1000L)
+        //메세지 보내기1
+
+        val postListener = object : ValueEventListener {
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                // Get Post object and use the values to update the UI
+                //val post = dataSnapshot.getValue<DmModel>()
+
+                val temp = dataSnapshot.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
+                Log.d("dmroomzz",temp.toString())
+                mAdapter.addItem(
+                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+                ) // adapter에 추가합니다.
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        database.addValueEventListener(postListener)
+
+        //메세지 보내기2
+//        database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).addChildEventListener(object : ChildEventListener {
+//            // message는 child의 이벤트를 수신합니다.
+//            override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
+//                val tempDm = dataSnapshot.getValue<DmModel>() // dmModel를 가져오고
+//                val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").get()
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//            }
+//
+//            override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {
+//                val dmModel: DmModel? =
+//                    dataSnapshot.getValue<DmModel>() // dmModel를 가져오고
+//                val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").get()
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//            }
+//            override fun onChildRemoved(dataSnapshot: DataSnapshot) {}
+//            override fun onChildMoved(dataSnapshot: DataSnapshot, s: String?) {}
+//            override fun onCancelled(databaseError: DatabaseError) {}
+//        })
 
         dm_Send_Button.setOnClickListener {
 
@@ -92,7 +159,7 @@ class DmRoomActivity: AppCompatActivity() {
 
 
         }
-
+//recyclerView.scrollToPosition(comments.size() - 1)
 
     }
 
