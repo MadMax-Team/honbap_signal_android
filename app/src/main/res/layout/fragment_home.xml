@@ -35,6 +35,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/home_profile_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필"
+        app:layout_constraintStart_toEndOf="@id/home_sign_up_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

@@ -16,7 +16,7 @@ android {
         viewBinding = true
     }
     defaultConfig {
-        applicationId "com.example.HonbabSignal"
+        applicationId "com.example.honbabsignal"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -79,6 +79,13 @@ dependencies {
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
 
 
-}
 
-apply plugin: 'com.google.gms.google-services'
+    //Retorfit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.7'
+
+}
