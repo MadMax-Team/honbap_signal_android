@@ -79,13 +79,9 @@ class DmListFragment : Fragment(){
 
         })
 
-        // 레이아웃 매니저 설정
-        //binding.dmListFragmentRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-
         fun makeDmRoom(){
             val intent = Intent(activity, DmRoomActivity::class.java)
         }
-
 
         return binding.root
     }
