@@ -23,13 +23,12 @@ class LockerFragment : Fragment() {
 
         binding.lockerBtn.setOnClickListener {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
-
-            val intent = Intent(activity, EditingProfileActivity::class.java)
-            startActivity(intent)
+//
+//            val intent = Intent(activity, EditingProfileActivity::class.java)
+//            startActivity(intent)
         }
 
         return binding.root
     }
-
 
 }
