@@ -1,9 +1,9 @@
 package com.example.HonbabSignal
 
-import android.app.Activity
-import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityEditingProfileBinding
-import com.example.HonbabSignal.databinding.ActivityMapBinding
 
 class EditingProfileActivity : AppCompatActivity() {
 
@@ -25,8 +24,46 @@ class EditingProfileActivity : AppCompatActivity() {
         setupSpinner()
         setupSpinnerHandler()
 
+
+        //뒤로 가기 버튼
+        binding.editingProfileBackBtn.setOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_frm, MyPageFragment())
+                .commit()
+        }
+
+
+        //실시간 글자 수 변경
+        binding.editingProfilePrTv.addTextChangedListener(object:TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("editingProfile","im here")
+                val input = binding.editingProfilePrEt.toString().length
+                binding.editingProfilePrCntTv.text = "$input/100 글자"
+                Log.d("editingProfile",input.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
+
+
+
+
+
+    //spinner
     private fun setupSpinner() {
         val foodPreferenceArray = resources.getStringArray(R.array.foodPreference)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, foodPreferenceArray)

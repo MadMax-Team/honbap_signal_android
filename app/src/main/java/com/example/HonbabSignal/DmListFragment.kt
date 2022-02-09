@@ -55,8 +55,6 @@ class DmListFragment : Fragment(){
 
             //푸시알림 만들기
 
-
-
             //생성 시 서버한테 뭐 생성했다 이런거 보내주고(?)
             //firebase child생성 추가 (근데 처음에 내 child항목 생성 미리 해줘야할듯?..아닌가 해봐야알듯)
             database.child("users").child(uid).child("destinationUser").child(destinationUid).child("lastPerson").setValue(uid)
@@ -76,7 +74,6 @@ class DmListFragment : Fragment(){
                 //intent.putExtra("name",friend.name)
                 startActivity(intent)
             }
-
         })
 
         fun makeDmRoom(){
