@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-
-
-<!--    // 뷰페이저 (layout_behavior를 "@string/appbar_scrolling_view_behavior"로 설정해야함! ) -->
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        android:id="@+id/viewPager2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="30dp"-->
-<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+    <include
+        android:id="@+id/map_list_toolbar"
+        layout="@layout/toolbar_top"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerGridView"
@@ -24,9 +18,10 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/item_map_signal_list"
         android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/map_list_toolbar"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
