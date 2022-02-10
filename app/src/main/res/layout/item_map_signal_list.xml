@@ -1,38 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginTop="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutListItem"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:backgroundTint="@color/honbab_main_color"
+    android:background="@drawable/layout_item_map_list"
+    android:layout_margin="5dp"
+    android:layout_gravity="center"
+    android:gravity="center">
 
-    <ImageView android:id="@+id/item_map_signal_profile_img"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginBottom="4dp"
+    <androidx.cardview.widget.CardView
         android:layout_width="60dp"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        app:cardCornerRadius="100dp">
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="5dp">
-
-        <TextView
-            android:id="@+id/item_map_signal_name_tv"
+        <ImageView
+            android:id="@+id/item_map_signal_list_profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="4dp"
-            android:text="방이름"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:src="@drawable/ic_launcher_foreground"
+            android:background="@drawable/ic_launcher_background"/>
+    </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/item_map_signal_nickname_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="고악"
+        android:textStyle="bold"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="3dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나와 532m"
+            android:textSize="10sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="1분전"
+            android:textSize="10sp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#일식"
+            android:textSize="10sp"
+            android:padding="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/layout_item_map_list"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#샤브샤브"
+            android:textSize="10sp"
+            android:padding="5dp"
+            android:layout_marginStart = "5dp"
+            android:background="@drawable/layout_item_map_list"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#회"
+            android:textSize="10sp"
+            android:padding="5dp"
+            android:layout_marginStart = "5dp"
+            android:background="@drawable/layout_item_map_list"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#문화동"
+            android:textSize="10sp"
+            android:padding="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/layout_item_map_list"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#20대"
+            android:textSize="10sp"
+            android:padding="5dp"
+            android:layout_marginStart = "5dp"
+            android:background="@drawable/layout_item_map_list"/>
+
+    </LinearLayout>
+
 </LinearLayout>
-
-
