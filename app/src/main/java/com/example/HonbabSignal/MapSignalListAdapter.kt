@@ -21,6 +21,13 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>): RecyclerView.Adapter<List
     override fun onBindViewHolder(holder: GridAdapter, position: Int) {
 
         holder.layout.item_map_signal_nickname_tv.text = list[position].name
+
+        holder.layout.item_map_signal_tag1_tv.text = list[position].tag1
+        holder.layout.item_map_signal_tag2_tv.text = list[position].tag2
+        holder.layout.item_map_signal_tag3_tv.text = list[position].tag3
+        holder.layout.item_map_signal_tag4_tv.text = list[position].tag4
+        holder.layout.item_map_signal_tag5_tv.text = list[position].tag5
+
         holder.layout.layoutListItem.setOnClickListener {
             Toast.makeText(holder.layout.context, "${list[position]} Click!", Toast.LENGTH_SHORT).show()
         }

@@ -10,6 +10,7 @@
     android:background="@drawable/layout_item_map_list"
     android:layout_margin="5dp"
     android:layout_gravity="center"
+    android:elevation="20dp"
     android:gravity="center">
 
     <androidx.cardview.widget.CardView
@@ -44,12 +45,14 @@
         android:layout_marginTop="3dp">
 
         <TextView
+            android:id="@+id/item_map_signal_location_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="나와 532m"
             android:textSize="10sp" />
 
         <TextView
+            android:id="@+id/item_map_signal_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -65,29 +68,41 @@
         android:layout_gravity="start">
 
         <TextView
+            android:id="@+id/item_map_signal_tag1_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#일식"
-            android:textSize="10sp"
-            android:padding="5dp"
             android:layout_marginStart="5dp"
-            android:background="@drawable/layout_item_map_list"/>
+            android:background="@drawable/layout_item_map_list"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="#일식"
+            android:textSize="10sp" />
 
         <TextView
+            android:id="@+id/item_map_signal_tag2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#샤브샤브"
             android:textSize="10sp"
-            android:padding="5dp"
-            android:layout_marginStart = "5dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
             android:background="@drawable/layout_item_map_list"/>
 
         <TextView
+            android:id="@+id/item_map_signal_tag3_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#회"
             android:textSize="10sp"
-            android:padding="5dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:layout_marginStart = "5dp"
             android:background="@drawable/layout_item_map_list"/>
 
@@ -99,21 +114,29 @@
         android:layout_gravity="start">
 
         <TextView
+            android:id="@+id/item_map_signal_tag4_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#문화동"
             android:textSize="10sp"
-            android:padding="5dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:layout_marginStart="5dp"
             android:background="@drawable/layout_item_map_list"/>
 
         <TextView
+            android:id="@+id/item_map_signal_tag5_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#20대"
             android:textSize="10sp"
-            android:padding="5dp"
-            android:layout_marginStart = "5dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
             android:background="@drawable/layout_item_map_list"/>
 
     </LinearLayout>
