@@ -1,13 +1,16 @@
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.HonbabSignal.LogInActivity
 import com.example.HonbabSignal.MapSignal
+import com.example.HonbabSignal.PopupActivity
 import com.example.HonbabSignal.R
 import kotlinx.android.synthetic.main.item_map_signal_list.view.*
 
-class ListAdapterGrid(var list: ArrayList<MapSignal>): RecyclerView.Adapter<ListAdapterGrid.GridAdapter>() {
+class ListAdapterGrid(var list: ArrayList<MapSignal>):  RecyclerView.Adapter<ListAdapterGrid.GridAdapter>() {
 
     class GridAdapter(val layout: View): RecyclerView.ViewHolder(layout)
 
@@ -30,11 +33,19 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>): RecyclerView.Adapter<List
         holder.layout.item_map_signal_tag5_tv.text = list[position].tag5
 
         holder.layout.layoutListItem.setOnClickListener {
+
             Toast.makeText(holder.layout.context, "${list[position]} Click!", Toast.LENGTH_SHORT).show()
         }
+        holder.layout.layoutListItem.setOnClickListener(View.OnClickListener { v ->
+            val intent = Intent(v.context, PopupActivity::class.java)
+            intent.putExtra("number", position)
+            v.context.startActivity(intent)
+            Toast.makeText(v.context, "클릭 되었습니다.", Toast.LENGTH_SHORT).show()
+        })
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
+
 }
