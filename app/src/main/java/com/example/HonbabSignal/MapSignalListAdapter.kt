@@ -21,7 +21,9 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>): RecyclerView.Adapter<List
     override fun onBindViewHolder(holder: GridAdapter, position: Int) {
 
         holder.layout.item_map_signal_nickname_tv.text = list[position].name
-
+        holder.layout.item_map_signal_list_profile_iv.setImageResource(list[position].profileImageUrl!!)
+        holder.layout.item_map_signal_location_tv.text = list[position].location
+        holder.layout.item_map_signal_time_tv.text = list[position].time
         holder.layout.item_map_signal_tag1_tv.text = list[position].tag1
         holder.layout.item_map_signal_tag2_tv.text = list[position].tag2
         holder.layout.item_map_signal_tag3_tv.text = list[position].tag3
