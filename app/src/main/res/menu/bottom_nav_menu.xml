@@ -10,7 +10,7 @@
         android:title="홈"
         tools:ignore="AlwaysShowAction" />
     <item
-        android:id="@+id/lookFragment"
+        android:id="@+id/MapFragment"
         android:icon="@drawable/main_btm_look_selector"
         app:showAsAction="always"
         android:title="지도" />

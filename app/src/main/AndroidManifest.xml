@@ -37,8 +37,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.HonbabSignal.MapActivity"/>
-
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -51,6 +49,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.example.HonbabSignal.MapListActivity"/>
         <activity android:name="com.example.HonbabSignal.LogInActivity"/>
         <activity android:name="com.example.HonbabSignal.SignUpActivity"/>
         <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>

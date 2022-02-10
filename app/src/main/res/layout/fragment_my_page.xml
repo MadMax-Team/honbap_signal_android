@@ -71,7 +71,7 @@
         <Button
             android:id="@+id/locker_btn"
             android:layout_width="wrap_content"
-            android:layout_height="40sp"
+            android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_marginStart="15dp"
             android:layout_marginTop="30dp"
