@@ -12,3 +12,4 @@ data class UserIdxAuthResponse(@SerializedName("isSuccess") val isSuccess: Boole
                                @SerializedName("code") val code: Int,
                                @SerializedName("message") val message: String,
                                @SerializedName("result") val result : List<AuthIdx>)
+
