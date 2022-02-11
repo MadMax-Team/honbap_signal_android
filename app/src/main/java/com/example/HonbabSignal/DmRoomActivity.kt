@@ -9,6 +9,7 @@ import com.example.HonbabSignal.databinding.ActivityDmRoomBinding
 import java.text.SimpleDateFormat
 import java.util.*
 import android.content.ContentValues.TAG
+import android.content.Intent
 import com.google.firebase.database.*
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.database.DatabaseError
@@ -38,6 +39,11 @@ class DmRoomActivity: AppCompatActivity() {
         database = fireDatabase.reference
         mAdapter = DmRoomAdapter(this,arrayList)
 
+
+        //뒤로가기 버튼 클릭 시 dm list로 돌아감
+        binding.dmRoomBackBtn.setOnClickListener{
+
+        }
         //FirebaseApp.initializeApp(this);
 
         //메세지를 보낸 시간
