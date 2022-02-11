@@ -67,13 +67,40 @@ class DmRoomActivity: AppCompatActivity() {
 
         val enterTime = Date(System.currentTimeMillis())
 
+
         //메세지 보내기1
+        //흠 이건 전체 데이터 중 하나라도 변하면 업데이트되어 작동하기 때문에
+        //childAdd 사용해야할 듯
+//        val postListener = object : ValueEventListener {
+//            override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                // Get Post object and use the values to update the UI
+//                //val post = dataSnapshot.getValue<DmModel>()
+//
+//                val temp = dataSnapshot.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
+//                Log.d("dmroomzz",temp.toString())
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
+//            }
+//
+//            override fun onCancelled(databaseError: DatabaseError) {
+//                // Getting Post failed, log a message
+//                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+//            }
+//        }
+//        database.addValueEventListener(postListener)
 
-        val postListener = object : ValueEventListener {
 
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Get Post object and use the values to update the UI
-                //val post = dataSnapshot.getValue<DmModel>()
+        //메세지 보내기2
+        //childAddListener
+        val childEventListener = object: ChildEventListener{
+            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+                Log.d(TAG, "onChildChanged: ${dataSnapshot.key}")
 
                 val temp = dataSnapshot.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
                 Log.d("dmroomzz",temp.toString())
@@ -81,14 +108,21 @@ class DmRoomActivity: AppCompatActivity() {
                     DmModel("정아",temp.toString(),"example",uid,destinationUid)
                 ) // adapter에 추가합니다.
                 binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
+
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            override fun onChildRemoved(snapshot: DataSnapshot) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
         }
-        database.addValueEventListener(postListener)
 
         dm_Send_Button.setOnClickListener {
 

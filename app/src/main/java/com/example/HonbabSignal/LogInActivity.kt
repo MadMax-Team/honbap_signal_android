@@ -18,6 +18,8 @@ import com.kakao.sdk.user.UserApiClient
 class LogInActivity : AppCompatActivity() {
     lateinit var binding: ActivityLogInBinding
 
+    lateinit var nickname: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLogInBinding.inflate(layoutInflater)
@@ -112,12 +114,17 @@ class LogInActivity : AppCompatActivity() {
                 Log.d("userInfo", "사용자 정보 요청 성공" +
                         "\n이메일: ${user.kakaoAccount?.email}" +
                         "\n닉네임: ${user.kakaoAccount?.profile?.nickname}")
+                nickname = user.kakaoAccount?.profile?.nickname.toString()
             }
         }
 
         //회원가입 버튼 누르면 signup activity로 넘어갑니다
         binding.logInSignUpTv.setOnClickListener{
-            startActivity(Intent(this@LogInActivity,SignUpActivity::class.java))
+            var intent = Intent(this@LogInActivity,SignUpActivity::class.java)
+            intent.putExtra("name",nickname)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent)
         }
+
     }//onCreate꺼임
 }

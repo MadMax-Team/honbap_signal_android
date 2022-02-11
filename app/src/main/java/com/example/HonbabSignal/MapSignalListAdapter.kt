@@ -1,4 +1,7 @@
+import android.app.Dialog
+import android.app.PendingIntent.getActivity
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +42,9 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>):  RecyclerView.Adapter<Lis
         holder.layout.layoutListItem.setOnClickListener(View.OnClickListener { v ->
             val intent = Intent(v.context, PopupActivity::class.java)
             intent.putExtra("number", position)
+            v.setBackgroundColor(Color.TRANSPARENT)
             v.context.startActivity(intent)
-            Toast.makeText(v.context, "클릭 되었습니다.", Toast.LENGTH_SHORT).show()
+
         })
     }
 

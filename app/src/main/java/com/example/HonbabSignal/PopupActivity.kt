@@ -16,11 +16,13 @@ class PopupActivity : Activity(){
         super.onCreate(savedInstanceState)
         binding = ActivityPopupBinding.inflate(layoutInflater)
         //타이틀바 없애기
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(binding.root);
 
         binding.popupBackBtn.setOnClickListener {
             val intent = Intent(this,MapListActivity::class.java)
+
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
         }
