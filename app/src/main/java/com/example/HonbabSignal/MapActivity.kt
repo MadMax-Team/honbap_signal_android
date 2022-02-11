@@ -107,17 +107,17 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(naverMap: NaverMap) {
 
-        val coord = com.naver.maps.geometry.LatLng(37.496464, 126.958705)
-        val marker = Marker()
-        marker.setPosition(coord)
-        marker.map = naverMap
-        marker.setWidth(100)
-        marker.setHeight(100)
-        marker.captionText = "20"
-        marker.captionTextSize = 16f
-        marker.setCaptionAligns(Align.Top)
-        marker.setIcon(OverlayImage.fromResource(R.drawable.kakao_account_logo));
+        var coord = com.naver.maps.geometry.LatLng(37.496464, 126.958705)
+        makeMarker(coord,"65",naverMap)
 
+        coord = com.naver.maps.geometry.LatLng(37.619538, 127.058790)
+        makeMarker(coord,"11",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.451422, 127.127731)
+        makeMarker(coord,"21",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.449869, 126.653102)
+        makeMarker(coord,"13",naverMap)
 
         this.naverMap = naverMap
         val uiSettings = naverMap.uiSettings
@@ -143,5 +143,19 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+    }
+
+    private fun makeMarker(loc: com.naver.maps.geometry.LatLng, peole:String,naverMap: NaverMap){
+
+        val marker = Marker()
+        marker.setPosition(loc)
+        marker.map = naverMap
+        marker.setWidth(100)
+        marker.setHeight(100)
+        marker.captionText = peole
+        marker.captionTextSize = 16f
+        marker.setCaptionAligns(Align.Top)
+        marker.setIcon(OverlayImage.fromResource(R.drawable.kakao_account_logo))
+
     }
 }
