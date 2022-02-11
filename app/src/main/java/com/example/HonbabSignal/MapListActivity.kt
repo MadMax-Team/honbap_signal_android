@@ -57,24 +57,6 @@ class MapListActivity:AppCompatActivity() {
             layoutManager = listManager
             adapter = listAdapter
         }
-
-//        //리사이클러뷰와 어댑터 연결
-//        binding.mapActivityRecyclerView.adapter = mapSignalListAdapter
-//
-//        //리스너 객체 생성 및 전달
-//        mapSignalListAdapter.setMytemClickListener(object : MapSignalListAdapter.MyitemClickListener{
-//            override fun onItemClick(mapSignal: MapSignal) {
-//                Log.d("say","I will")
-//                val intent = Intent(this@MapListActivity, MapListActivity::class.java)
-//
-//                Log.d("say",mapSignal.name.toString())
-//                //intent.putExtra("name",friend.name)
-//                startActivity(intent)
-//            }
-//
-//        })
-
-
     }
 
 }
