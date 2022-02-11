@@ -1,5 +1,6 @@
 package com.example.HonbabSignal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityMainBinding
@@ -25,11 +26,9 @@ class MainActivity : AppCompatActivity(){
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.MapFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, MapFragment())
-                        .commitAllowingStateLoss()
-                    return@setOnItemSelectedListener true
+                R.id.mapActivity -> {
+                    val intent = Intent(this, MapActivity::class.java)
+                    startActivity(intent)
                 }
 
                 R.id.searchFragment -> {

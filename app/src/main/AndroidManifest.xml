@@ -55,6 +55,7 @@
         <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>
         <activity android:name="com.example.HonbabSignal.ProfileActivity"/>
         <activity android:name="com.example.HonbabSignal.EditingProfileActivity"/>
+        <activity android:name="com.example.HonbabSignal.MapActivity"/>
         <activity android:name="com.example.HonbabSignal.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
 
     </application>
