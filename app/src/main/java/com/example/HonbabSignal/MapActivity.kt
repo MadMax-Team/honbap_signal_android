@@ -6,9 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityMapBinding
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
+import com.google.type.LatLng
 import com.naver.maps.map.*
+import com.naver.maps.map.overlay.Align
 import com.naver.maps.map.util.FusedLocationSource
-
+import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
 
 
 class MapActivity: AppCompatActivity(), OnMapReadyCallback {
@@ -29,7 +32,6 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
         //lookBtn 누르면 MapActivity로 넘어가기
         binding.lookBtn.setOnClickListener {
-            Toast.makeText(this, "lookBtn", Toast.LENGTH_SHORT).show();
             val intent = Intent(this, MapListActivity::class.java)
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
@@ -46,6 +48,11 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
                     fm.beginTransaction().add(R.id.map, it).commit()
                 }
         mapFragment.getMapAsync(this);
+
+
+
+
+
 
     }
     override fun onStart() {
@@ -100,6 +107,17 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(naverMap: NaverMap) {
 
+        val coord = com.naver.maps.geometry.LatLng(37.496464, 126.958705)
+        val marker = Marker()
+        marker.setPosition(coord)
+        marker.map = naverMap
+        marker.setWidth(100)
+        marker.setHeight(100)
+        marker.captionText = "20"
+        marker.captionTextSize = 16f
+        marker.setCaptionAligns(Align.Top)
+        marker.setIcon(OverlayImage.fromResource(R.drawable.kakao_account_logo));
+
 
         this.naverMap = naverMap
         val uiSettings = naverMap.uiSettings
@@ -108,15 +126,18 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         uiSettings.isLocationButtonEnabled = true
 
         naverMap.locationSource = locationSource
-
-
         naverMap.locationTrackingMode = LocationTrackingMode.Follow
+
+        //마커표시
+
 
 
         //좌표 변경 시 토스트로 표시
         naverMap.addOnLocationChangeListener { location ->
 //            Toast.makeText(this, "${location.latitude}, ${location.longitude}",
 //                Toast.LENGTH_SHORT).show()
+
+
         }
     }
 
