@@ -19,9 +19,9 @@ class PopupActivity : Activity(){
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(binding.root);
 
-        //흠 오히려 뻑뻑하게 움직이네;;
         binding.popupBackBtn.setOnClickListener {
             val intent = Intent(this,MapListActivity::class.java)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
         }
     }

@@ -72,6 +72,7 @@ class DmListFragment : Fragment(){
 
                 Log.d("say",friend.name.toString())
                 //intent.putExtra("name",friend.name)
+                intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent)
             }
         })

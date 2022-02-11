@@ -44,6 +44,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
             val intent = Intent(activity, MapListActivity::class.java)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
         }
         return binding.root

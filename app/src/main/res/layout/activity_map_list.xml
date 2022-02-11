@@ -26,7 +26,18 @@
         android:layout_gravity="center"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
+
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <Button
+        android:id="@+id/look_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지도로 확인"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/honbab_main_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
