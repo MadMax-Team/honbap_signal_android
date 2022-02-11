@@ -1,6 +1,7 @@
 package com.example.HonbabSignal
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import android.widget.TextView
@@ -19,6 +20,11 @@ class PopupActivity : Activity(){
         setContentView(binding.root);
 
 
+        //흠 오히려 뻑뻑하게 움직이네;;
+        binding.popupBackBtn.setOnClickListener {
+            val intent = Intent(this,MapListActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

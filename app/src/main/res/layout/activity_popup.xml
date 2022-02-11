@@ -5,10 +5,18 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingTop="20dp"
+    android:paddingTop="5dp"
     android:gravity="center"
     android:backgroundTint="@color/honbab_main_color">
 
+    <ImageView
+        android:id="@+id/popup_back_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/btn_x"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="60dp"
@@ -29,8 +37,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="고악"
+        android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="13sp"
+        android:textSize="15sp"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"/>
@@ -47,12 +56,13 @@
         android:layout_height="wrap_content"
         android:text="설정한 소개글이 없습니다."
         android:gravity="center"
+        android:layout_marginBottom="10dp"
         android:textSize="10sp" />
 
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"
@@ -100,7 +110,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"
