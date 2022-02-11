@@ -27,14 +27,8 @@ class EditingProfileActivity : AppCompatActivity() {
 
         //뒤로 가기 버튼
         binding.editingProfileBackBtn.setOnClickListener {
-
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.main_frm, MyPageFragment())
-                .commit()
+            finish()
+            overridePendingTransition(0,0)
         }
 
 

@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NO_ANIMATION
 import com.google.firebase.database.*
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.database.DatabaseError
@@ -42,7 +43,8 @@ class DmRoomActivity: AppCompatActivity() {
 
         //뒤로가기 버튼 클릭 시 dm list로 돌아감
         binding.dmRoomBackBtn.setOnClickListener{
-
+            finish()
+            overridePendingTransition(0,0)
         }
         //FirebaseApp.initializeApp(this);
 

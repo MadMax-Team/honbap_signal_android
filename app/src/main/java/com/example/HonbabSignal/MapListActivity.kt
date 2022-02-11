@@ -23,7 +23,10 @@ class MapListActivity:AppCompatActivity() {
         binding = ActivityMapListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//
+        binding.mapListBackBtn.setOnClickListener {
+            finish()
+            overridePendingTransition(0,0)
+        }
 //        mapView = findViewById<MapView>(R.id.map_view)
 //        mapView.onCreate(savedInstanceState)
 //
