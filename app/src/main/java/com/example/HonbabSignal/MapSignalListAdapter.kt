@@ -2,6 +2,7 @@ import android.app.Dialog
 import android.app.PendingIntent.getActivity
 import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,10 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>):  RecyclerView.Adapter<Lis
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridAdapter {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_map_signal_list, parent, false)
         var width = (parent.measuredWidth-100)/2
+        Log.d("gridAdapter",parent.measuredHeight.toString())
+        var height = (parent.measuredHeight-10)*2/5
         view.layoutParams.width = width
+        view.layoutParams.height = height
         return GridAdapter(view)
     }
 
@@ -42,7 +46,6 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>):  RecyclerView.Adapter<Lis
         holder.layout.layoutListItem.setOnClickListener(View.OnClickListener { v ->
             val intent = Intent(v.context, PopupActivity::class.java)
             intent.putExtra("number", position)
-            v.setBackgroundColor(Color.TRANSPARENT)
             v.context.startActivity(intent)
 
         })

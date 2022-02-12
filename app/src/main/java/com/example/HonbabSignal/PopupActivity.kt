@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Window
 import android.widget.TextView
+import android.widget.Toast
 import com.example.HonbabSignal.databinding.ActivityLogInBinding
 import com.example.HonbabSignal.databinding.ActivityPopupBinding
 
@@ -15,16 +16,23 @@ class PopupActivity : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPopupBinding.inflate(layoutInflater)
-        //타이틀바 없애기
 
+        //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(binding.root);
 
         binding.popupBackBtn.setOnClickListener {
             val intent = Intent(this,MapListActivity::class.java)
-
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
+        }
+
+        binding.popupSignalBtn.setOnClickListener{
+            Toast.makeText(this@PopupActivity, "signal이 보내졌습니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.popupDmBtn.setOnClickListener{
+            Toast.makeText(this@PopupActivity, "Dm이 보내졌습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 
