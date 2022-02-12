@@ -15,10 +15,7 @@
         android:paddingEnd="15dp"
         android:paddingBottom="30dp"
         android:paddingTop="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/honbab_main_color"
-        android:background="@drawable/layout_item_map_list"
+        android:background="@color/honbab_main_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -126,7 +123,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_200"
+                android:background="@color/honbab_main_color"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:gravity="start"
@@ -195,7 +192,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_200"
+                android:background="@color/honbab_main_color"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:orientation="vertical">
@@ -280,7 +277,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@color/purple_200"
+            android:background="@color/honbab_main_color"
             android:orientation="vertical">
 
             <TextView
