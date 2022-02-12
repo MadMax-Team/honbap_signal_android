@@ -25,6 +25,22 @@ class LogInActivity : AppCompatActivity() {
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //home에서 login버튼 누르면 login activity로 넘어갑니다
+        binding.homeLoginTv.setOnClickListener {
+            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
+
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+        }
+
+        //home에서 회원가입 버튼 누르면 signup activity로 넘어갑니다
+        binding.homeSignUpTv.setOnClickListener {
+            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
+
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
         //키 해시 구하기
         //val keyHash = Utility.getKeyHash(this)
         //Log.d("Hash", keyHash)
@@ -118,13 +134,6 @@ class LogInActivity : AppCompatActivity() {
             }
         }
 
-        //회원가입 버튼 누르면 signup activity로 넘어갑니다
-        binding.logInSignUpTv.setOnClickListener{
-            var intent = Intent(this@LogInActivity,SignUpActivity::class.java)
-            intent.putExtra("name",nickname)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            startActivity(intent)
-        }
 
     }//onCreate꺼임
 }

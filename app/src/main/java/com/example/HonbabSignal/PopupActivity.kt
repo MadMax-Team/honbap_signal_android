@@ -1,9 +1,12 @@
 package com.example.HonbabSignal
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.Window
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import com.example.HonbabSignal.databinding.ActivityLogInBinding
@@ -16,6 +19,17 @@ class PopupActivity : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPopupBinding.inflate(layoutInflater)
+
+
+        var dm = getApplicationContext().getResources().getDisplayMetrics();
+
+        var width = (dm.widthPixels * 0.9); // Display 사이즈의 90%
+        var height = (dm.heightPixels * 0.9); // Display 사이즈의 90%
+
+        getWindow().getAttributes().width = width.toInt();
+
+        getWindow().getAttributes().height = height.toInt();
+
 
         //타이틀바 없애기
         requestWindowFeature(Window.FEATURE_NO_TITLE);
