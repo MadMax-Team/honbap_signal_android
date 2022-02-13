@@ -19,6 +19,7 @@ class DmListFragment : Fragment(){
     private var friendDatas = ArrayList<Friend>()
     private lateinit var database: DatabaseReference
     private val fireDatabase = FirebaseDatabase.getInstance()
+    private lateinit var destinationNickname : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,26 +48,25 @@ class DmListFragment : Fragment(){
         //나에게 생성되는 uid 하위목록에 목적지(채팅하는 사람)uid가 있는지 확인 -> 없으면 방만듦
         val destinationUid = "고악"
         val uid = "도동"
-        val testBtn = binding.dmListTestBtn
 
-        testBtn.setOnClickListener(){
-            //서버에서 채팅창 있는지 확인해줌
-            //없으면 생성
-
-            //푸시알림 만들기
-
-            //생성 시 서버한테 뭐 생성했다 이런거 보내주고(?)
-            //firebase child생성 추가 (근데 처음에 내 child항목 생성 미리 해줘야할듯?..아닌가 해봐야알듯)
-            database.child("users").child(uid).child("destinationUser").child(destinationUid).child("lastPerson").setValue(uid)
-            database.child("users").child(uid).child("destinationUser").child(destinationUid).child("lastMessage").setValue("처음 생성된 채팅방입니다.")
-        }
+//        testBtn.setOnClickListener(){
+//            //서버에서 채팅창 있는지 확인해줌
+//            //없으면 생성
+//            //푸시알림 만들기
+//            //생성 시 서버한테 뭐 생성했다 이런거 보내주고(?)
+//            //firebase child생성 추가 (근데 처음에 내 child항목 생성 미리 해줘야할듯?..아닌가 해봐야알듯)
+//            database.child("users").child(uid).child("destinationUser").child(destinationUid).child("lastPerson").setValue(uid)
+//            database.child("users").child(uid).child("destinationUser").child(destinationUid).child("lastMessage").setValue("처음 생성된 채팅방입니다.")
+//        }
 
         //리스너 객체 생성 및 전달
         dmListAdapter.setMytemClickListener(object : DmListAdapter.MyitemClickListener{
             override fun onItemClick(friend: Friend) {
                 Log.d("say","I will")
-                val intent = Intent(activity, DmRoomActivity::class.java)
+                destinationNickname = friend.name.toString()
 
+                val intent = Intent(activity, DmRoomActivity::class.java)
+                intent.putExtra("destinationNickname",destinationNickname)
                 //DmRoom으로 넘어갈 때 같이 가는 정보 (내 uid, 상대방 uid)
                 intent.putExtra("destinationUid", destinationUid)
 

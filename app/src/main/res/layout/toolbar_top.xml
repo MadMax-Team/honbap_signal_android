@@ -27,6 +27,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="혼밥시그널"
+                android:fontFamily="@font/pretendard_extra_bold"
                 android:textColor="@color/honbab_main_color"
                 android:textSize="20sp"
                 android:textStyle="bold"

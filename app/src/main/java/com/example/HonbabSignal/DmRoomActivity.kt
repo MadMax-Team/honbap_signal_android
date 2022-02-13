@@ -29,6 +29,7 @@ class DmRoomActivity: AppCompatActivity() {
     private lateinit var dm_Text : EditText
     private lateinit var mAdapter: DmRoomAdapter
     private lateinit var database: DatabaseReference
+    private lateinit var destinationNickname: String
 
     //recyclerView
     var arrayList = arrayListOf<DmModel>()
@@ -37,6 +38,12 @@ class DmRoomActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        destinationNickname = intent.getStringExtra("destinationNickname").toString()
+        binding.dmRoomDestinationNickname.text = destinationNickname
+
+
         database = fireDatabase.reference
         mAdapter = DmRoomAdapter(this,arrayList)
 
