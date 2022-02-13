@@ -7,47 +7,52 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        //맨 위에 줄
-        <LinearLayout
-            android:id="@+id/home_after_login_top_ll"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="#D3D3D3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <TextView
-                android:id="@+id/home_after_login_top_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="10dp"
-                android:text="홈)시그널/매칭 관리"
-                android:layout_weight="2"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="25sp"/>
-            <TextView
-                android:id="@+id/home_after_login_top_infor_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="인포?"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="15dp"
-                android:layout_weight="1"
-                android:textSize="15sp"
-                android:background="#808080"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="더보기"
-                android:layout_weight="1"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="20dp"
-                android:textSize="15sp"
-                android:background="#808080"/>
-        </LinearLayout>
+        <include
+            android:id="@+id/home_after_login_top_ll"
+            layout="@layout/toolbar_top"/>
+
+<!--        //맨 위에 줄-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/home_after_login_top_ll"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:background="#D3D3D3"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent">-->
+<!--            <TextView-->
+<!--                android:id="@+id/home_after_login_top_title_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:text="홈)시그널/매칭 관리"-->
+<!--                android:layout_weight="2"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="25sp"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/home_after_login_top_infor_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:text="인포?"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                android:layout_marginStart="15dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textSize="15sp"-->
+<!--                android:background="#808080"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="더보기"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:textSize="15sp"-->
+<!--                android:background="#808080"/>-->
+<!--        </LinearLayout>-->
 
         //맨 위에 타이틀 밑으로
         <TextView

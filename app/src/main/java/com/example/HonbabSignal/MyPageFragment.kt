@@ -22,8 +22,6 @@ class MyPageFragment : Fragment() {
         binding = FragmentMyPageBinding.inflate(inflater, container, false)
 
         binding.lockerBtn.setOnClickListener {
-            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
-
             val intent = Intent(activity, EditingProfileActivity::class.java)
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
