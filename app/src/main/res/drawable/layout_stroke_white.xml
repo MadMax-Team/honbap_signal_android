@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    //dm둥글게 모양 잡는
     <item>
         <shape android:shape="rectangle" >
-            <solid android:color="@android:color/transparent" />
+            <solid android:color="@color/honbab_main_color" />
         </shape>
     </item>
 
@@ -13,8 +12,8 @@
             <solid android:color="@android:color/transparent" />
             <stroke
                 android:width="1dp"
-                android:color="#E1E1E1" />
-            <corners android:radius="10dp"/>
+                android:color="#FFFFFF" />
+            <corners android:radius="20dp"/>
         </shape>
     </item>
 </layer-list>

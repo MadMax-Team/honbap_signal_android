@@ -17,5 +17,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+    </style>
+    <style name="statusBarTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/honbab_main_color</item>
+        <item name="colorPrimaryDark">@color/honbab_main_color</item>  // statusbar color 적용
+        <!-- Other attributes -->
     </style>
 </resources>
