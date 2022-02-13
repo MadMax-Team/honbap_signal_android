@@ -55,7 +55,7 @@ class DmRoomActivity: AppCompatActivity() {
         destinationUid = intent.getStringExtra("destinationUid")
 
         //destinationUid = intent.getStringExtra("destinationUid")
-        uid = "고악1"
+        uid = "도동"
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter
@@ -90,39 +90,55 @@ class DmRoomActivity: AppCompatActivity() {
 //            }
 //        }
 //        database.addValueEventListener(postListener)
+        database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").addValueEventListener(object: ValueEventListener{
 
-
-        //메세지 보내기2
-        //childAddListener
-        val childEventListener = object: ChildEventListener{
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                Log.d(TAG, "onChildChanged: ${dataSnapshot.key}")
-
-                val temp = dataSnapshot.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
-                Log.d("dmroomzz",temp.toString())
-                mAdapter.addItem(
-                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
-                ) // adapter에 추가합니다.
-                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
-
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
-                TODO("Not yet implemented")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-        }
+
+        })
+
+
+
+        //메세지 보내기2
+        //childAddListener
+//        val childEventListener = object: ChildEventListener{
+//            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onChildChanged(dataSnapshot: DataSnapshot, previousChildName: String?) {
+//                Log.d(TAG, "onChildChanged: ${dataSnapshot.key}")
+//
+//                val temp = dataSnapshot.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
+//                Log.d("dmroomzz",temp.toString())
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
+//
+//            }
+//
+//            override fun onChildRemoved(snapshot: DataSnapshot) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//        }
 
         dm_Send_Button.setOnClickListener {
 

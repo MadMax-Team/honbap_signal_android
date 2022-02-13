@@ -27,15 +27,15 @@
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="@string/kakao_app_key" />
+            android:value="@string/kakao_app_key"/>
 
         <activity android:name="com.example.HonbabSignal.MainActivity">
+        </activity>
+        <activity android:name="com.example.HonbabSignal.LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.example.HonbabSignal.LogInActivity">
 
         </activity>
         <activity
@@ -58,7 +58,7 @@
         <activity android:name="com.example.HonbabSignal.EditingProfileActivity"/>
         <activity android:name="com.example.HonbabSignal.MapActivity"/>
         <activity android:name="com.example.HonbabSignal.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
-
+        <activity android:name="com.example.HonbabSignal.KakaoLoginActivity"/>
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.example.HonbabSignal
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -88,11 +89,19 @@ class ProfileActivity : AppCompatActivity() {
                                             response: Response<UserIdxAuthResponse>
                                         ) {
                                             var respIdx = response.body()!!
-                                            Log.d("GET관련 code",respIdx.code.toString())
+                                            Log.e("GET관련 code",respIdx.code.toString())
                                             when (respIdx.code) {
                                                 1000 -> {
                                                     //userIdx 세팅
                                                     var userIdx = respIdx.result[0].userIdx
+
+                                                    //sharedPreference에 userIdx를 넣어주었습니다.
+                                                    val spf = getSharedPreferences("userIdx",0)
+                                                    val editor = spf.edit()
+                                                    editor.putInt("userIdx",userIdx)
+                                                    editor.apply()
+                                                    Log.d("spf에 값 제대로 들어갔는지 확인",spf.getInt("userIdx",-1).toString())
+
                                                     Log.d("현재 userIdx값",userIdx.toString())
                                                     Log.d("getUserIdx:", "get user index success")
                                                     //userIdx받아오는 GET성공했을때
@@ -100,7 +109,8 @@ class ProfileActivity : AppCompatActivity() {
 
                                                     //정보세팅(프로필, userIdx제외한 나머지 정보)
                                                     var nickName: String = binding.profileNickNameEt.text.toString()
-                                                    var profileImg: String = binding.profileProfileImgIv?.toString()
+                                                    //여기 나중에 수정해야됨 - 아직 이미지에 대한 확실한 정의가 없어서 그렇다.
+                                                    var profileImg: String = "defaultImageValue"
                                                     var taste: String = binding.profileTasteEt?.text.toString()
                                                     var hateFood :String = binding.profileHateFoodEt?.text.toString()
                                                     var interest : String = binding.profileInterestEt?.text.toString()
