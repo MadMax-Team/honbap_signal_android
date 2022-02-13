@@ -380,7 +380,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"/>
-                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:src="@drawable/basic_img_for_ar_marker"

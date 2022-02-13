@@ -38,6 +38,9 @@ class HomeFragment : Fragment() {
         binding.homeAfterLoginSignalToMeAcceptBtn.setOnClickListener{
             binding.homeAfterLoginCurrentMyMatchingStatusTv.text = "\""+binding.homeAfterLoginSignalToMeProfileNameTv.text.toString()+"\""+"님과 매칭되었습니다!★"
             binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+            binding.homeAfterLoginAfterMatchingTagCardView.visibility = View.VISIBLE
+            binding.homeAfterLoginAfterMatchingMannersTemperatureCardView.visibility = View.VISIBLE
+            binding.homeAfterLoginAfterMatchingARMarkerCardView.visibility = View.VISIBLE
 
         }
 
