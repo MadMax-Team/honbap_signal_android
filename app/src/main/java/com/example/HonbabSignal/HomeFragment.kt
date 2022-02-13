@@ -22,6 +22,28 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        binding.homeAfterSignalOffIv.setOnClickListener {
+            binding.homeAfterSignalOffIv.visibility = View.GONE
+            binding.homeAfterSignalOnIv.visibility = View.VISIBLE
+            binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
+            binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+        }
+        binding.homeAfterSignalOnIv.setOnClickListener {
+            binding.homeAfterSignalOnIv.visibility = View.GONE
+            binding.homeAfterSignalOffIv.visibility = View.VISIBLE
+            binding.homeAfterLoginDmToMeLl.visibility = View.GONE
+            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+        }
+
+        binding.homeAfterLoginSignalToMeAcceptBtn.setOnClickListener{
+            binding.homeAfterLoginCurrentMyMatchingStatusTv.text = "\""+binding.homeAfterLoginSignalToMeProfileNameTv.text.toString()+"\""+"님과 매칭되었습니다!★"
+            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+            binding.homeAfterLoginAfterMatchingTagCardView.visibility = View.VISIBLE
+            binding.homeAfterLoginAfterMatchingMannersTemperatureCardView.visibility = View.VISIBLE
+            binding.homeAfterLoginAfterMatchingARMarkerCardView.visibility = View.VISIBLE
+
+        }
+
 
 
 
