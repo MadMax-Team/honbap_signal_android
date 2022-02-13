@@ -30,7 +30,12 @@
             android:value="@string/kakao_app_key"/>
 
         <activity android:name="com.example.HonbabSignal.MainActivity"/>
-        <activity android:name="com.example.HonbabSignal.LogInActivity"/>
+        <activity android:name="com.example.HonbabSignal.LogInActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+        </activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -44,10 +49,10 @@
         </activity>
         <activity android:name="com.example.HonbabSignal.SplashActivity"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name="com.example.HonbabSignal.MapListActivity"/>
         <activity android:name="com.example.HonbabSignal.SignUpActivity"/>
