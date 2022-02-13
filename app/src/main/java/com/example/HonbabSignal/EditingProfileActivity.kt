@@ -26,7 +26,7 @@ class EditingProfileActivity : AppCompatActivity() {
 
 
         //뒤로 가기 버튼
-        binding.editingProfileBackBtn.setOnClickListener {
+        binding.toolbarBackIv.setOnClickListener {
             finish()
             overridePendingTransition(0,0)
         }
