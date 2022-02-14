@@ -4,31 +4,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/main_btm_home_selector"
+        android:icon="@drawable/icon_bottom_navi_home"
         app:showAsAction="always"
         android:enabled="true"
         android:title="홈"
         tools:ignore="AlwaysShowAction" />
-    <item
-        android:id="@+id/mapActivity"
-        android:icon="@drawable/main_btm_look_selector"
-        app:showAsAction="always"
-        android:title="지도" />
-    <item
-        android:id="@+id/searchFragment"
-        android:icon="@drawable/main_btm_search_selector"
-        app:showAsAction="always"
-        android:title="시그널 찾기" />
 
     <item
         android:id="@+id/MyPageFragment"
-        android:icon="@drawable/main_btm_my_selector"
+        android:icon="@drawable/icon_bottom_navi_mypage"
         app:showAsAction="always"
         android:title="마이페이지" />
 
     <item
+        android:id="@+id/mapActivity"
+        android:icon="@drawable/icon_bottom_navi_signal"
+        app:showAsAction="always"
+        android:title="시그널 찾기" />
+    <item
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/icon_bottom_navi_ar"
+        app:showAsAction="always"
+        android:title="AR 스캔" />
+
+
+
+    <item
         android:id="@+id/DmListFragment"
-        android:icon="@drawable/main_btm_my_selector"
+        android:icon="@drawable/icon_bottom_navi_dm"
         app:showAsAction="always"
         android:title="메세지" />
 
