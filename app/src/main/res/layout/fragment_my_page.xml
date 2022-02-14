@@ -40,7 +40,7 @@
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/default_profile"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -185,7 +185,7 @@
             android:gravity="center">
             <ImageView
                 android:layout_gravity="center"
-                android:src="@drawable/kakao_editable_profile"
+                android:src="@drawable/icon_my_page_manner_tempo"
                 android:layout_width="70dp"
                 android:layout_height="70dp"/>
             <TextView
@@ -213,7 +213,7 @@
             android:gravity="center">
             <ImageView
                 android:layout_gravity="center"
-                android:src="@drawable/kakao_editable_profile"
+                android:src="@drawable/icon_my_page_past_match"
                 android:layout_width="70dp"
                 android:layout_height="70dp"/>
             <TextView
@@ -241,7 +241,7 @@
             android:gravity="center">
             <ImageView
                 android:layout_gravity="center"
-                android:src="@drawable/kakao_editable_profile"
+                android:src="@drawable/icon_my_page_signal_marker"
                 android:layout_width="70dp"
                 android:layout_height="70dp"/>
             <TextView
@@ -269,7 +269,7 @@
             android:gravity="center">
             <ImageView
                 android:layout_gravity="center"
-                android:src="@drawable/kakao_editable_profile"
+                android:src="@drawable/icon_my_page_signal_license"
                 android:layout_width="70dp"
                 android:layout_height="70dp"/>
             <TextView
@@ -321,10 +321,10 @@
             android:padding="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/icon_my_page_block"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -345,10 +345,10 @@
             android:padding="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/icon_my_page_bell"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -362,29 +362,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:text="차단목록 관리"
-                android:fontFamily="@font/pretendard_regular"
-                android:textColor="#5E5E5E"
-                android:textSize="13sp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -393,10 +370,10 @@
             android:padding="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/icon_my_page_screen"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -417,10 +394,10 @@
             android:padding="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/icon_my_page_notice"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -441,10 +418,10 @@
             android:padding="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/kakao_editable_profile"/>
+                android:src="@drawable/icon_my_page_send"/>
 
             <TextView
                 android:layout_width="wrap_content"
