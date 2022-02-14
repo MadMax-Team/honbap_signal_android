@@ -51,6 +51,7 @@
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/bottom_icon_color.xml" value="0.1" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_edit_text.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_map_list_popup.xml" value="0.14479166666666668" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_map_list_popup_tag.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_round.xml" value="0.264" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_stroke.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/drawable/layout_stroke_white.xml" value="0.2212962962962963" />
@@ -69,7 +70,7 @@
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_map.xml" value="0.1" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_map_list.xml" value="0.176" />
-        <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_popup.xml" value="0.4" />
+        <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_popup.xml" value="0.5079113924050633" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_post_script.xml" value="0.1" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_profile.xml" value="0.72" />
         <entry key="..\:/Users/kwakj/AndroidStudioProjects/test/honbap_signal_android/honbap_signal_android/app/src/main/res/layout/activity_splash.xml" value="0.1" />
