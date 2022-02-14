@@ -186,8 +186,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/icon_my_page_manner_tempo"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -214,8 +214,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/icon_my_page_past_match"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -242,8 +242,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/icon_my_page_signal_marker"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -270,8 +270,8 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/icon_my_page_signal_license"
-                android:layout_width="70dp"
-                android:layout_height="70dp"/>
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

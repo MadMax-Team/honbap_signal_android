@@ -15,19 +15,17 @@
         android:icon="@drawable/icon_bottom_navi_mypage"
         app:showAsAction="always"
         android:title="마이페이지" />
-
-    <item
-        android:id="@+id/mapActivity"
-        android:icon="@drawable/icon_bottom_navi_signal"
-        app:showAsAction="always"
-        android:title="시그널 찾기" />
     <item
         android:id="@+id/searchFragment"
         android:icon="@drawable/icon_bottom_navi_ar"
         app:showAsAction="always"
         android:title="AR 스캔" />
 
-
+    <item
+        android:id="@+id/mapActivity"
+        android:icon="@drawable/icon_bottom_navi_signal"
+        app:showAsAction="always"
+        android:title="시그널 찾기" />
 
     <item
         android:id="@+id/DmListFragment"

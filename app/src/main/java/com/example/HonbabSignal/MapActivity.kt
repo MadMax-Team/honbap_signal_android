@@ -52,8 +52,6 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
 
 
-
-
     }
     override fun onStart() {
         super.onStart()
@@ -107,14 +105,17 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(naverMap: NaverMap) {
 
-        var coord = com.naver.maps.geometry.LatLng(37.496464, 126.958705)
-        makeMarker(coord,"65",naverMap)
+        var coord = com.naver.maps.geometry.LatLng(37.496173, 126.954096)
+        makeMarker(coord,"3",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.498919, 126.950795)
+        makeMarker(coord,"1",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.502839, 126.948144)
+        makeMarker(coord,"5",naverMap)
 
         coord = com.naver.maps.geometry.LatLng(37.619538, 127.058790)
         makeMarker(coord,"11",naverMap)
-
-        coord = com.naver.maps.geometry.LatLng(37.451422, 127.127731)
-        makeMarker(coord,"21",naverMap)
 
         coord = com.naver.maps.geometry.LatLng(37.449869, 126.653102)
         makeMarker(coord,"13",naverMap)
@@ -155,7 +156,7 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         marker.captionText = peole
         marker.captionTextSize = 16f
         marker.setCaptionAligns(Align.Top)
-        marker.setIcon(OverlayImage.fromResource(R.drawable.kakao_account_logo))
+        marker.setIcon(OverlayImage.fromResource(R.drawable.gps_marker))
 
     }
 }
