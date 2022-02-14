@@ -32,8 +32,9 @@ class DmListFragment : Fragment(){
         //데이터 리스트 생성 (서버 없어서 해봄)
         //원래는 서버에서 받아오는 것들임
         friendDatas.apply{
-            add(Friend("고악",R.drawable.default_profile,"안녕하세요",null))
-            add(Friend("도동",R.drawable.default_profile,"초밥 좋아하세요?",null))
+            add(Friend("고악",R.drawable.goak_profile,"상대방에게 인사해보세요~!",null))
+            add(Friend("도동",R.drawable.dodong_profile,"상대방에게 인사해보세요~!",null))
+            add(Friend("곤",R.drawable.geon_profile,"상대방에게 인사해보세요~!",null))
         }
 
         database = fireDatabase.reference
@@ -47,7 +48,7 @@ class DmListFragment : Fragment(){
         //처음 DmRoom 생성하는 경우
         //나에게 생성되는 uid 하위목록에 목적지(채팅하는 사람)uid가 있는지 확인 -> 없으면 방만듦
         val destinationUid = "고악"
-        val uid = "도동"
+        val uid = "코뿡"
 
 //        testBtn.setOnClickListener(){
 //            //서버에서 채팅창 있는지 확인해줌
