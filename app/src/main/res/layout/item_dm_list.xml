@@ -24,12 +24,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="4dp"
-            app:cardCornerRadius="10dp">
+            app:cardCornerRadius="100dp">
 
             <ImageView android:id="@+id/item_dm_list_friend_profile_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/kakao_editable_profile"
+                android:src="@drawable/default_profile"
                 android:background="@drawable/layout_round"/>
 
         </androidx.cardview.widget.CardView>
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="4dp"
                 android:text="방이름"
                 android:fontFamily="@font/pretendard_regular"

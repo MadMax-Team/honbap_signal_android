@@ -31,7 +31,7 @@
                 android:layout_marginBottom="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/kakaotalk_icon" />
+                app:srcCompat="@drawable/btn_x" />
 
             <TextView
                 android:id="@+id/toolbar_logo_tv"
@@ -53,20 +53,6 @@
                 app:layout_constraintStart_toEndOf="@id/toolbar_back_iv"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/toolbar_menu_iv"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/kakaotalk_icon" />
 
             <View
                 android:layout_width="match_parent"

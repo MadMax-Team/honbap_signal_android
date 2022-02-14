@@ -32,8 +32,8 @@ class DmListFragment : Fragment(){
         //데이터 리스트 생성 (서버 없어서 해봄)
         //원래는 서버에서 받아오는 것들임
         friendDatas.apply{
-            add(Friend("고악",R.drawable.kakao_default_profile_image,"언제 끝나?",null))
-            add(Friend("정아",R.drawable.kakao_default_profile_image,"뭐해",null))
+            add(Friend("고악",R.drawable.default_profile,"안녕하세요",null))
+            add(Friend("도동",R.drawable.default_profile,"초밥 좋아하세요?",null))
         }
 
         database = fireDatabase.reference
