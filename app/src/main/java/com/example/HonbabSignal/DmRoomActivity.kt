@@ -62,7 +62,7 @@ class DmRoomActivity: AppCompatActivity() {
         destinationUid = intent.getStringExtra("destinationUid")
 
         //destinationUid = intent.getStringExtra("destinationUid")
-        uid = "코뿡"
+        uid = "도동"
 
         //어댑터 선언
         binding.dmRoomRecyclerview.adapter = mAdapter

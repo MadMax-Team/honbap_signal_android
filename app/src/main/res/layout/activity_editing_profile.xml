@@ -31,7 +31,7 @@
                 android:layout_marginBottom="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/btn_x" />
+                app:srcCompat="@drawable/icon_back" />
 
             <TextView
                 android:id="@+id/toolbar_logo_tv"

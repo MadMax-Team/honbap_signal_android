@@ -12,7 +12,7 @@
         android:id="@+id/popup_back_btn"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/btn_x"
+        android:src="@drawable/icon_x"
         android:layout_gravity="end"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"/>
