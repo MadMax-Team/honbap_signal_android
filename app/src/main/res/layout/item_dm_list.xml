@@ -29,6 +29,7 @@
             <ImageView android:id="@+id/item_dm_list_friend_profile_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/default_profile"
                 android:background="@drawable/layout_round"/>
 
