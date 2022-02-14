@@ -29,13 +29,8 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key"/>
 
-        <activity android:name="com.example.HonbabSignal.MainActivity">
-        </activity>
+        <activity android:name="com.example.HonbabSignal.MainActivity"/>
         <activity android:name="com.example.HonbabSignal.LogInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -49,7 +44,13 @@
                     android:scheme="d522fa00d6dd755ce0565f62e2536a03" />
             </intent-filter>
         </activity>
-
+        <activity android:name="com.example.HonbabSignal.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.HonbabSignal.MapListActivity"/>
         <activity android:name="com.example.HonbabSignal.SignUpActivity"/>
         <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>

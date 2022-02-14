@@ -29,6 +29,7 @@ class DmRoomActivity: AppCompatActivity() {
     private lateinit var dm_Text : EditText
     private lateinit var mAdapter: DmRoomAdapter
     private lateinit var database: DatabaseReference
+    private lateinit var destinationNickname: String
 
     //recyclerView
     var arrayList = arrayListOf<DmModel>()
@@ -37,6 +38,12 @@ class DmRoomActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDmRoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        destinationNickname = intent.getStringExtra("destinationNickname").toString()
+        binding.dmRoomDestinationNickname.text = destinationNickname
+
+
         database = fireDatabase.reference
         mAdapter = DmRoomAdapter(this,arrayList)
 
@@ -90,14 +97,16 @@ class DmRoomActivity: AppCompatActivity() {
 //            }
 //        }
 //        database.addValueEventListener(postListener)
+
         database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").addValueEventListener(object: ValueEventListener{
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 //val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
-//                mAdapter.addItem(
-//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
-//                ) // adapter에 추가합니다.
-//                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
+                val temp = snapshot.value
+                mAdapter.addItem(
+                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+                ) // adapter에 추가합니다.
+                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
             }
 
             override fun onCancelled(error: DatabaseError) {

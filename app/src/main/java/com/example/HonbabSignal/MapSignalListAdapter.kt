@@ -22,7 +22,7 @@ class ListAdapterGrid(var list: ArrayList<MapSignal>):  RecyclerView.Adapter<Lis
         var view = LayoutInflater.from(parent.context).inflate(R.layout.item_map_signal_list, parent, false)
         var width = (parent.measuredWidth-100)/2
         Log.d("gridAdapter",parent.measuredHeight.toString())
-        var height = (parent.measuredHeight-10)*2/5
+        var height = (parent.measuredHeight-10)/2
         view.layoutParams.width = width
         view.layoutParams.height = height
         return GridAdapter(view)

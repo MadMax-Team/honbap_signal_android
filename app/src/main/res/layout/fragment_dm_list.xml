@@ -7,28 +7,42 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/dm_list_test_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="임시 Dm Room 처음 생성 확인 버튼"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/editing_profile_ll1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/toolbar_logo_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="cursive"
-            android:text="채팅"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="채팅목록"
+            android:fontFamily="@font/pretendard_extra_bold"
+            android:textColor="@color/honbab_main_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/honbab_main_color"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dm_list_fragment_recyclerview"
