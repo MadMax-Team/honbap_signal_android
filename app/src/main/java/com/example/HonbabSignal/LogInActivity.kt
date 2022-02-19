@@ -61,5 +61,10 @@ class LogInActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.loginToProfileBtn.setOnClickListener{
+            val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
     }//onCreate꺼임
 }

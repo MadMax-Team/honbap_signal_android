@@ -42,7 +42,8 @@ class ProfileActivity : AppCompatActivity() {
             binding.profileSignUpBtnTv.setOnClickListener{
                 //retrofit 개체 생성
                 var retrofit = Retrofit.Builder()
-                    .baseUrl("http://52.78.100.231:3001")
+                    //url교체해야함
+                    .baseUrl("http://172.31.37.142")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
 
@@ -210,6 +211,7 @@ class ProfileActivity : AppCompatActivity() {
                 })
             }
         }
+
     }
 
     private fun loadImage() {
@@ -225,7 +227,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == Gallery){
-            if(resultCode == Gallery){
                 if(resultCode == RESULT_OK){
                     var dataUri = data?.data
                     try{
@@ -235,10 +236,9 @@ class ProfileActivity : AppCompatActivity() {
                     }catch(e:Exception){
                         Toast.makeText(this,"$e", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+                }else {
                     //something Wrong
                 }
-            }
         }
     }
 

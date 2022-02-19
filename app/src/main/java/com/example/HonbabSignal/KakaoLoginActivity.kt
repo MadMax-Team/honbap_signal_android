@@ -26,7 +26,8 @@ class KakaoLoginActivity : AppCompatActivity(){
 
         webView = binding.wView
         webView.setWebViewClient(WebViewClient()); // 웹뷰클라이언트
-        webView.loadUrl("http://52.78.100.231:80/auth/kakao")
+        //loadUrl ipv4 수정될 수 있음
+        webView.loadUrl("http://15.164.98.165/auth/kakao")
 
         webViewLayout = binding.wViewLayout
 
