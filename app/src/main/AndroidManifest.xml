@@ -2,39 +2,63 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.HonbabSignal">
 
-
-
     //장치사용허가가
     <uses-permission android:name="android.permission.INTERNET"/>
-   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    //permission for gallery
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
     <application
+        android:name = ".GlobalApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_honbab_signal"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_honbab_signal_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic = "true"
-        android:theme="@style/Theme.HonbabSignal">
+        android:theme="@style/Theme.HonbabSignal"
+        android:usesCleartextTraffic="true">
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="hs74nz38zh" />
 
-        <activity android:name="com.example.HonbabSignal.MainActivity">
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key"/>
+
+        <activity android:name="com.example.HonbabSignal.MainActivity"/>
+        <activity android:name="com.example.HonbabSignal.LogInActivity">
+
+        </activity>
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="oauth"
+                    android:scheme="d522fa00d6dd755ce0565f62e2536a03" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.HonbabSignal.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.HonbabSignal.MapActivity"/>
-        <activity android:name="com.example.HonbabSignal.LogInActivity"/>
+        <activity android:name="com.example.HonbabSignal.MapListActivity"/>
         <activity android:name="com.example.HonbabSignal.SignUpActivity"/>
+        <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>
         <activity android:name="com.example.HonbabSignal.ProfileActivity"/>
-
+        <activity android:name="com.example.HonbabSignal.EditingProfileActivity"/>
+        <activity android:name="com.example.HonbabSignal.MapActivity"/>
+        <activity android:name="com.example.HonbabSignal.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.example.HonbabSignal.KakaoLoginActivity"/>
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
-import com.example.HonbabSignal.databinding.FragmentLookBinding
+
 
 
 class HomeFragment : Fragment() {
@@ -22,21 +22,29 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        //home에서 회원가입 버튼 누르면 signup activity로 넘어갑니다
-        binding.homeSignUpTv.setOnClickListener {
-            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
-
-            val intent = Intent(activity, SignUpActivity::class.java)
-            startActivity(intent)
+        binding.homeAfterSignalOffIv.setOnClickListener {
+            binding.homeAfterSignalOffIv.visibility = View.GONE
+            binding.homeAfterSignalOnIv.visibility = View.VISIBLE
+            binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
+            binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+        }
+        binding.homeAfterSignalOnIv.setOnClickListener {
+            binding.homeAfterSignalOnIv.visibility = View.GONE
+            binding.homeAfterSignalOffIv.visibility = View.VISIBLE
+            binding.homeAfterLoginDmToMeLl.visibility = View.GONE
+            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
         }
 
-        //        //home에서 login버튼 누르면 login activity로 넘어갑니다
-//        binding.homeLoginTv.setOnClickListener {
-//            //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
-//
-//            val intent = Intent(activity, LogInActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.homeAfterLoginSignalToMeAcceptBtn.setOnClickListener{
+            binding.homeAfterLoginCurrentMyMatchingStatusTv.text = "\""+binding.homeAfterLoginSignalToMeProfileNameTv.text.toString()+"\""+"님과 매칭되었습니다!★"
+            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+            binding.homeAfterLoginAfterMatchingInfoLl.visibility = View.VISIBLE
+            binding.homeAfterLoginAfterMatchingSeeProfile.visibility = View.VISIBLE
+
+        }
+
+
+
 
         return binding.root
     }

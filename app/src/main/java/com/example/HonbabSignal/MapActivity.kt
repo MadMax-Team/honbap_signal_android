@@ -1,17 +1,20 @@
 package com.example.HonbabSignal
-
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.HonbabSignal.databinding.ActivityMainBinding
 import com.example.HonbabSignal.databinding.ActivityMapBinding
+import com.example.HonbabSignal.databinding.ActivityMapListBinding
+import com.google.type.LatLng
 import com.naver.maps.map.*
+import com.naver.maps.map.overlay.Align
 import com.naver.maps.map.util.FusedLocationSource
-import com.naver.maps.map.widget.ZoomControlView
+import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
 
-class MapActivity:AppCompatActivity(), OnMapReadyCallback {
+
+class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
     lateinit var binding: ActivityMapBinding
     lateinit var mapView: MapView
@@ -21,12 +24,19 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
-        mapView = findViewById<MapView>(R.id.map_view)
-        mapView.onCreate(savedInstanceState)
+        binding = ActivityMapBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        mapView = binding.mapView
+        //mapView.onCreate(savedInstanceState)
 
+        //lookBtn 누르면 MapActivity로 넘어가기
+        binding.lookBtn.setOnClickListener {
+            val intent = Intent(this, MapListActivity::class.java)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent)
 
+        }
 
         //지도 사용권한을 받아옴
         locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
@@ -38,6 +48,9 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
                     fm.beginTransaction().add(R.id.map, it).commit()
                 }
         mapFragment.getMapAsync(this);
+
+
+
 
     }
     override fun onStart() {
@@ -92,7 +105,20 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(naverMap: NaverMap) {
 
-        Toast.makeText(this, "onMapReady 실행 중", Toast.LENGTH_SHORT).show();
+        var coord = com.naver.maps.geometry.LatLng(37.496173, 126.954096)
+        makeMarker(coord,"3",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.498919, 126.950795)
+        makeMarker(coord,"1",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.502839, 126.948144)
+        makeMarker(coord,"5",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.619538, 127.058790)
+        makeMarker(coord,"11",naverMap)
+
+        coord = com.naver.maps.geometry.LatLng(37.449869, 126.653102)
+        makeMarker(coord,"13",naverMap)
 
         this.naverMap = naverMap
         val uiSettings = naverMap.uiSettings
@@ -101,19 +127,36 @@ class MapActivity:AppCompatActivity(), OnMapReadyCallback {
         uiSettings.isLocationButtonEnabled = true
 
         naverMap.locationSource = locationSource
-
-
         naverMap.locationTrackingMode = LocationTrackingMode.Follow
+
+        //마커표시
+
 
 
         //좌표 변경 시 토스트로 표시
         naverMap.addOnLocationChangeListener { location ->
-            Toast.makeText(this, "${location.latitude}, ${location.longitude}",
-                Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "${location.latitude}, ${location.longitude}",
+//                Toast.LENGTH_SHORT).show()
+
+
         }
     }
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1000
+    }
+
+    private fun makeMarker(loc: com.naver.maps.geometry.LatLng, peole:String,naverMap: NaverMap){
+
+        val marker = Marker()
+        marker.setPosition(loc)
+        marker.map = naverMap
+        marker.setWidth(100)
+        marker.setHeight(100)
+        marker.captionText = peole
+        marker.captionTextSize = 16f
+        marker.setCaptionAligns(Align.Top)
+        marker.setIcon(OverlayImage.fromResource(R.drawable.gps_marker))
+
     }
 }

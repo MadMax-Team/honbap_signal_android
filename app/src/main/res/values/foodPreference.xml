@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foodPreference">
+        <item>선택안함</item>
+        <item>한식</item>
+        <item>일식</item>
+        <item>고수 안먹음</item>
+    </string-array>
+</resources>

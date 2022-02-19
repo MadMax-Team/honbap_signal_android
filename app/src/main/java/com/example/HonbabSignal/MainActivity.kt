@@ -4,10 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityMainBinding
-import com.naver.maps.map.LocationTrackingMode
-import com.naver.maps.map.NaverMap
-import com.naver.maps.map.OnMapReadyCallback
-import com.naver.maps.map.util.FusedLocationSource
 
 
 class MainActivity : AppCompatActivity(){
@@ -17,6 +13,7 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         initNavigation()
 
@@ -29,11 +26,9 @@ class MainActivity : AppCompatActivity(){
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.lookFragment -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LookFragment())
-                        .commitAllowingStateLoss()
-                    return@setOnItemSelectedListener true
+                R.id.mapActivity -> {
+                    val intent = Intent(this, MapActivity::class.java)
+                    startActivity(intent)
                 }
 
                 R.id.searchFragment -> {
@@ -43,9 +38,16 @@ class MainActivity : AppCompatActivity(){
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.lockerFragment -> {
+                R.id.MyPageFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, LockerFragment())
+                        .replace(R.id.main_frm, MyPageFragment())
+                        .commitAllowingStateLoss()
+                    return@setOnItemSelectedListener true
+                }
+
+                R.id.DmListFragment -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_frm, DmListFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

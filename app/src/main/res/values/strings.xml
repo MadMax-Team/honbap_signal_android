@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">HonbabSignal</string>
+    <string name="app_name">혼밥시그널</string>
+    <string name="kakao_app_key">d522fa00d6dd755ce0565f62e2536a03</string>
 </resources>

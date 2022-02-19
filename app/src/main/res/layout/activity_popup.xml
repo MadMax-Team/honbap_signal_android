@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/layout_map_list_popup"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/popup_back_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/icon_x"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="100dp">
+
+        <ImageView
+            android:id="@+id/item_map_signal_list_profile_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/default_profile"
+            android:background="@drawable/default_profile"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/item_map_signal_nickname_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="고악"
+        android:fontFamily="@font/pretendard_extra_bold"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"/>
+
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="1dp" />
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="설정한 소개글이 없습니다."
+        android:fontFamily="@font/pretendard_regular"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textSize="10sp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/item_map_signal_tag1_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/layout_map_list_popup_tag"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="#일식"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/item_map_signal_tag2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#샤브샤브"
+            android:textSize="10sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/layout_map_list_popup_tag"/>
+
+        <TextView
+            android:id="@+id/item_map_signal_tag3_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#회"
+            android:textSize="10sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart = "5dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/layout_map_list_popup_tag"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/item_map_signal_tag4_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#문화동"
+            android:textSize="10sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/layout_map_list_popup_tag"/>
+
+        <TextView
+            android:id="@+id/item_map_signal_tag5_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#20대"
+            android:textSize="10sp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/layout_map_list_popup_tag"/>
+
+    </LinearLayout>
+    <!-- Notice -->
+
+    <!-- 닫기 버튼 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/popup_signal_btn"
+            android:text="시그널 알림 보내기"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:background="@color/honbab_main_color"
+            android:layout_width="150dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"/>
+
+        <View
+            android:background="#F2F2F2"
+            android:layout_width="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/popup_dm_btn"
+            android:text="DM 보내기"
+            android:textSize="10sp"
+            android:gravity="center"
+            android:background="@color/honbab_main_color"
+            android:layout_weight="1"
+            android:layout_width="150dp"
+            android:layout_height="53dp"/>
+
+    </LinearLayout>
+    <!--// 닫기 버튼 -->
+
+</LinearLayout>

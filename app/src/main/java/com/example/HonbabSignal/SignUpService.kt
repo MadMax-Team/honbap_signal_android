@@ -21,9 +21,9 @@ interface SignUpService {
 
     //유저의 index를 받아오는 GET
     @GET("/user/signup/{userId}")
-            fun getUserIdx(
-                @Path("userId") userId:String
-            ):Call<UserIdxAuthResponse>
+    fun getUserIdx(
+        @Path("userId") userId:String
+    ):Call<UserIdxAuthResponse>
 
 
     //유저의 프로필 정보를 업로드 하는 POST
