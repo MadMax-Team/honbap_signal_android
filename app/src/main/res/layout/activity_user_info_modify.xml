@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/user_info_modify_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개인정보 수정"
+        android:textSize="40sp"
+        android:textColor="@color/honbab_main_color"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    //id
+    <TextView
+        android:id="@+id/user_info_modify_id_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_title_tv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저의 아이디가 이곳에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_id_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    //이름
+    <TextView
+        android:id="@+id/user_info_modify_name_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="이름"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_id_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <EditText
+        android:id="@+id/user_info_modify_name_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저의 이름이 디폴트로 들어감"
+        android:backgroundTint="@color/honbab_main_color"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_name_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_name_marker_tv"/>
+
+    //생일
+    <TextView
+        android:id="@+id/user_info_modify_birth_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="생년월일"
+       app:layout_constraintTop_toBottomOf="@id/user_info_modify_name_et"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+    //연
+    <EditText
+        android:id="@+id/user_info_modify_birth_year_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YYYY"
+        android:textSize="16sp"
+        android:backgroundTint="@color/honbab_main_color"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_birth_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_birth_marker_tv"/>
+    <TextView
+        android:id="@+id/user_info_modify_birth_year_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="년"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintBottom_toBottomOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintStart_toEndOf="@id/user_info_modify_birth_year_et"/>
+    //월
+
+    <EditText
+        android:id="@+id/user_info_modify_birth_month_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MM"
+        android:textSize="16sp"
+        android:backgroundTint="@color/honbab_main_color"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_birth_marker_tv"
+        app:layout_constraintStart_toEndOf="@id/user_info_modify_birth_year_tv"/>
+    <TextView
+        android:id="@+id/user_info_modify_birth_month_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="월"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintBottom_toBottomOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintStart_toEndOf="@id/user_info_modify_birth_month_et"/>
+
+    //일
+    <EditText
+        android:id="@+id/user_info_modify_birth_day_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DD"
+        android:backgroundTint="@color/honbab_main_color"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_birth_marker_tv"
+        app:layout_constraintStart_toEndOf="@id/user_info_modify_birth_month_tv"/>
+    <TextView
+        android:id="@+id/user_info_modify_birth_day_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintBottom_toBottomOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintStart_toEndOf="@id/user_info_modify_birth_day_et"/>
+    //생일 끝
+
+    //이메일
+    <TextView
+        android:id="@+id/user_info_modify_email_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="이메일"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_birth_year_et"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_email_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저의 이메일이 이곳에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_email_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    //전화번호
+    <TextView
+        android:id="@+id/user_info_modify_number_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="전화번호"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_email_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_number_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저의 전화번호가 이곳에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_number_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_number_marker_tv"/>
+
+    //성별
+    <TextView
+        android:id="@+id/user_info_modify_sex_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="성별"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_number_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_sex_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유저의 성별이 이곳에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_sex_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_sex_marker_tv"/>
+
+    //업데이트 일자
+    <TextView
+        android:id="@+id/user_info_modify_last_update_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="마지막 업데이트"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_sex_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_last_update_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마지막 업데이트 일자가 여기에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_last_update_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_last_update_marker_tv"/>
+
+    //생성일자
+    <TextView
+        android:id="@+id/user_info_modify_create_date_marker_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:text="계정 생성 일자"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_last_update_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_id_marker_tv"/>
+
+    <TextView
+        android:id="@+id/user_info_modify_create_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="게정 최초 생성 일자가 여기에 들어감"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:background="@color/light_gray"
+        android:textColor = "@color/black"
+        app:layout_constraintTop_toBottomOf="@id/user_info_modify_create_date_marker_tv"
+        app:layout_constraintStart_toStartOf="@id/user_info_modify_create_date_marker_tv"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
