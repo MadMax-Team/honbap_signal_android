@@ -126,6 +126,7 @@
                 android:maxLength="100"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="15dp"
+                android:hint="고악"
                 android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -256,9 +257,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editing_profile_tag_et"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/editing_food_preference_cl"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
+            android:weightSum="10"
+            android:gravity="center"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -270,6 +274,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:text="선호 음식"
+                android:layout_weight="3"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -278,8 +283,9 @@
 
             <Spinner
                 android:id="@+id/editing_profile_food_preference_spn"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="7"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -287,9 +293,186 @@
                 app:layout_constraintStart_toEndOf="@id/editing_food_preference_tv"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editing_food_hate_cl"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:weightSum="10"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editing_food_preference_cl">
 
+            <TextView
+                android:id="@+id/editing_food_hate_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="비선호 음식"
+                android:layout_weight="3"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <Spinner
+                android:id="@+id/editing_profile_food_hate_spn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editing_food_hate_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editing_habit_cl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editing_food_hate_cl">
+
+            <TextView
+                android:id="@+id/editing_habit_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="관심사"
+                android:layout_weight="2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/editing_profile_habit_spn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editing_habit_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editing_eating_time_cl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editing_habit_cl">
+
+            <TextView
+                android:id="@+id/editing_eating_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="평균 식사 속도"
+                android:layout_weight="2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/editing_eating_time_spn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editing_eating_time_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editing_location_cl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editing_eating_time_cl">
+
+            <TextView
+                android:id="@+id/editing_location_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="선호 지역"
+                android:layout_weight="2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/editing_location_spn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editing_location_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/editing_mbti_cl"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editing_location_cl">
+
+            <TextView
+                android:id="@+id/editing_mbti_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="MBTI"
+                android:layout_weight="2"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/editing_mbti_spn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/editing_mbti_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
 
 

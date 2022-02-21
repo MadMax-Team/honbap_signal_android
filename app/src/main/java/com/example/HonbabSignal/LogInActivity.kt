@@ -41,7 +41,7 @@ class LogInActivity : AppCompatActivity() {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
             val intent = Intent(this, SignUpActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            //intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
         }
 

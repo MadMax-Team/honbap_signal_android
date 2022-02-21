@@ -42,11 +42,11 @@ class PopupActivity : Activity(){
         }
 
         binding.popupSignalBtn.setOnClickListener{
-            Toast.makeText(this@PopupActivity, "signal이 보내졌습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@PopupActivity, "시그널이 보내졌습니다.", Toast.LENGTH_SHORT).show()
         }
 
         binding.popupDmBtn.setOnClickListener{
-            Toast.makeText(this@PopupActivity, "Dm이 보내졌습니다.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@PopupActivity, "DM이 보내졌습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 

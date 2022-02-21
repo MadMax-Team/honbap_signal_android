@@ -23,8 +23,9 @@
             android:id="@+id/item_map_signal_list_profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:scaleType="fitXY"
+            android:background="@drawable/default_profile"
+            android:src="@drawable/default_profile" />
     </androidx.cardview.widget.CardView>
 
     <TextView
