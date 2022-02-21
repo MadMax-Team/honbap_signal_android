@@ -18,5 +18,6 @@
     <color name="failure">#E74C3C</color>
     <color name="warning">#F1C40F</color>
     <color name="honbab_main_color">#FF4B26</color>
+    <color name="light_gray">#E2E2E2</color>
 
 </resources>

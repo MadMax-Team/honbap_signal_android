@@ -59,6 +59,7 @@
         <activity android:name="com.example.HonbabSignal.MapActivity"/>
         <activity android:name="com.example.HonbabSignal.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name="com.example.HonbabSignal.KakaoLoginActivity"/>
+        <activity android:name="com.example.HonbabSignal.UserInfoModifyActivity"/>
     </application>
 
 </manifest>
