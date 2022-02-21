@@ -33,20 +33,22 @@ class EditingProfileActivity : AppCompatActivity() {
 
 
         //실시간 글자 수 변경
-        binding.editingProfilePrTv.addTextChangedListener(object:TextWatcher{
+        binding.editingProfilePrEt.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
+                Log.d("editingProfile","beforeTextChanged")
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                Log.d("editingProfile","im here")
-                val input = binding.editingProfilePrEt.toString().length
-                binding.editingProfilePrCntTv.text = "$input/100 글자"
-                Log.d("editingProfile",input.toString())
+                Log.d("editingProfile","onTextChanged")
+
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
+                Log.d("editingProfile","afterTextChanged")
+                val input = binding.editingProfilePrEt.text.toString().length
+                binding.editingProfilePrCntTv.text = "$input/100 글자"
+                Log.d("editingProfile",input.toString())
+                Log.d("editingProfile",input.toString())
             }
 
         })
