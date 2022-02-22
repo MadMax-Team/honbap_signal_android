@@ -93,6 +93,12 @@ class EditingProfileActivity : AppCompatActivity() {
         val foodPreferenceArray = resources.getStringArray(R.array.foodPreference)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, foodPreferenceArray)
         binding.editingProfileFoodPreferenceSpn.adapter = adapter
+
+        val hateFoodArray = resources.getStringArray(R.array.hateFood)
+        val hateFoodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hateFoodArray)
+        binding.editingProfileFoodHateSpn.adapter = hateFoodAdapter
+
+
     }
 
     private fun setupSpinnerHandler() {
@@ -100,9 +106,18 @@ class EditingProfileActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
-
             }
         }
+
+        binding.editingProfileFoodHateSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+
     }
 }
 
