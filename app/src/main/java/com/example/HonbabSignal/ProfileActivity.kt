@@ -41,10 +41,7 @@ class ProfileActivity : AppCompatActivity() {
             intent.hasExtra("phoneNum")&&intent.hasExtra("sex")){
             binding.profileSignUpBtnTv.setOnClickListener{
                 //retrofit 개체 생성
-                var retrofit = Retrofit.Builder()
-                    .baseUrl("http://52.78.100.231:3001")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
+                var retrofit = getRetorfit()
 
                 //retrofit에 interface를 넣어줌
                 var signUpService = retrofit.create(SignUpService::class.java)
@@ -210,6 +207,7 @@ class ProfileActivity : AppCompatActivity() {
                 })
             }
         }
+
     }
 
     private fun loadImage() {
@@ -225,7 +223,6 @@ class ProfileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == Gallery){
-            if(resultCode == Gallery){
                 if(resultCode == RESULT_OK){
                     var dataUri = data?.data
                     try{
@@ -235,10 +232,9 @@ class ProfileActivity : AppCompatActivity() {
                     }catch(e:Exception){
                         Toast.makeText(this,"$e", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+                }else {
                     //something Wrong
                 }
-            }
         }
     }
 

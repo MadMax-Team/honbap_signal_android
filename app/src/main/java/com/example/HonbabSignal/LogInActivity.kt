@@ -60,6 +60,11 @@ class LogInActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             startActivity(intent)
         }
+        //프로필(회원가입) 입력창으로 가는 버튼 : 임시
+        binding.loginToProfileBtn.setOnClickListener{
+            val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
 
     }//onCreate꺼임
 }
