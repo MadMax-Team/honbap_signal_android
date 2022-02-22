@@ -1,42 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    //화면 비율에 맞게 나와야하므로 dialog custom이후에 비율을 조정하는 과정이 필요함.
     <ImageView
         android:id="@+id/post_script_x_btn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/btn_x_thin_balck"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/post_script_manners_temperature_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="(매너온도)"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
+    //프사
     <androidx.cardview.widget.CardView
-        android:id="@+id/post_script_profile_img_iv"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/post_script_profile_img_cv"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         app:cardElevation="0dp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/home_after_login_signal_to_me_profile_img_iv"
+            android:id="@+id/post_script_profile_img_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_image_honbab"/>
-
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/post_script_profile_nickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마이 닉네임"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/pretendard_regular"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@id/post_script_profile_img_cv"
+        app:layout_constraintStart_toEndOf="@id/post_script_profile_img_cv"/>
 
+    <TextView
+        android:id="@+id/post_script_with_next_to_nickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="님과"
+        android:fontFamily="@font/pretendard_medium"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/post_script_profile_nickname_tv"
+        app:layout_constraintStart_toEndOf="@id/post_script_profile_nickname_tv"/>
+
+    <TextView
+        android:id="@+id/post_script_underneath_nickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="만남은 어떠셨나요?"
+        android:textColor="@color/black"
+        android:fontFamily="@font/pretendard_medium"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/post_script_profile_nickname_tv"
+        app:layout_constraintStart_toStartOf="@id/post_script_profile_nickname_tv"/>
+    //별점
+    <RatingBar
+        android:id="@+id/post_script_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:isIndicator="false"
+        android:stepSize="1"
+        android:rating="4"
+        android:progressTint="@color/honbab_main_color"
+        android:layout_marginTop="45dp"
+        app:layout_constraintTop_toBottomOf="@id/post_script_profile_img_cv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/post_script_for_better_than_berfore_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="더 좋은 혼밥시그널의 만남을 위해 피드백을 남겨주세요"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/pretendard_medium"
+        app:layout_constraintTop_toBottomOf="@id/post_script_rating_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    //평가 옵션 : 디자인 컨펌 = radius 10dp 이상 주지말것
+    //식사매너가 좋았습니다
+    <androidx.cardview.widget.CardView
+        android:id="@+id/post_script_good_manners_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/white"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/post_script_for_better_than_berfore_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/post_script_nice_menu_pick_cv">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="식사 매너가 좋았습니다"
+            android:textSize="12sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"/>
+    </androidx.cardview.widget.CardView>
+    //메뉴 선정이 탁월하였습니다
+    <androidx.cardview.widget.CardView
+        android:id="@+id/post_script_nice_menu_pick_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/white"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/post_script_good_manners_cv"
+        app:layout_constraintStart_toEndOf="@id/post_script_good_manners_cv">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메뉴 선정이 탁월하였습니다"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/pretendard_regular"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"/>
+    </androidx.cardview.widget.CardView>
+    //대화 매너가 좋았습니다
+    <androidx.cardview.widget.CardView
+        android:id="@+id/post_script_good_communication_manners_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/post_script_good_manners_cv"
+        app:layout_constraintStart_toStartOf="@id/post_script_good_manners_cv">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="대화 매너가 좋았습니다"
+            android:textSize="12sp"
+            android:fontFamily="@font/pretendard_regular"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"/>
+    </androidx.cardview.widget.CardView>
+    //즐거운 시간이었습니다
+    <androidx.cardview.widget.CardView
+        android:id="@+id/post_script_nice_time_cv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="25dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="@color/white"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/post_script_good_communication_manners_cv"
+        app:layout_constraintStart_toEndOf="@id/post_script_good_communication_manners_cv">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="즐거운 시간이었습니다"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/pretendard_regular"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/post_script_anything_else_et"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#E2E2E2"
+        android:hint="기타 남기고 싶은 피드백이 있다면 적어주세요"
+        android:fontFamily="@font/pretendard_regular"
+        android:padding="15dp"
+        android:gravity="top"
+        android:textSize="12sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/post_script_nice_time_cv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="보내기"
+        android:textSize="20dp"
+        android:fontFamily="@font/pretendard_medium"
+        android:background="@color/honbab_main_color"
+        android:textColor="@color/white"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

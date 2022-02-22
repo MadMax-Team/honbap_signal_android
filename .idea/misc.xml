@@ -76,11 +76,21 @@
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/drawable/layout_stroke.xml" value="0.18596491228070175" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/drawable/splash_background.xml" value="0.18596491228070175" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/font/font.xml" value="0.18552631578947368" />
-        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_post_script.xml" value="0.2046875" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_dm_room.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_editing_profile.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_kakao_login.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_log_in.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_map.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_map_list.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_popup.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_post_script.xml" value="0.18" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/fragment_dm_list.xml" value="0.18645833333333334" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/fragment_home.xml" value="0.4243027888446215" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/fragment_my_page.xml" value="0.18645833333333334" />
+        <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/fragment_search.xml" value="0.18645833333333334" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/item_dm_list.xml" value="0.26268115942028986" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/item_map_signal_list.xml" value="0.26268115942028986" />
         <entry key="..\:/forMergeAndroid(current)/honbap_signal_android/app/src/main/res/layout/item_my_dm.xml" value="0.26268115942028986" />
