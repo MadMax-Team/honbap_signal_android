@@ -16,4 +16,4 @@ import com.google.gson.annotations.SerializedName
 data class UserInfoAuthResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
                                 @SerializedName("code") val code: Int,
                                 @SerializedName("message") val message: String,
-                                @SerializedName("result") val result : //result 형식 정확하게 정의해서 넣어야함)
+                                @SerializedName("result") val result : String)//result 형식 정확하게 정의해서 넣어야함))

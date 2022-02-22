@@ -1,5 +1,6 @@
 package com.example.HonbabSignal
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -11,11 +12,15 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityEditingProfileBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EditingProfileActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityEditingProfileBinding
     lateinit var foodPerferenceSpn: Spinner
+    lateinit var nickName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,37 @@ class EditingProfileActivity : AppCompatActivity() {
         }
 
 
+        var retrofit = getRetorfit()
+
+        var EditingProfileService = retrofit.create(EditingProfileService::class.java)
+        var userIdx: Int = 1
+        Log.d("editingProfile","retrofit")
+        EditingProfileService.getUserIdx(userIdx)
+            .enqueue(object: Callback<ProfileAuthResponse>{
+                override fun onResponse(
+                    call: Call<ProfileAuthResponse>,
+                    response: Response<ProfileAuthResponse>
+                ) {
+                    var respIdx = response.body()!!
+                    Log.d("editingProfile",respIdx.code.toString())
+                    when (respIdx.code) {
+                        1000 -> {
+                            Log.d("editingProfile","success")
+                            nickName = respIdx.result[0].nickName
+                            binding.editingProfileNicknameTv.text = nickName
+                            binding.editingProfileNicknameEt.setText(nickName)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfileAuthResponse>, t: Throwable) {
+                    var dialog = AlertDialog.Builder(this@EditingProfileActivity)
+                    dialog.setTitle("bad")
+                }
+            })
+
+
+
         //실시간 글자 수 변경
         binding.editingProfilePrEt.addTextChangedListener(object:TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -40,7 +76,6 @@ class EditingProfileActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 Log.d("editingProfile","onTextChanged")
-
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -48,16 +83,10 @@ class EditingProfileActivity : AppCompatActivity() {
                 val input = binding.editingProfilePrEt.text.toString().length
                 binding.editingProfilePrCntTv.text = "$input/100 글자"
                 Log.d("editingProfile",input.toString())
-                Log.d("editingProfile",input.toString())
             }
-
         })
+
     }
-
-
-
-
-
 
     //spinner
     private fun setupSpinner() {
@@ -65,7 +94,6 @@ class EditingProfileActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, foodPreferenceArray)
         binding.editingProfileFoodPreferenceSpn.adapter = adapter
     }
-
 
     private fun setupSpinnerHandler() {
         binding.editingProfileFoodPreferenceSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
