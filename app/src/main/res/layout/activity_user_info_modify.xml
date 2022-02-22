@@ -268,6 +268,18 @@
         app:layout_constraintTop_toBottomOf="@id/user_info_modify_create_date_marker_tv"
         app:layout_constraintStart_toStartOf="@id/user_info_modify_create_date_marker_tv"/>
 
+    <Button
+        android:id="@+id/user_info_modify_complete_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="수정완료"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
 
 
 

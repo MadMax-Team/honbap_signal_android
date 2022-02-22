@@ -41,11 +41,7 @@ class ProfileActivity : AppCompatActivity() {
             intent.hasExtra("phoneNum")&&intent.hasExtra("sex")){
             binding.profileSignUpBtnTv.setOnClickListener{
                 //retrofit 개체 생성
-                var retrofit = Retrofit.Builder()
-                    //url교체해야함
-                    .baseUrl("http://172.31.37.142")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
+                var retrofit = getRetorfit()
 
                 //retrofit에 interface를 넣어줌
                 var signUpService = retrofit.create(SignUpService::class.java)
