@@ -98,6 +98,22 @@ class EditingProfileActivity : AppCompatActivity() {
         val hateFoodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hateFoodArray)
         binding.editingProfileFoodHateSpn.adapter = hateFoodAdapter
 
+        val habitArray = resources.getStringArray(R.array.habit)
+        val habitAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, habitArray)
+        binding.editingProfileHabitSpn.adapter = habitAdapter
+
+        val eatingTimeArray = resources.getStringArray(R.array.eatingTime)
+        val eatingTimeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, eatingTimeArray)
+        binding.editingEatingTimeSpn.adapter = eatingTimeAdapter
+
+        val locationArray = resources.getStringArray(R.array.location)
+        val locationAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, locationArray)
+        binding.editingLocationSpn.adapter = locationAdapter
+
+        val mbtiArray = resources.getStringArray(R.array.mbti)
+        val mbtiAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mbtiArray)
+        binding.editingMbtiSpn.adapter = mbtiAdapter
+
 
     }
 
@@ -112,12 +128,37 @@ class EditingProfileActivity : AppCompatActivity() {
         binding.editingProfileFoodHateSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
 
+        binding.editingProfileHabitSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
 
+        binding.editingEatingTimeSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.editingLocationSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.editingMbtiSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
     }
 }
 
