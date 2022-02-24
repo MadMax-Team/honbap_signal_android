@@ -11,6 +11,6 @@ interface EditingProfileService {
     //프로필 정보들을 받아옴
     @GET("/user/mypage/{userIdx}")
     fun getUserIdx(
-        @Path("userIdx") userIdx:Int = 11
+        @Path("userIdx") userIdx:Int = 33
     ): Call<ProfileAuthResponse>
 }
