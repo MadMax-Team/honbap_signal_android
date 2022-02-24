@@ -44,9 +44,11 @@ class MapListActivity:AppCompatActivity() {
 
         //임시 데이터리스트 생성(서버 없어서 해봄)
         mapSignalListDatas.apply{
-            add(MapSignal("고악",R.drawable.kakao_default_profile_image,"나와 555m","4분전","일식","맵찔이","초밥","동작구","초콜릿"))
-            add(MapSignal("고악",R.drawable.kakao_default_profile_image,"나와 211m","1분전","돈까스","샤브샤브","전주","대전","사이다"))
-            add(MapSignal("고악",R.drawable.kakao_default_profile_image,"나와 105m","6분전","국밥","떡볶이","튀김","고기","푸드파이터"))
+            add(MapSignal("곤",R.drawable.geon_profile,"나와 555m","4분전","일식","돈까스","젤리","20대","초콜릿"))
+            add(MapSignal("코뿡",R.drawable.cobboong,"나와 211m","1분전","헤비토커","초밥","고기","샤브샤브","사이다"))
+            add(MapSignal("데옹",R.drawable.deong,"나와 105m","6분전","푸드파이터","떡볶이","국밥","고기","풀"))
+            add(MapSignal("도동",R.drawable.dodong_profile,"나와 15m","10분전","디자인","맥주","피자","20대","고기"))
+            add(MapSignal("창식",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
         }
 
         //recyclerView

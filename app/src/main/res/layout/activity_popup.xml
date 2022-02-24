@@ -26,7 +26,8 @@
             android:id="@+id/item_map_signal_list_profile_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/default_profile"
+            android:scaleType="fitXY"
+            android:src="@drawable/cobboong"
             android:background="@drawable/default_profile"/>
 
     </androidx.cardview.widget.CardView>
@@ -35,7 +36,7 @@
         android:id="@+id/item_map_signal_nickname_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="고악"
+        android:text="코뿡"
         android:fontFamily="@font/pretendard_extra_bold"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -56,11 +57,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="설정한 소개글이 없습니다."
+        android:text="밥 한 끼 하실래요?"
         android:fontFamily="@font/pretendard_regular"
         android:gravity="center"
         android:layout_marginBottom="20dp"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 
 
 
@@ -83,7 +84,7 @@
             android:paddingEnd="8dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="#일식"
+            android:text="헤비토커"
             android:fontFamily="@font/pretendard_regular"
             android:textColor="@color/black"
             android:textSize="10sp" />
@@ -92,7 +93,7 @@
             android:id="@+id/item_map_signal_tag2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#샤브샤브"
+            android:text="초밥"
             android:textSize="10sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -107,7 +108,7 @@
             android:id="@+id/item_map_signal_tag3_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#회"
+            android:text="고기"
             android:textSize="10sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -133,7 +134,7 @@
             android:id="@+id/item_map_signal_tag4_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#문화동"
+            android:text="샤브샤브"
             android:textSize="10sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -148,7 +149,7 @@
             android:id="@+id/item_map_signal_tag5_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#20대"
+            android:text="사이다"
             android:textSize="10sp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"

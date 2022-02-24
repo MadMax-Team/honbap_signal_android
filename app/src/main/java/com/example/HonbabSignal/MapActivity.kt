@@ -109,10 +109,10 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         makeMarker(coord,"3",naverMap)
 
         coord = com.naver.maps.geometry.LatLng(37.498919, 126.950795)
-        makeMarker(coord,"1",naverMap)
+        makeMarker(coord,"5",naverMap)
 
         coord = com.naver.maps.geometry.LatLng(37.502839, 126.948144)
-        makeMarker(coord,"5",naverMap)
+        makeMarker(coord,"2",naverMap)
 
         coord = com.naver.maps.geometry.LatLng(37.619538, 127.058790)
         makeMarker(coord,"11",naverMap)

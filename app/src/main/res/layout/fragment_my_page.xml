@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="닉네임"
+                android:text="고악"
                 android:fontFamily="@font/pretendard_regular"
                 android:textColor="@color/white"
                 android:layout_marginTop="5dp"
@@ -67,7 +67,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="email"
+                android:text="goak"
                 android:fontFamily="@font/pretendard_regular"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/white"
@@ -76,7 +76,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="birth"
+                android:layout_marginTop="2dp"
+                android:text="2001.06.05"
                 android:fontFamily="@font/pretendard_regular"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/white"
@@ -85,7 +86,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="location"
+                android:layout_marginTop="2dp"
+                android:text="숭실대 입구"
                 android:fontFamily="@font/pretendard_regular"
                 android:layout_marginStart="5dp"
                 android:textColor="@color/white"
