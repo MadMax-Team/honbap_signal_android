@@ -20,14 +20,12 @@ class PopupActivity : Activity(){
         super.onCreate(savedInstanceState)
         binding = ActivityPopupBinding.inflate(layoutInflater)
 
-
         var dm = getApplicationContext().getResources().getDisplayMetrics();
 
         var width = (dm.widthPixels * 0.7); // Display 사이즈의 90%
         var height = (dm.heightPixels * 0.7); // Display 사이즈의 90%
 
         getWindow().getAttributes().width = width.toInt();
-
         getWindow().getAttributes().height = height.toInt();
 
 
@@ -37,7 +35,7 @@ class PopupActivity : Activity(){
 
         binding.popupBackBtn.setOnClickListener {
             val intent = Intent(this,MapListActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     //화면 비율에 맞게 나와야하므로 dialog custom이후에 비율을 조정하는 과정이 필요함.
     <ImageView
         android:id="@+id/post_script_x_btn"
@@ -81,7 +82,7 @@
         android:numStars="5"
         android:isIndicator="false"
         android:stepSize="1"
-        android:rating="4"
+        android:rating="3"
         android:progressTint="@color/honbab_main_color"
         android:layout_marginTop="45dp"
         app:layout_constraintTop_toBottomOf="@id/post_script_profile_img_cv"

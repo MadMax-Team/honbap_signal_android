@@ -53,8 +53,7 @@ class EditingProfileActivity : AppCompatActivity() {
                     when (respIdx.code) {
                         1000 -> {
                             Log.d("editingProfile","success")
-                            nickName = respIdx.result[0].nickName
-                            binding.editingProfileNicknameTv.text = nickName
+                            nickName = respIdx.result.nickName
                             binding.editingProfileNicknameEt.setText(nickName)
                         }
                     }
@@ -65,8 +64,6 @@ class EditingProfileActivity : AppCompatActivity() {
                     dialog.setTitle("bad")
                 }
             })
-
-
 
         //실시간 글자 수 변경
         binding.editingProfilePrEt.addTextChangedListener(object:TextWatcher{
