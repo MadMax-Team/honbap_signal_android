@@ -1,8 +1,7 @@
 package com.example.HonbabSignal
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface UserInfoModifyService {
 
@@ -10,5 +9,13 @@ interface UserInfoModifyService {
     fun getUserInfo(
         @Path("userIdx") userIdx: Int
     ): Call<UserInfoAuthResponse>
+
+    @FormUrlEncoded
+    @PATCH("/user/myinfo/{userIdx}")
+    fun patchUserInfo(
+        @Path("userIdx") userIdx:Int,
+        @Field("userName") userName : String,
+        @Field("birth")birth : String
+    ): Call<UserInfoPatchResponse>
 
 }
