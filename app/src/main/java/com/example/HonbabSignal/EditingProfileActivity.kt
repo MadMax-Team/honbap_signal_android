@@ -64,7 +64,7 @@ class EditingProfileActivity : AppCompatActivity() {
                     response: Response<ProfileAuthResponse>
                 ) {
                     var respIdx = response.body()!!
-                    Log.d("editingProfile",respIdx.code.toString())
+                    Log.d("editingProfile_code", respIdx.code.toString())
                     when (respIdx.code) {
                         1000 -> {
                             Log.d("editingProfile","success")
