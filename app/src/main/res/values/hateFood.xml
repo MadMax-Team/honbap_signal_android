@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hateFood">
+        <item>선택안함</item>
+        <item>고수</item>
+        <item>가지</item>
+        <item>버섯</item>
+    </string-array>
+</resources>
