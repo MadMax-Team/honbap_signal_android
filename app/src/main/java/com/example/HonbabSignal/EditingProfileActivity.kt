@@ -21,6 +21,14 @@ class EditingProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditingProfileBinding
     lateinit var foodPerferenceSpn: Spinner
     lateinit var nickName: String
+    lateinit var userIntroduce: String
+    lateinit var hateFood: String
+    lateinit var taste: String
+    lateinit var avgSpeed : String
+    lateinit var interest : String
+    lateinit var preferArea : String
+    lateinit var mbti : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +48,7 @@ class EditingProfileActivity : AppCompatActivity() {
         var retrofit = getRetorfit()
 
         var EditingProfileService = retrofit.create(EditingProfileService::class.java)
-        var userIdx: Int = 1
+        var userIdx: Int = 11
         Log.d("editingProfile","retrofit")
         EditingProfileService.getUserIdx(userIdx)
             .enqueue(object: Callback<ProfileAuthResponse>{
@@ -54,7 +62,29 @@ class EditingProfileActivity : AppCompatActivity() {
                         1000 -> {
                             Log.d("editingProfile","success")
                             nickName = respIdx.result.nickName
+                            userIntroduce = respIdx.result.userIntroduce
+                            hateFood = respIdx.result.hateFood
+                            taste = respIdx.result.taste
+                            avgSpeed = respIdx.result.avgSpeed
+                            interest = respIdx.result.interest
+                            preferArea = respIdx.result.preferArea
+                            mbti = respIdx.result.mbti
+
                             binding.editingProfileNicknameEt.setText(nickName)
+                            binding.editingProfilePrEt.setText(userIntroduce)
+//                            binding.editingProfileFoodHateSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+//                                override fun onItemSelected(
+//                                    p0: AdapterView<*>?,
+//                                    p1: View?,
+//                                    p2: Int,
+//                                    p3: Long
+//                                ) {
+//                                }
+//
+//                                override fun onNothingSelected(p0: AdapterView<*>?) {
+//                                }
+//
+//                            }
                         }
                     }
                 }
