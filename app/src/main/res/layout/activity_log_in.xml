@@ -167,4 +167,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <Button
+        android:id="@+id/login_to_post_script_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="후기로(후기 관련 개발중)"
+        app:layout_constraintTop_toBottomOf="@id/login_to_profile_btn"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ class LogInActivity : AppCompatActivity() {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
             val intent = Intent(this, LogInActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 
@@ -41,14 +41,14 @@ class LogInActivity : AppCompatActivity() {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
             val intent = Intent(this, SignUpActivity::class.java)
-            //intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            //intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 
         binding.homeLoginTv.setOnClickListener {
 
             val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
 
@@ -57,7 +57,7 @@ class LogInActivity : AppCompatActivity() {
         binding.logInKakaoLoginButton.setOnClickListener {
 
             val intent = Intent(this, KakaoLoginActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         //프로필(회원가입) 입력창으로 가는 버튼 : 임시
@@ -65,6 +65,14 @@ class LogInActivity : AppCompatActivity() {
             val intent = Intent(this,ProfileActivity::class.java)
             startActivity(intent)
         }
+
+        binding.loginToPostScriptBtn.setOnClickListener {
+
+            val intent = Intent(this, PostScriptActivity::class.java)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+
 
     }//onCreate꺼임
 }
