@@ -24,7 +24,7 @@ class UserInfoModifyActivity : AppCompatActivity(){
 
         //retrofit에 interface를 넣어줌
         var userInfoModifyService = retrofit.create(UserInfoModifyService::class.java)
-        var userIdx = 1
+        var userIdx = 33
         //유저의 정보를 받아오는부분
         userInfoModifyService.getUserInfo(userIdx).enqueue(object : Callback<UserInfoAuthResponse>{
             override fun onResponse(
