@@ -57,7 +57,7 @@ class EditingProfileActivity : AppCompatActivity() {
         var retrofit = getRetorfit()
 
         var EditingProfileService = retrofit.create(EditingProfileService::class.java)
-        var userIdx: Int = 33
+        var userIdx: Int = 35
 
         Log.d("editingProfile","retrofit")
         EditingProfileService.getUserIdx(userIdx)
@@ -102,7 +102,7 @@ class EditingProfileActivity : AppCompatActivity() {
 
 
             Log.d("editingProfile", "save btn click")
-            EditingProfileService.patchProfile(userIdx, profileImg, taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce ).enqueue(object: Callback<ProfilePatchResponse>{
+            EditingProfileService.patchProfile(userIdx,  taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce ).enqueue(object: Callback<ProfilePatchResponse>{
                 override fun onResponse(
                     call: Call<ProfilePatchResponse>,
                     response: Response<ProfilePatchResponse>

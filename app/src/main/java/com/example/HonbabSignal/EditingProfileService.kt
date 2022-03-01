@@ -16,7 +16,7 @@ interface EditingProfileService {
     @PATCH("/user/mypage/{userIdx}")
     fun patchProfile(
         @Path("userIdx") userIdx:Int,
-        @Field("profileImg") profileImg : String,
+        //@Field("profileImg") profileImg : String,
         @Field("taste") taste : String,
         @Field("hateFood") hateFood : String,
         @Field("interest") interest : String,

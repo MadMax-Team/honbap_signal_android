@@ -6,7 +6,7 @@ data class AuthProfileImg(@SerializedName("type") val type: String,
                           @SerializedName("data") val data: List<String>)
 
 data class AuthProfile(@SerializedName("nickName") val nickName : String,
-                       @SerializedName("profileImg") val profileImg: AuthProfileImg,
+                       //@SerializedName("profileImg") val profileImg: AuthProfileImg,
                        @SerializedName("taste") val taste: String,
                        @SerializedName("hateFood") val hateFood: String,
                        @SerializedName("interest") val interest: String,
