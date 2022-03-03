@@ -112,7 +112,6 @@ class EditingProfileActivity : AppCompatActivity() {
                     when(respUserPatch.code){
                         1000->{
                             Toast.makeText(this@EditingProfileActivity, "프로필 수정 완료",Toast.LENGTH_SHORT).show()
-
                         }
                         else->{
                             Toast.makeText(this@EditingProfileActivity, "실패",Toast.LENGTH_SHORT).show()
