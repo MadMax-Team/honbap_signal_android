@@ -4,7 +4,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface SignalService {
-
     @FormUrlEncoded
     @POST("/signal/{userIdx}/applylist")
     fun addSignal(
