@@ -6,7 +6,7 @@ data class AuthProfileImg(@SerializedName("type") val type: String,
                           @SerializedName("data") val data: List<String>)
 
 data class AuthProfile(@SerializedName("nickName") val nickName : String,
-                       //@SerializedName("profileImg") val profileImg: AuthProfileImg,
+                       @SerializedName("profileImg") val profileImg: AuthProfileImg,
                        @SerializedName("taste") val taste: String,
                        @SerializedName("hateFood") val hateFood: String,
                        @SerializedName("interest") val interest: String,
@@ -20,8 +20,5 @@ data class AuthProfile(@SerializedName("nickName") val nickName : String,
 data class ProfileAuthResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
                                @SerializedName("code") val code: Int,
                                @SerializedName("message") val message: String,
-                               @SerializedName("result") val result : AuthProfile)
-
-data class ProfilePatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
-                                 @SerializedName("code") val code : Int,
-                                 @SerializedName("message") val message : String)
+                               @SerializedName("result") val result : AuthProfile
+                               )
