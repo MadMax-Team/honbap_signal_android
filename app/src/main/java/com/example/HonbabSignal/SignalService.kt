@@ -1,13 +1,11 @@
 package com.example.HonbabSignal
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface SignalService {
 
+    @FormUrlEncoded
     @POST("/signal/{userIdx}/applylist")
     fun addSignal(
         @Path("userIdx") userIdx:Int,
