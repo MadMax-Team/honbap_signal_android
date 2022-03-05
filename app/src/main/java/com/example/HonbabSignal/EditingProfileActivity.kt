@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityEditingProfileBinding
 import retrofit2.Call
@@ -21,6 +22,7 @@ class EditingProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityEditingProfileBinding
     lateinit var foodPerferenceSpn: Spinner
     lateinit var nickName: String
+    lateinit var profileImg : String
     lateinit var userIntroduce: String
     lateinit var hateFood: String
     lateinit var taste: String
@@ -55,7 +57,8 @@ class EditingProfileActivity : AppCompatActivity() {
         var retrofit = getRetorfit()
 
         var EditingProfileService = retrofit.create(EditingProfileService::class.java)
-        var userIdx: Int = 33
+        var userIdx: Int = 35
+
         Log.d("editingProfile","retrofit")
         EditingProfileService.getUserIdx(userIdx)
             .enqueue(object: Callback<ProfileAuthResponse>{
@@ -94,6 +97,44 @@ class EditingProfileActivity : AppCompatActivity() {
                     dialog.setTitle("bad")
                 }
             })
+
+        binding.editingSaveBtn.setOnClickListener {
+
+
+            Log.d("editingProfile", "save btn click")
+            EditingProfileService.patchProfile(userIdx,  taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce ).enqueue(object: Callback<ProfilePatchResponse>{
+                override fun onResponse(
+                    call: Call<ProfilePatchResponse>,
+                    response: Response<ProfilePatchResponse>
+                ) {
+                    var respUserPatch = response.body()!!
+                    Log.d("editingProfile", "saving"+respUserPatch.code.toString())
+                    when(respUserPatch.code){
+                        1000->{
+                            Toast.makeText(this@EditingProfileActivity, "프로필 수정 완료",Toast.LENGTH_SHORT).show()
+                        }
+                        else->{
+                            Toast.makeText(this@EditingProfileActivity, "실패",Toast.LENGTH_SHORT).show()
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfilePatchResponse>, t: Throwable) {
+                    Log.d("DEBUGInSignUp", t.message.toString())
+                    var dialog = AlertDialog.Builder(this@EditingProfileActivity)
+
+                    dialog.setTitle("실패!")
+                    dialog.setMessage("통신에 실패했습니다!")
+                    dialog.show()
+                }
+
+            })
+
+
+
+
+        }
 
         //실시간 글자 수 변경
         binding.editingProfilePrEt.addTextChangedListener(object:TextWatcher{
