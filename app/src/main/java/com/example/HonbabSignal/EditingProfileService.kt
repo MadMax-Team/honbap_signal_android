@@ -1,29 +1,16 @@
 package com.example.HonbabSignal
 
 
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.Call
-import retrofit2.http.*
 
 interface EditingProfileService {
 
     //프로필 정보들을 받아옴
     @GET("/user/mypage/{userIdx}")
     fun getUserIdx(
-        @Path("userIdx") userIdx:Int
+        @Path("userIdx") userIdx:Int = 33
     ): Call<ProfileAuthResponse>
-
-    @FormUrlEncoded
-    @PATCH("/user/mypage/{userIdx}")
-    fun patchProfile(
-        @Path("userIdx") userIdx:Int,
-        //@Field("profileImg") profileImg : String,
-        @Field("taste") taste : String,
-        @Field("hateFood") hateFood : String,
-        @Field("interest") interest : String,
-        @Field("avgSpeed") avgSpeend : String,
-        @Field("preferArea") preferAres : String,
-        @Field("mbti") mbti : String,
-        @Field("userIntroduce") userIntroduce : String
-    ): Call<ProfilePatchResponse>
-
 }
