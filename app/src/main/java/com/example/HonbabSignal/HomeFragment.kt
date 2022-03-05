@@ -1,13 +1,17 @@
 package com.example.HonbabSignal
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import retrofit2.Call
+import retrofit2.Callback
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
-
+import retrofit2.Response
 
 
 class HomeFragment : Fragment() {
@@ -20,6 +24,8 @@ class HomeFragment : Fragment() {
 
 
     ): View {
+
+
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.homeAfterSignalOffIv.setOnClickListener {
