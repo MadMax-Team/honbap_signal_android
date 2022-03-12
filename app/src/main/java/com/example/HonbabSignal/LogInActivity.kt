@@ -76,7 +76,6 @@ class LogInActivity : AppCompatActivity() {
                             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
                             startActivity(intent)
                             Toast.makeText(this@LogInActivity,"로그인 성공!",Toast.LENGTH_SHORT).show()
-
                         }
                         2038 ->{Toast.makeText(this@LogInActivity,respLogin.message,Toast.LENGTH_SHORT).show()}
                         4000 ->{Toast.makeText(this@LogInActivity,respLogin.message, Toast.LENGTH_SHORT).show()}
