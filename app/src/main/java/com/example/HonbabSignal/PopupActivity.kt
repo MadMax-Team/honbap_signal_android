@@ -1,16 +1,13 @@
 package com.example.HonbabSignal
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Window
-import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
-import com.example.HonbabSignal.databinding.ActivityLogInBinding
+import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.ActivityPopupBinding
 import retrofit2.Call
 import retrofit2.Callback

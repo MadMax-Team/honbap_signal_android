@@ -1,5 +1,6 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.RetrofitSevices
 
+import com.example.HonbabSignal.SignalResponse
 import retrofit2.Call
 import retrofit2.http.*
 

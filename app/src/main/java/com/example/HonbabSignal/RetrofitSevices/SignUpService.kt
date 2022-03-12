@@ -1,5 +1,7 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.RetrofitSevices
 
+import com.example.HonbabSignal.SignUpAuthResponse
+import com.example.HonbabSignal.UserIdxAuthResponse
 import retrofit2.Call
 import retrofit2.http.*
 
