@@ -45,7 +45,6 @@ class HomeFragment : Fragment() {
                         when (respIdx.code){
                             1000 -> {
                                 Log.d("HomeFragment", respIdx.code.toString())
-                                //matchIdx = resp.
                             }
                             2016 -> {
                                 Log.d("HomeFragment", respIdx.code.toString())
