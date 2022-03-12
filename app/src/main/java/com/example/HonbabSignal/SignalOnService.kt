@@ -12,7 +12,8 @@ interface SignalOnService {
     @FormUrlEncoded
     @POST("/signal/{userIdx}/list")
     fun addOnSignal(
-        @Path("matchIdx") matchIdx:Int,
+        @Path("userIdx") userIdx:Int,
+        @Field("matchIdx") matchIdx:Int,
         @Field("sigPromiseTime") signalIdx: String, //DateTime
         @Field("sigPromiseArea") applyIdx: String
     ): Call<SignalOnResponse>

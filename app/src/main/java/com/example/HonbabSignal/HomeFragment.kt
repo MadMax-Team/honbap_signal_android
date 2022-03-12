@@ -30,11 +30,12 @@ class HomeFragment : Fragment() {
         fun retrofitPostSignal(){
             var retrofit = getRetorfit()
             var SignalOnService = retrofit.create(SignalOnService::class.java)
+            var userIdx: Int = 33
             var matchIdx: Int = 4
             var sigPromiseTime: String = "2022-01-02 11:11:11"
             var sigPromiseArea: String = "성수"
 
-            SignalOnService.addOnSignal(matchIdx, sigPromiseTime, sigPromiseArea)
+            SignalOnService.addOnSignal(userIdx, matchIdx, sigPromiseTime, sigPromiseArea)
                 .enqueue(object: Callback<SignalOnResponse> {
                     override fun onResponse(
                         call: Call<SignalOnResponse>,
@@ -71,6 +72,7 @@ class HomeFragment : Fragment() {
             binding.homeAfterSignalOnIv.visibility = View.VISIBLE
             binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
             binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+            retrofitPostSignal()
 
 
         }
