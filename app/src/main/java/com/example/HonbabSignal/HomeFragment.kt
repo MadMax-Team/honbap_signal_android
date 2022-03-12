@@ -11,7 +11,9 @@ import retrofit2.Callback
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
+import com.google.type.DateTime
 import retrofit2.Response
+import java.time.LocalDateTime
 
 
 class HomeFragment : Fragment() {
@@ -25,6 +27,43 @@ class HomeFragment : Fragment() {
 
     ): View {
 
+        fun retrofitPostSignal(){
+            var retrofit = getRetorfit()
+            var SignalOnService = retrofit.create(SignalOnService::class.java)
+            var userIdx: Int = 33
+            var matchIdx: Int = 4
+            var sigPromiseTime: String = "2022-01-02 11:11:11"
+            var sigPromiseArea: String = "성수"
+
+            SignalOnService.addOnSignal(userIdx, matchIdx, sigPromiseTime, sigPromiseArea)
+                .enqueue(object: Callback<SignalOnResponse> {
+                    override fun onResponse(
+                        call: Call<SignalOnResponse>,
+                        response: Response<SignalOnResponse>
+                    ) {
+
+                        var respIdx = response.body()!!
+                        when (respIdx.code){
+                            1000 -> {
+                                Log.d("HomeFragment", respIdx.code.toString())
+                            }
+                            2016 -> {
+                                Log.d("HomeFragment", respIdx.code.toString())
+                            }
+                            2017 -> {
+                                Log.d("HomeFragment", respIdx.code.toString())
+                            }
+                            4000 -> {
+                                Log.d("HomeFragment", respIdx.code.toString())
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
+                        Log.d("HomeFragment", "signal add onFailure")
+                    }
+                })
+        }
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
@@ -33,6 +72,9 @@ class HomeFragment : Fragment() {
             binding.homeAfterSignalOnIv.visibility = View.VISIBLE
             binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
             binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+            retrofitPostSignal()
+
+
         }
         binding.homeAfterSignalOnIv.setOnClickListener {
             binding.homeAfterSignalOnIv.visibility = View.GONE

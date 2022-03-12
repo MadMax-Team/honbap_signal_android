@@ -22,3 +22,7 @@ data class ProfileAuthResponse(@SerializedName("isSuccess") val isSuccess: Boole
                                @SerializedName("message") val message: String,
                                @SerializedName("result") val result : AuthProfile
                                )
+
+data class ProfilePatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
+                                @SerializedName("code") val code : Int,
+                                @SerializedName("message") val message : String)

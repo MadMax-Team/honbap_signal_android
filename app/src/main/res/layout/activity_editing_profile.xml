@@ -477,7 +477,15 @@
         </LinearLayout>
 
 
-
+        <Button
+            android:id="@+id/editing_save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="저장하기"
+            android:textAlignment="center"
+            android:background="@color/honbab_main_color"
+            app:layout_constraintTop_toBottomOf="@id/editing_mbti_cl"/>
 
 
 
