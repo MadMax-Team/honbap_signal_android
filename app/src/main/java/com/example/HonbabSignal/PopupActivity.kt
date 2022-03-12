@@ -57,14 +57,14 @@ class PopupActivity : Activity(){
                         var respIdx = response.body()!!
                         when (respIdx.code){
                             1000 -> {
-                                Log.d("HomeFragment",respIdx.code.toString())
+                                Log.d("PopupActivity",respIdx.code.toString())
                             }
 
                         }
                     }
 
                     override fun onFailure(call: Call<SignalResponse>, t: Throwable) {
-                        Log.d("HomeFragment", "signal add onFailure")
+                        Log.d("PopupActivity", "signal add onFailure")
                     }
                 })
         }
