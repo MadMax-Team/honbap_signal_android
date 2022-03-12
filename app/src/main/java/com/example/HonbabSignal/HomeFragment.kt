@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
             var retrofit = getRetorfit()
             var SignalOnService = retrofit.create(SignalOnService::class.java)
             var matchIdx: Int = 4
-            var sigPromiseTime: DateTime = null
+            var sigPromiseTime: String = "2022-01-02 11:11:11"
             var sigPromiseArea: String = "성수"
 
             SignalOnService.addOnSignal(matchIdx, sigPromiseTime, sigPromiseArea)
@@ -55,8 +55,6 @@ class HomeFragment : Fragment() {
                             4000 -> {
                                 Log.d("HomeFragment", respIdx.code.toString())
                             }
-
-
                         }
                     }
 

@@ -13,7 +13,7 @@ interface SignalOnService {
     @POST("/signal/{userIdx}/list")
     fun addOnSignal(
         @Path("matchIdx") matchIdx:Int,
-        @Field("sigPromiseTime") signalIdx: DateTime,
+        @Field("sigPromiseTime") signalIdx: String, //DateTime
         @Field("sigPromiseArea") applyIdx: String
     ): Call<SignalOnResponse>
 }
