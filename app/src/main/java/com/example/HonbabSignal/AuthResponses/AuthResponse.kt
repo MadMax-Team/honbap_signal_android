@@ -30,3 +30,12 @@ data class UserInfoDetail(@SerializedName("userId") val userId : String,
 data class UserInfoPatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
                                  @SerializedName("code") val code : Int,
                                  @SerializedName("message") val message : String)
+
+//로그인할때 사용되는 response
+data class LoginAuthResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
+                             @SerializedName("code") val code : Int,
+                             @SerializedName("message") val message : String,
+                             @SerializedName("result")val result : LoginInfo)
+
+data class LoginInfo(@SerializedName("userIdx") val userIdx : Int,
+                    @SerializedName("jwt") val jwt : String)

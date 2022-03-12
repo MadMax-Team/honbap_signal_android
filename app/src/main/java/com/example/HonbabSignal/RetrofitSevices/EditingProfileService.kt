@@ -1,8 +1,8 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.RetrofitSevices
 
 
+import com.example.HonbabSignal.ProfileAuthResponse
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.Call
 

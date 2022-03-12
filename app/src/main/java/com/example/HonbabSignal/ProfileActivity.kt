@@ -1,25 +1,20 @@
 package com.example.HonbabSignal
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.RetrofitSevices.SignUpService
 import com.example.HonbabSignal.databinding.ActivityProfileBinding
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ProfileActivity : AppCompatActivity() {
     lateinit var binding: ActivityProfileBinding
@@ -92,12 +87,14 @@ class ProfileActivity : AppCompatActivity() {
                                                     //userIdx 세팅
                                                     var userIdx = respIdx.result[0].userIdx
 
-                                                    //sharedPreference에 userIdx를 넣어주었습니다.
-                                                    val spf = getSharedPreferences("userIdx",0)
-                                                    val editor = spf.edit()
-                                                    editor.putInt("userIdx",userIdx)
-                                                    editor.apply()
-                                                    Log.d("spf에 값 제대로 들어갔는지 확인",spf.getInt("userIdx",-1).toString())
+                                                    //Login에서 userIdx와 jwt를 처리해주면서 여기서 userIdx를 넣어줄 필요가 없어졌습니다.
+
+//                                                    //sharedPreference에 userIdx를 넣어주었습니다.
+//                                                    val spf = getSharedPreferences("userIdx",0)
+//                                                    val editor = spf.edit()
+//                                                    editor.putInt("userIdx",userIdx)
+//                                                    editor.apply()
+//                                                    Log.d("spf에 값 제대로 들어갔는지 확인",spf.getInt("userIdx",-1).toString())
 
                                                     Log.d("현재 userIdx값",userIdx.toString())
                                                     Log.d("getUserIdx:", "get user index success")
