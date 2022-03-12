@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
                     }
 
                     override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                        TODO("Not yet implemented")
+                        Log.d("HomeFragment", "signal add onFailure")
                     }
                 })
         }

@@ -17,11 +17,10 @@ class PostScriptActivity: Activity() {
 
         var dm = getApplicationContext().getResources().getDisplayMetrics()
 
-        var width = (dm.widthPixels * 0.7) // Display 사이즈의 90%
-        var height = (dm.heightPixels * 0.7) // Display 사이즈의 90%
+        var width = (dm.widthPixels * 0.9) // Display 사이즈의 90%
+        var height = (dm.heightPixels * 0.8) // Display 사이즈의 90%
 
         getWindow().getAttributes().width = width.toInt()
-
         getWindow().getAttributes().height = height.toInt()
 
 
