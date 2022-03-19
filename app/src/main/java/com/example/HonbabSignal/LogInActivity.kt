@@ -68,9 +68,9 @@ class LogInActivity : AppCompatActivity() {
                             //sharedPreference에 jwt를 넣어주었습니다.
                             val spf_jwt = getSharedPreferences("jwt",0)
                             val editor_jwt = spf_jwt.edit()
-                            editor_jwt.putInt("userIdx",respLogin.result.userIdx)
+                            editor_jwt.putString("jwt",respLogin.result.jwt)
                             editor_jwt.apply()
-                            Log.d("spf에 jwt",spf_jwt.getInt("userIdx",-1).toString())
+                            Log.d("spf에 jwt",spf_jwt.getString("jwt","").toString())
 
                             val intent = Intent(this@LogInActivity, MainActivity::class.java)
                             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
@@ -105,14 +105,6 @@ class LogInActivity : AppCompatActivity() {
             //intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
-
-        binding.homeLoginTv.setOnClickListener {
-
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
-            startActivity(intent)
-        }
-
 
         // 카카오 로그인 버튼
         binding.logInKakaoLoginButton.setOnClickListener {

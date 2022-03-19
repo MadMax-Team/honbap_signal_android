@@ -24,9 +24,15 @@ class UserInfoModifyActivity : AppCompatActivity(){
 
         //retrofit에 interface를 넣어줌
         var userInfoModifyService = retrofit.create(UserInfoModifyService::class.java)
-        var userIdx = 1
+        //spf 불러오고
+        var spfUserIdx = getSharedPreferences("userIdx",0)
+        var spfJwt = getSharedPreferences("jwt",0)
+        //userIdx에 spf에서 가져온 int를 넣는다.
+        var userIdx = spfUserIdx.getInt("userIdx",-1)
+        //jwt에 spf에서 가져온 String값을 넣는다.
+        var jwt = spfJwt.getString("jwt","")!!
         //유저의 정보를 받아오는부분
-        userInfoModifyService.getUserInfo(userIdx).enqueue(object : Callback<UserInfoAuthResponse>{
+        userInfoModifyService.getUserInfo(jwt,userIdx).enqueue(object : Callback<UserInfoAuthResponse>{
             override fun onResponse(
                 call: Call<UserInfoAuthResponse>,
                 response: Response<UserInfoAuthResponse>
@@ -74,7 +80,7 @@ class UserInfoModifyActivity : AppCompatActivity(){
             var name = binding.userInfoModifyNameEt.text.toString()
             var birth = binding.userInfoModifyBirthYearEt.text.toString() + "년" + binding.userInfoModifyBirthMonthEt.text.toString() + "월" + binding.userInfoModifyBirthDayEt.text.toString() + "일"
 
-            userInfoModifyService.patchUserInfo(userIdx,name,birth).enqueue(object : Callback<UserInfoPatchResponse>{
+            userInfoModifyService.patchUserInfo(jwt,userIdx,name,birth).enqueue(object : Callback<UserInfoPatchResponse>{
                 override fun onResponse(
                     call: Call<UserInfoPatchResponse>,
                     response: Response<UserInfoPatchResponse>
