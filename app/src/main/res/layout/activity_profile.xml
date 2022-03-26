@@ -78,18 +78,29 @@
 
         <EditText
             android:id="@+id/profile_taste_et"
-            android:layout_width="0dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="35dp"
+            android:layout_marginEnd="15dp"
             android:background="@null"
             android:hint="선호 음식"
             android:inputType="text"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/profile_profile_img_iv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/profile_food_preference_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_taste_et"
+            app:layout_constraintStart_toEndOf="@id/profile_taste_et"/>
+
 
         <View
             android:id="@+id/profile_taste_underscore_view"
@@ -106,15 +117,26 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@null"
             android:hint="비선호 음식"
             android:inputType="text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_taste_underscore_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/profile_taste_et"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/profile_hate_food_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_hate_food_et"
+            app:layout_constraintStart_toEndOf="@id/profile_hate_food_et"/>
+
 
         <View
             android:id="@+id/profile_hate_food_underscore_view"
@@ -131,15 +153,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@null"
             android:hint="관심사"
             android:inputType="text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_hate_food_underscore_view"
+            app:layout_constraintTop_toBottomOf="@id/profile_hate_food_et"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="@id/profile_hate_food_et"/>
+
+        <Spinner
+            android:id="@+id/profile_interest_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_interest_et"
+            app:layout_constraintStart_toEndOf="@id/profile_hate_food_et"/>
+
 
         <View
             android:id="@+id/profile_interest_underscore_view"
@@ -153,18 +187,28 @@
 
         <EditText
             android:id="@+id/profile_avg_speed_et"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@null"
-            android:hint="평균 식사 속도"
+            android:hint="식사 속도"
             android:inputType="text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_interest_underscore_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/profile_interest_et"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/profile_avg_speed_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_avg_speed_et"
+            app:layout_constraintStart_toEndOf="@id/profile_hate_food_et"/>
 
         <View
             android:id="@+id/profile_avg_speed_underscore_view"
@@ -178,18 +222,28 @@
 
         <EditText
             android:id="@+id/profile_prefer_area_et"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@null"
             android:hint="선호 지역"
             android:inputType="text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_avg_speed_underscore_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/profile_avg_speed_et"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/profile_prefer_area_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_prefer_area_et"
+            app:layout_constraintStart_toEndOf="@id/profile_hate_food_et"/>
 
         <View
             android:id="@+id/profile_prefer_area_underscore_view"
@@ -206,15 +260,26 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="35dp"
             android:background="@null"
             android:hint="MBTI"
             android:inputType="text"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_prefer_area_underscore_view"
+            app:layout_constraintTop_toBottomOf="@id/profile_prefer_area_et"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="@id/profile_hate_food_et"/>
+
+        <Spinner
+            android:id="@+id/profile_mbti_spn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_mbti_et"
+            app:layout_constraintStart_toEndOf="@id/profile_mbti_et"/>
 
         <View
             android:id="@+id/profile_mbti_underscore_view"
