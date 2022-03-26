@@ -41,6 +41,7 @@ class UserInfoModifyActivity : AppCompatActivity(){
                 Log.d("유저개인정보 서버로부터 온 코드", respUserInfo.code.toString())
                 when (respUserInfo.code) {
                     1000 -> {
+                        Log.d("개인정보 표시 진행중",'1'.toString())
                         binding.userInfoModifyIdTv.text = respUserInfo.result.userId
                         binding.userInfoModifyNameEt.hint = respUserInfo.result.userName
                         var birthYear = respUserInfo.result.birth.slice(IntRange(0,3))
