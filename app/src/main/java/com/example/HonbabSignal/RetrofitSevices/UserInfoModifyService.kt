@@ -9,12 +9,14 @@ interface UserInfoModifyService {
 
     @GET("/user/myinfo/{userIdx}")
     fun getUserInfo(
+        @Header("jwt") jwt: String,
         @Path("userIdx") userIdx: Int
     ): Call<UserInfoAuthResponse>
 
     @FormUrlEncoded
     @PATCH("/user/myinfo/{userIdx}")
     fun patchUserInfo(
+        @Header("jwt") jwt: String,
         @Path("userIdx") userIdx:Int,
         @Field("userName") userName : String,
         @Field("birth")birth : String
