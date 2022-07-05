@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class SignUpAuthResponse(val isSuccess : Boolean, val code: Int, val message : String)
 
 //userIdx의 result의 형태를 정의
-data class AuthIdx(@SerializedName("userIdx")val userIdx : Int)
+data class AuthIdx(@SerializedName("userIdx") val userIdx : Int)
 //userIdx GET의 output을 정의
 data class UserIdxAuthResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
                                @SerializedName("code") val code: Int,

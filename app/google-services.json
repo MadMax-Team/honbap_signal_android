@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "349537905114",
-    "project_id": "honbab-dm",
-    "storage_bucket": "honbab-dm.appspot.com"
+    "project_number": "813496254506",
+    "project_id": "honbabsignal-1d380",
+    "storage_bucket": "honbabsignal-1d380.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:349537905114:android:270c8ccb12de0de483f8e3",
+        "mobilesdk_app_id": "1:813496254506:android:87cea939476e012d480353",
         "android_client_info": {
           "package_name": "com.example.HonbabSignal"
         }
       },
       "oauth_client": [
         {
-          "client_id": "349537905114-km5ohbhsj0787k4s9mic5s90m8aptk3h.apps.googleusercontent.com",
+          "client_id": "813496254506-1lp20257ebsssnjrtsaema7ievuvi63e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDgv-_z3-d44KPdG-a7Wr8rAqNdVSP2d_E"
+          "current_key": "AIzaSyAWT2FZ5N-JsnsKy_AE7LF2Cr83sbQOnZ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "349537905114-km5ohbhsj0787k4s9mic5s90m8aptk3h.apps.googleusercontent.com",
+              "client_id": "813496254506-1lp20257ebsssnjrtsaema7ievuvi63e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
