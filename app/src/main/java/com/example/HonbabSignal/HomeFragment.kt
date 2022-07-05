@@ -11,7 +11,6 @@ import retrofit2.Callback
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
-import com.google.type.DateTime
 import retrofit2.Response
 import java.time.LocalDateTime
 
