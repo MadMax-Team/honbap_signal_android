@@ -11,24 +11,24 @@ import java.util.*
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NO_ANIMATION
-import com.google.firebase.database.*
-import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.getValue
+//import com.google.firebase.database.*
+//import com.google.firebase.firestore.ListenerRegistration
+//import com.google.firebase.database.DatabaseError
+//import com.google.firebase.database.DataSnapshot
+//import com.google.firebase.database.ValueEventListener
+//import com.google.firebase.database.FirebaseDatabase
+//import com.google.firebase.database.ktx.getValue
 
 
 class DmRoomActivity: AppCompatActivity() {
-    private val fireDatabase = FirebaseDatabase.getInstance()
+//    private val fireDatabase = FirebaseDatabase.getInstance()
     lateinit var binding: ActivityDmRoomBinding
     private var destinationUid : String? = null
     private var uid : String? = null
     private lateinit var dm_Send_Button: Button
     private lateinit var dm_Text : EditText
     private lateinit var mAdapter: DmRoomAdapter
-    private lateinit var database: DatabaseReference
+//    private lateinit var database: DatabaseReference
     private lateinit var destinationNickname: String
 
     //recyclerView
@@ -44,7 +44,7 @@ class DmRoomActivity: AppCompatActivity() {
         binding.dmRoomDestinationNickname.text = destinationNickname
 
 
-        database = fireDatabase.reference
+//        database = fireDatabase.reference
         mAdapter = DmRoomAdapter(this,arrayList)
 
 
@@ -98,22 +98,22 @@ class DmRoomActivity: AppCompatActivity() {
 //        }
 //        database.addValueEventListener(postListener)
 
-        database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").addValueEventListener(object: ValueEventListener{
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                //val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
-                val temp = snapshot.value
-                mAdapter.addItem(
-                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
-                ) // adapter에 추가합니다.
-                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
+//        database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").addValueEventListener(object: ValueEventListener{
+//
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                //val temp = database.child("users").child(destinationUid!!).child("destinationUser").child(uid!!).child("lastMessage").getValue()
+//                val temp = snapshot.value
+//                mAdapter.addItem(
+//                    DmModel("정아",temp.toString(),"example",uid,destinationUid)
+//                ) // adapter에 추가합니다.
+//                binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
 
 
 
@@ -160,9 +160,9 @@ class DmRoomActivity: AppCompatActivity() {
             //유저네임 보내기
             //database.child("Room").child("userName").setValue()
 
-            //메세지 보내기
-            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastPerson").setValue(uid)
-            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastMessage").setValue(dm_Text.text.toString())
+//            //메세지 보내기
+//            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastPerson").setValue(uid)
+//            database.child("users").child(uid!!).child("destinationUser").child(destinationUid!!).child("lastMessage").setValue(dm_Text.text.toString())
 
             mAdapter.addItem(item)
             binding.dmRoomRecyclerview.scrollToPosition(arrayList.size -1)

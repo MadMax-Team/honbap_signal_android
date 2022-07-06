@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.databinding.FragmentMyPageBinding
-import com.google.firebase.auth.UserInfo
+//import com.google.firebase.auth.UserInfo
 
 
 class MyPageFragment : Fragment() {

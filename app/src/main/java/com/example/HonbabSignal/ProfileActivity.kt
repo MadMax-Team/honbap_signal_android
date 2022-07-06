@@ -93,11 +93,12 @@ class ProfileActivity : AppCompatActivity() {
                                             response: Response<UserIdxAuthResponse>
                                         ) {
                                             var respIdx = response.body()!!
-                                            Log.e("GET관련 code",respIdx.code.toString())
+                                            Log.d("GET관련 code",respIdx.code.toString())
                                             when (respIdx.code) {
                                                 1000 -> {
                                                     //userIdx 세팅
                                                     var userIdx = respIdx.result[0].userIdx
+                                                    Log.d("userIdx확인중: ", "userIdx값"+userIdx.toString())
 
                                                     //Login에서 userIdx와 jwt를 처리해주면서 여기서 userIdx를 넣어줄 필요가 없어졌습니다.
 
@@ -198,6 +199,7 @@ class ProfileActivity : AppCompatActivity() {
                             }
                             else -> {
                                 onSignUpFailure(respSign.code, respSign.message)
+                                Toast.makeText(this@ProfileActivity, "회원가입에 실패했습니다.",Toast.LENGTH_SHORT).show()
                                 finish()
                             }
                         }
@@ -264,6 +266,10 @@ class ProfileActivity : AppCompatActivity() {
                 return
             }
             2003, 2004, 3002, 4000 ->{
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                return
+            }
+            else -> {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 return
             }

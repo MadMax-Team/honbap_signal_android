@@ -80,7 +80,7 @@ class LogInActivity : AppCompatActivity() {
                         2038 ->{Toast.makeText(this@LogInActivity,respLogin.message,Toast.LENGTH_SHORT).show()}
                         4000 ->{Toast.makeText(this@LogInActivity,respLogin.message, Toast.LENGTH_SHORT).show()}
                         2040 ->{Toast.makeText(this@LogInActivity,respLogin.message, Toast.LENGTH_SHORT).show()}
-
+                        2026 ->{Toast.makeText(this@LogInActivity,respLogin.message, Toast.LENGTH_SHORT).show()}
                     }
 
                 }
