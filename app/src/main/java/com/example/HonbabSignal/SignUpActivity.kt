@@ -40,6 +40,9 @@ class SignUpActivity : AppCompatActivity(){
                 if (pwdCheck == pwd) {
                     binding.signUpPwdCheckTfText.text = "비밀번호가 일치합니다."
                 }
+                else{
+                    binding.signUpPwdCheckTfText.text = "비밀번호가 일치하지 않습니다."
+                }
             }
         })
 
