@@ -11,41 +11,80 @@
         android:paddingStart="5dp"
         android:text="회원가입"
         android:textSize="24sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
-    //아이디
+    //이메일
     <EditText
-        android:id="@+id/sign_up_id_et"
+        android:id="@+id/sign_up_email_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="5dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="5dp"
+        android:paddingStart="5dp"
         android:background="@null"
-        android:hint="아이디"
+        android:hint="이메일"
         android:inputType="text"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/sign_up_singup_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/sign_up_at_sign_up_tv"/>
 
     <View
-        android:id="@+id/sign_up_id_underscore_view"
+        android:id="@+id/sign_up_email_underscore_view"
         android:layout_width="0dp"
         android:layout_height="1px"
         android:layout_marginTop="10dp"
         android:background="#a8a8a8"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_id_et"
-        app:layout_constraintStart_toStartOf="@id/sign_up_id_et"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_id_et"/>
+        app:layout_constraintEnd_toEndOf="@id/sign_up_email_et"
+        app:layout_constraintStart_toStartOf="@id/sign_up_email_et"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_et"/>
+
     <TextView
-        android:id="@+id/sign_up_id_error_tv"
+        android:id="@+id/sign_up_at_sign_up_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\@"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sign_up_email_et"
+        app:layout_constraintBottom_toBottomOf="@id/sign_up_email_et"/>
+
+    <EditText
+        android:id="@+id/sign_up_direct_input_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        android:paddingStart="8dp"
+        android:hint="직접입력"
+        android:inputType="textWebEmailAddress"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/sign_up_email_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sign_up_at_sign_up_tv"/>
+
+    <View
+        android:id="@+id/sign_up_direct_input_underscore_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="#a8a8a8"
+        app:layout_constraintEnd_toEndOf="@id/sign_up_direct_input_et"
+        app:layout_constraintStart_toStartOf="@id/sign_up_direct_input_et"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_direct_input_et"/>
+
+
+    <TextView
+        android:id="@+id/sign_up_email_error_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -55,7 +94,8 @@
         android:layout_marginStart="20dp"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_id_underscore_view"/>
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_underscore_view"/>
+
 
     //비밀번호
     <EditText
@@ -72,7 +112,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_id_underscore_view" />
+        app:layout_constraintTop_toBottomOf="@id/sign_up_email_underscore_view" />
     <View
         android:id="@+id/sign_up_pwd_underscore_view"
         android:layout_width="0dp"
@@ -121,8 +161,36 @@
         app:layout_constraintStart_toStartOf="@id/sign_up_pwd_check_underscore_view"
         app:layout_constraintTop_toBottomOf="@id/sign_up_pwd_check_underscore_view"/>
 
-    //이름
+    //닉네임
+    <EditText
+        android:id="@+id/sign_up_nickname_et"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:paddingStart="5dp"
+        android:background="@null"
+        android:hint="닉네임"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:privateImeOptions="defaultInputmode = korean"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_pwd_check_tf_text"
+        />
 
+    <View
+        android:id="@+id/sign_up_nickname_underscore_view"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginTop="10dp"
+        android:background="#a8a8a8"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_name_et"
+        app:layout_constraintStart_toStartOf="@+id/sign_up_name_et"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_nickname_et" />
+
+
+    //이름
     <EditText
         android:id="@+id/sign_up_name_et"
         android:layout_width="150dp"
@@ -137,7 +205,7 @@
         android:textSize="16sp"
         android:privateImeOptions="defaultInputmode = korean"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_pwd_check_tf_text"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_nickname_underscore_view"
         />
 
     <View
@@ -248,84 +316,7 @@
         app:layout_constraintStart_toEndOf="@id/sign_up_birth_day_et"
         app:layout_constraintTop_toTopOf="@+id/sign_up_birth_year_et"/>
 
-    //이메일
 
-    <EditText
-        android:id="@+id/sign_up_email_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:paddingStart="5dp"
-        android:background="@null"
-        android:hint="이메일"
-        android:inputType="text"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_birth_year_underscore_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/sign_up_at_sign_up_tv"/>
-
-    <View
-        android:id="@+id/sign_up_email_underscore_view"
-        android:layout_width="0dp"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="#a8a8a8"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_email_et"
-        app:layout_constraintStart_toStartOf="@id/sign_up_email_et"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_email_et"/>
-
-    <TextView
-        android:id="@+id/sign_up_at_sign_up_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="\@"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/sign_up_email_et"
-        app:layout_constraintBottom_toBottomOf="@id/sign_up_email_et"/>
-
-    <EditText
-        android:id="@+id/sign_up_direct_input_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="20dp"
-        android:background="@null"
-        android:paddingStart="8dp"
-        android:hint="직접입력"
-        android:inputType="textWebEmailAddress"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/sign_up_email_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/sign_up_at_sign_up_tv"/>
-
-    <View
-        android:id="@+id/sign_up_direct_input_underscore_view"
-        android:layout_width="0dp"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="#a8a8a8"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_direct_input_et"
-        app:layout_constraintStart_toStartOf="@id/sign_up_direct_input_et"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_direct_input_et"/>
-
-
-    <TextView
-        android:id="@+id/sign_up_email_error_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="#EF0000"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_email_underscore_view"/>
     //
 
     <EditText
@@ -334,13 +325,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginEnd="35dp"
         android:paddingStart="5dp"
         android:background="@null"
         android:hint="휴대폰 번호"
         android:inputType="number"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_email_underscore_view"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_birth_day_underscore_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
