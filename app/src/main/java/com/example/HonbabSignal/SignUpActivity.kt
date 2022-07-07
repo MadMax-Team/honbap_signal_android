@@ -2,6 +2,8 @@ package com.example.HonbabSignal
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -20,6 +22,26 @@ class SignUpActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //실시간 글자 수 변경
+        binding.signUpPwdCheckEt.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("signUpPwdEt","beforeTextChanged")
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("signUpPwdEt","onTextChanged")
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                Log.d("signUpPwdEt","afterTextChanged")
+                val pwdCheck = binding.signUpPwdCheckEt.text.toString()
+                val pwd = binding.signUpPwdEt.text.toString()
+                if (pwdCheck == pwd) {
+                    binding.signUpPwdCheckTfText.text = "비밀번호가 일치합니다."
+                }
+            }
+        })
 
         binding.signUpNextBtnTv.setOnClickListener {
 

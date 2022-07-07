@@ -105,6 +105,18 @@
         app:layout_constraintEnd_toEndOf="@id/sign_up_pwd_check_et"
         app:layout_constraintStart_toStartOf="@id/sign_up_pwd_check_et"
         app:layout_constraintTop_toBottomOf="@id/sign_up_pwd_check_et" />
+    <TextView
+        android:id="@+id/sign_up_pwd_check_tf_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호가 일치하지 않습니다."
+        android:textSize="12sp"
+        android:textColor="@color/honbab_main_color"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@id/sign_up_pwd_check_underscore_view"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_pwd_check_underscore_view"/>
+
     //이름
 
     <EditText
@@ -120,7 +132,7 @@
         android:textSize="16sp"
         android:privateImeOptions="defaultInputmode = korean"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_pwd_check_underscore_view"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_pwd_check_tf_text"
         />
 
     <View

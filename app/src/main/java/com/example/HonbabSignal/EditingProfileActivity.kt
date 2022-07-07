@@ -149,7 +149,7 @@ class EditingProfileActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 Log.d("editingProfile","afterTextChanged")
-                val input = binding.editingProfilePrEt.text.toString().length
+                val input = binding.editingProfilePrEt.text.toString()
                 binding.editingProfilePrCntTv.text = "$input/100 글자"
                 Log.d("editingProfile",input.toString())
             }
