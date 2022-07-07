@@ -23,47 +23,65 @@ class SignUpActivity : AppCompatActivity(){
 
         binding.signUpNextBtnTv.setOnClickListener {
 
-            //비어있는거 체크
+            //2001: 아이디가 비어있습니다.
             if (binding.signUpIdEt.text.toString().isEmpty()) {
                 Toast.makeText(this, "아이디가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpIdEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "아이디가 비어있습니다.", Toast.LENGTH_SHORT).show()
+            //2002: 아이디는 5~20자 이내로 입력해주세요.
+            if (binding.signUpIdEt.text.length < 5 || binding.signUpIdEt.text.length > 20) {
+                Toast.makeText(this, "아이디는 5~20자 이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpPwdEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "비밀번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            if (binding.signUpNameEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "이름이 비어있습니다.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            //2005: 이메일을 입력해주세요.
             if (binding.signUpEmailEt.text.toString()
                     .isEmpty() || binding.signUpDirectInputEt.text.toString().isEmpty()
             ) {
                 Toast.makeText(this, "이메일 형식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpBirthYearEt.text.toString()
-                    .isEmpty() || binding.signUpBirthMonthEt.text.toString().isEmpty()||binding.signUpBirthDayEt.text.toString().isEmpty()
-            ) {
-                Toast.makeText(this, "생년월일 형식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+            //2006: 이메일은 30자 이내로 입력해주세요.
+            if (binding.signUpEmailEt.text.length > 30) {
+                Toast.makeText(this, "이메일은 30자 이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            //2008: 휴대폰 번호를 입력해주세요.
             if (binding.signUpPhoneNumEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "전화번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "휴대폰 번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (binding.signUpSexEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "성별이 비어있습니다.", Toast.LENGTH_SHORT).show()
+            //2009: 휴대폰 번호는 11자 이내로 입력해주세요.
+            if (binding.signUpPhoneNumEt.text.length > 11) {
+                Toast.makeText(this, "휴대폰 번호는 11자 이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            //2010: 비밀번호를 입력해주세요.
+            if (binding.signUpPwdEt.text.toString().isEmpty()) {
+                Toast.makeText(this, "비밀번호가 비어있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (binding.signUpPwdEt.text.toString() != binding.signUpPwdCheckEt.text.toString()) {
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            //2011: 이름을 입력해주세요.
+            if (binding.signUpNameEt.text.toString().isEmpty()) {
+                Toast.makeText(this, "이름이 비어있습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            //2012: 생년월일을 입력해주세요.
+            if (binding.signUpBirthYearEt.text.toString()
+                    .isEmpty() || binding.signUpBirthMonthEt.text.toString().isEmpty()||binding.signUpBirthDayEt.text.toString().isEmpty()
+            ) {
+                Toast.makeText(this, "생년월일 형식이 올바르지 않습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            //2013: 성별을 입력해주세요.
+            if (binding.signUpSexEt.text.toString().isEmpty()) {
+                Toast.makeText(this, "성별이 비어있습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
 
             //정보세팅
             var userId: String = binding.signUpIdEt.text.toString()
