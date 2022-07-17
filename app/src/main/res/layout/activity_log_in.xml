@@ -175,7 +175,16 @@
         app:layout_constraintTop_toBottomOf="@id/login_to_profile_btn"
         app:layout_constraintStart_toStartOf="parent"/>
 
-
+    <Button
+        android:id="@+id/login_to_map_list_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리사이클러뷰 개발중"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/login_to_post_script_btn"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
