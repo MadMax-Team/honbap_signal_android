@@ -27,8 +27,8 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        //사진찾기 버튼을 눌렀을때 갤러리로 들어가서 사진을 클릭하면 그걸 가지고 이미지 뷰로 옵니다.
-        binding.profileOpenGalleryBtn.setOnClickListener{loadImage()}
+//        //사진찾기 버튼을 눌렀을때 갤러리로 들어가서 사진을 클릭하면 그걸 가지고 이미지 뷰로 옵니다.
+//        binding.profileOpenGalleryBtn.setOnClickListener{loadImage()}
 
         //intent(회원가입정보 1 똑바로 넘어왔을경우)
         if(intent.hasExtra("userId")&&intent.hasExtra("password")&&intent.hasExtra("userName")&&
@@ -217,25 +217,25 @@ class ProfileActivity : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, "Load Picture"), Gallery)
     }
 
-    @Override
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(requestCode == Gallery){
-                if(resultCode == RESULT_OK){
-                    var dataUri = data?.data
-                    try{
-                        var bitmap : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri)
-                        binding.profileProfileImgIv.setImageBitmap(bitmap)
-                        Log.d("act","activate!!")
-                    }catch(e:Exception){
-                        Toast.makeText(this,"$e", Toast.LENGTH_SHORT).show()
-                    }
-                }else {
-                    //something Wrong
-                }
-        }
-    }
+//    @Override
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        if(requestCode == Gallery){
+//                if(resultCode == RESULT_OK){
+//                    var dataUri = data?.data
+//                    try{
+//                        var bitmap : Bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, dataUri)
+//                        binding.profileProfileImgIv.setImageBitmap(bitmap)
+//                        Log.d("act","activate!!")
+//                    }catch(e:Exception){
+//                        Toast.makeText(this,"$e", Toast.LENGTH_SHORT).show()
+//                    }
+//                }else {
+//                    //something Wrong
+//                }
+//        }
+//    }
 
     fun onSignUpFailure(code: Int, message: String) {
         binding.profileLoadingPb.visibility = View.GONE
