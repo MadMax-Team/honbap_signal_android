@@ -1,6 +1,8 @@
 package com.example.HonbabSignal
 
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -10,6 +12,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.databinding.ActivityEditingProfileBinding
 import retrofit2.Call
@@ -36,6 +40,9 @@ class EditingProfileActivity : AppCompatActivity() {
     lateinit var locationArray : Array<String>
     lateinit var mbtiArray : Array<String>
 
+    //for img upload
+    private lateinit var activityResult: ActivityResultLauncher<Intent>
+    private lateinit var coverImgUrl: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +51,22 @@ class EditingProfileActivity : AppCompatActivity() {
         setupSpinner()
         setupSpinnerHandler()
 
+        //img upload
+        activityResult = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == RESULT_OK && it.data != null) {
+                coverImgUrl = it.data!!.data!!
+                binding.editingProfileProfileImgIv.setImageURI(coverImgUrl)
+            }
+        }
+
+        binding.editingProfileOpenGalleryBtn.setOnClickListener {
+            val galleryIntent = Intent()
+            galleryIntent.action = Intent.ACTION_GET_CONTENT
+            galleryIntent.type = "image/"
+            activityResult.launch(galleryIntent)
+        }
 
         //뒤로 가기 버튼
         binding.toolbarBackIv.setOnClickListener {
@@ -78,7 +101,7 @@ class EditingProfileActivity : AppCompatActivity() {
                             mbti = respIdx.result.mbti
 
                             binding.editingProfileNicknameEt.setText(nickName)
-                            //img X
+                            //img x
                             binding.editingProfilePrEt.setText(userIntroduce)
                             binding.editingProfileFoodPreferenceSpn.setSelection(foodPreferenceArray.indexOf(taste))
                             binding.editingProfileFoodHateSpn.setSelection(hateFoodArray.indexOf(hateFood))
@@ -229,5 +252,22 @@ class EditingProfileActivity : AppCompatActivity() {
             }
         }
     }
+
+//    // upload the image to firebase
+//    private fun uploadImg(uri: Uri) {
+//        val mFileReference: StorageReference = mStorageReference.child(USER_ID).child("${System.currentTimeMillis()}.${getFileExtension(uri)}")
+//
+//        mFileReference.putFile(uri).addOnSuccessListener {
+//
+//            mFileReference.downloadUrl.addOnSuccessListener {
+//                coverImgUrl = it
+//                mShopsReference.child(USER_ID).child("coverImg").setValue(coverImgUrl.toString())
+//                Toast.makeText(this, "업로드 성공", Toast.LENGTH_SHORT).show()
+//                binding.shopkeeperRegisterCoverImgIv.setImageURI(uri)
+//            }
+//        }.addOnFailureListener {
+//            Toast.makeText(this, "업로드 실패", Toast.LENGTH_SHORT).show()
+//        }
+//    }
 }
 

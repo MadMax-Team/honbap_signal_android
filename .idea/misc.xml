@@ -126,12 +126,22 @@
         <entry key="..\:/forMergeAndroid/honbap_signal_android/app/src/main/res/layout/fragment_my_page.xml" value="0.20104166666666667" />
         <entry key="..\:/forMergeAndroid/honbap_signal_android/app/src/main/res/layout/frament_home_after_login.xml" value="0.2957427536231884" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_dm_room.xml" value="0.18333333333333332" />
-        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_editing_profile.xml" value="0.1875" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_editing_profile.xml" value="0.2" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_kakao_login.xml" value="0.1" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_map.xml" value="0.18333333333333332" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_popup.xml" value="0.33" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_post_script.xml" value="0.25" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_profile.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_sign_up.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/activity_user_info_modify.xml" value="0.36614583333333334" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/custom_dialog_report_detail.xml" value="0.33" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/fragment_my_page.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/fragment_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/frament_home_after_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_map_signal_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_my_dm.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_your_dm.xml" value="0.36614583333333334" />
+        <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/toolbar_top.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
