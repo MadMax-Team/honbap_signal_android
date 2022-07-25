@@ -1,16 +1,10 @@
 package com.example.HonbabSignal
 
-import ListAdapterGrid
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.HonbabSignal.adapter.MapSignalListRVAdapter
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
-import com.naver.maps.map.*
-import com.naver.maps.map.util.FusedLocationSource
-import kotlinx.android.synthetic.main.activity_map_list.*
 
 class MapListActivity:AppCompatActivity() {
 
@@ -44,26 +38,37 @@ class MapListActivity:AppCompatActivity() {
 
         //임시 데이터리스트 생성(서버 없어서 해봄)
         mapSignalListDatas.apply{
-            add(MapSignal(true,"곤",R.drawable.geon_profile,"나와 555m","4분전","일식","돈까스","젤리","20대","초콜릿"))
-            add(MapSignal(false,"코뿡",R.drawable.cobboong,"나와 211m","1분전","헤비토커","초밥","고기","샤브샤브","사이다"))
-            add(MapSignal(true, "데옹",R.drawable.deong,"나와 105m","6분전","푸드파이터","떡볶이","국밥","고기","풀"))
-            add(MapSignal(false, "도동",R.drawable.dodong_profile,"나와 15m","10분전","디자인","맥주","피자","20대","고기"))
-            add(MapSignal(true, "창식",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
-            add(MapSignal(false, "고악",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
-            add(MapSignal(true, "웅",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
+            add(MapSignal(SignalMode.DEFAULT,true,"곤",R.drawable.geon_profile,"나와 111m","4분전","일식","돈까스","젤리","20대","초콜릿"))
+            add(MapSignal(SignalMode.CUSTOM,false,"코뿡",R.drawable.cobboong,"나와 222m","1분전","헤비토커","초밥","고기","샤브샤브","사이다"))
+            add(MapSignal(SignalMode.DEFAULT,true, "데옹",R.drawable.deong,"나와 333m","6분전","푸드파이터","떡볶이","국밥","고기","풀"))
+            add(MapSignal(SignalMode.DEFAULT ,false, "도동",R.drawable.dodong_profile,"나와 15m","10분전","디자인","맥주","피자","20대","고기"))
+            add(MapSignal(SignalMode.CUSTOM ,true, "창식",R.drawable.default_profile,"나와 16m","12분전","공대","인싸","한식","족발","해병대"))
+            add(MapSignal(SignalMode.DEFAULT ,false, "고악",R.drawable.default_profile,"나와 17m","17분전","컴공","양식","디저트","치킨","콜라"))
+            add(MapSignal(SignalMode.CUSTOM ,true, "웅",R.drawable.default_profile,"나와 25m","22분전","뉴페","긔욤","경양식","보쌈","서버"))
         }
 
-        //recyclerView
-        Log.d("say","make recyclerview")
-        var listManager = GridLayoutManager(this,2)
-        var listAdapter = ListAdapterGrid(mapSignalListDatas)
-        //val mapSignalListAdapter = MapSignalListAdapter(mapSignalListDatas)
+        val mapSignalListRVAdapter = MapSignalListRVAdapter(mapSignalListDatas)
+        binding.mapSignalListRecyclerviewGrid.adapter = mapSignalListRVAdapter
+        binding.mapSignalListRecyclerviewGrid.layoutManager = GridLayoutManager(this,2)
 
-        var recyclerList = recyclerGridView.apply {
-            setHasFixedSize(true)
-            layoutManager = listManager
-            adapter = listAdapter
-        }
+        //recycler view
+
+
+
+
+
+
+//        //recyclerView
+//        Log.d("say","make recyclerview")
+//        var listManager = GridLayoutManager(this,2)
+//        var listAdapter = ListAdapterGrid(mapSignalListDatas)
+//        //val mapSignalListAdapter = MapSignalListAdapter(mapSignalListDatas)
+//
+//        var recyclerList = recyclerGridView.apply {
+//            setHasFixedSize(true)
+//            layoutManager = listManager
+//            adapter = listAdapter
+//        }
     }
 
 }

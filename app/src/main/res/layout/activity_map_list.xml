@@ -50,16 +50,15 @@
         app:layout_constraintBottom_toBottomOf="parent">
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="20dp">
 
             <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerGridView"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"
+            android:id="@+id/map_signal_list_recyclerview_grid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_map_signal_list"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_map_signal_list_default"
             android:layout_gravity="center"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
