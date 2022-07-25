@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.RetrofitSevices.SignUpService
@@ -21,11 +23,21 @@ class ProfileActivity : AppCompatActivity() {
     private val OPEN_GALLERY = 1
     val Gallery = 0
 
+
+    lateinit var foodPreferenceArray : Array<String>
+    lateinit var hateFoodArray : Array<String>
+    lateinit var habitArray : Array<String>
+    lateinit var eatingTimeArray : Array<String>
+    lateinit var locationArray : Array<String>
+    lateinit var mbtiArray : Array<String>
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        setupSpinner()
+        setupSpinnerHandler()
 
 //        //사진찾기 버튼을 눌렀을때 갤러리로 들어가서 사진을 클릭하면 그걸 가지고 이미지 뷰로 옵니다.
 //        binding.profileOpenGalleryBtn.setOnClickListener{loadImage()}
@@ -260,6 +272,79 @@ class ProfileActivity : AppCompatActivity() {
             else -> {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
                 return
+            }
+        }
+    }
+
+    //spinner
+    private fun setupSpinner() {
+        foodPreferenceArray = resources.getStringArray(R.array.foodPreference)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, foodPreferenceArray)
+        binding.profileFoodPreferenceSpn.adapter = adapter
+
+        hateFoodArray = resources.getStringArray(R.array.hateFood)
+        val hateFoodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, hateFoodArray)
+        binding.profileHateFoodSpn.adapter = hateFoodAdapter
+
+        habitArray = resources.getStringArray(R.array.habit)
+        val habitAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, habitArray)
+        binding.profileInterestSpn.adapter = habitAdapter
+
+        eatingTimeArray = resources.getStringArray(R.array.eatingTime)
+        val eatingTimeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, eatingTimeArray)
+        binding.profileAvgSpeedSpn.adapter = eatingTimeAdapter
+
+        locationArray = resources.getStringArray(R.array.location)
+        val locationAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, locationArray)
+        binding.profilePreferAreaSpn.adapter = locationAdapter
+
+        mbtiArray = resources.getStringArray(R.array.mbti)
+        val mbtiAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, mbtiArray)
+        binding.profileMbtiSpn.adapter = mbtiAdapter
+
+
+    }
+
+    private fun setupSpinnerHandler() {
+        binding.profileFoodPreferenceSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.profileHateFoodSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.profileInterestSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.profileAvgSpeedSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.profilePreferAreaSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
+
+        binding.profileMbtiSpn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
     }
