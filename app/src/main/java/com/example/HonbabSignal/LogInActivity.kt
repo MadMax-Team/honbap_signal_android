@@ -120,6 +120,14 @@ class LogInActivity : AppCompatActivity() {
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
+        //map list로 넘어가는 버튼
+        binding.loginToMapListBtn.setOnClickListener {
+
+            val intent = Intent(this, MapListActivity::class.java)
+            intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+        }
+
 
 
     }//onCreate꺼임
