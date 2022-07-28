@@ -48,9 +48,9 @@ class MapListActivity:AppCompatActivity() {
             add(MapSignal(false,"코뿡",R.drawable.cobboong,"나와 211m","1분전","헤비토커","초밥","고기","샤브샤브","사이다"))
             add(MapSignal(true, "데옹",R.drawable.deong,"나와 105m","6분전","푸드파이터","떡볶이","국밥","고기","풀"))
             add(MapSignal(false, "도동",R.drawable.dodong_profile,"나와 15m","10분전","디자인","맥주","피자","20대","고기"))
-            add(MapSignal(true, "창식",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
-            add(MapSignal(false, "고악",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
-            add(MapSignal(true, "웅",R.drawable.default_profile,"나와 95m","12분전","공대","인싸","한식","족발","해병대"))
+            add(MapSignal(true, "창식",R.drawable.default_profile,"나와 95m","122분전","공대","인싸","한식","족발","해병대"))
+            add(MapSignal(false, "고악",R.drawable.default_profile,"나와 915m","123분전","공대","인싸","한식","족발","해병대"))
+            add(MapSignal(true, "웅",R.drawable.default_profile,"나와 1195m","1200분전","공대","인싸","한식","족발","해병대"))
         }
 
         //recyclerView
