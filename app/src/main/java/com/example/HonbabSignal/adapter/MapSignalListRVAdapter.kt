@@ -5,12 +5,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.HonbabSignal.DmListAdapter
 import com.example.HonbabSignal.MapSignal
 import com.example.HonbabSignal.SignalMode
 import com.example.HonbabSignal.databinding.ItemMapSignalListCustomBinding
 import com.example.HonbabSignal.databinding.ItemMapSignalListDefaultBinding
 
 class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+
+    //클릭인터페이스 정의
+    public interface MyItemClickListner{
+        fun onItemClick(signal : MapSignal)
+    }
+
+    //리스너 객체를 전달받을 함수랑 리스너 객체를 전달받을 변수
+    private lateinit var mItemClickListner : MyItemClickListner
+
+    public fun setMyItemClickListener(itemClickListner : MyItemClickListner){
+        mItemClickListner = itemClickListner
+    }
+
 
     //default(추가정보 입력안했을때 siganal) 모드 ViewHolder
     inner class DefaultViewHolder(private val binding : ItemMapSignalListDefaultBinding) :
@@ -76,10 +90,13 @@ class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : Re
         when(signalList[position].mode){
             SignalMode.DEFAULT->{
                 (holder as DefaultViewHolder).bind(signalList[position])
+                holder.itemView.setOnClickListener { mItemClickListner.onItemClick(signalList[position]) }
             }
             else ->{
                 (holder as CustomViewHolder).bind(signalList[position])
+                holder.itemView.setOnClickListener { mItemClickListner.onItemClick(signalList[position]) }
             }
+
         }
     }
 

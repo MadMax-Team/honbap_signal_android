@@ -1,12 +1,14 @@
 package com.example.HonbabSignal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.HonbabSignal.adapter.MapSignalListRVAdapter
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
+import com.google.gson.Gson
 
-class MapListActivity:AppCompatActivity() {
+class MapListActivity :AppCompatActivity(){
 
     lateinit var binding: ActivityMapListBinding
 
@@ -48,11 +50,23 @@ class MapListActivity:AppCompatActivity() {
 
         }
 
+        //리사이클러뷰 어뎁터 세팅
         val mapSignalListRVAdapter = MapSignalListRVAdapter(mapSignalListDatas)
         binding.mapSignalListRecyclerviewGrid.adapter = mapSignalListRVAdapter
         binding.mapSignalListRecyclerviewGrid.layoutManager = GridLayoutManager(this,2)
 
-        //recycler view
+        //리사이클러뷰 클릭관련 함수정의
+        mapSignalListRVAdapter.setMyItemClickListener(object : MapSignalListRVAdapter.MyItemClickListner{
+            override fun onItemClick(signal : MapSignal) {
+            var intent = Intent(this@MapListActivity, PopupActivity::class.java)
+            val gson = Gson()
+            val signalJson = gson.toJson(signal)
+            intent.putExtra("signal", signalJson)
+            startActivity(intent)
+            }
+        })
+
+
 
 
 
