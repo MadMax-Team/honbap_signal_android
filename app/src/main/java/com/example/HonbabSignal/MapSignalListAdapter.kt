@@ -1,14 +1,10 @@
-import android.app.Dialog
-import android.app.PendingIntent.getActivity
 import android.content.Intent
-import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.HonbabSignal.LogInActivity
 import com.example.HonbabSignal.MapSignal
 import com.example.HonbabSignal.PopupActivity
 import com.example.HonbabSignal.R

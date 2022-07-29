@@ -1,4 +1,4 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.SignupNLogin
 
 import android.app.Activity
 import android.content.Intent
@@ -22,7 +22,7 @@ class PhoneSignupActivity : Activity() {
 
 
             if (status == "인증번호 인증완료"){
-                val intent = Intent(this,SignUpActivity::class.java)
+                val intent = Intent(this, SignUpActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
             }

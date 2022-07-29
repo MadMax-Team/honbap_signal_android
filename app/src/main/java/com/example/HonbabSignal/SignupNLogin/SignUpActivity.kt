@@ -1,17 +1,14 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.SignupNLogin
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.ProfileActivity
 import com.example.HonbabSignal.databinding.ActivitySignUpBinding
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class SignUpActivity : AppCompatActivity(){
@@ -107,7 +104,7 @@ class SignUpActivity : AppCompatActivity(){
             var phoneNum : String = binding.signUpPhoneNumEt.text.toString()
             var sex : String = binding.signUpSexEt.text.toString()
 
-            val intent = Intent(this,ProfileActivity::class.java)
+            val intent = Intent(this, ProfileActivity::class.java)
             //intent.putExtra("userId",userId)
             intent.putExtra("password",password)
             intent.putExtra("userName",userName)

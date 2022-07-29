@@ -1,7 +1,5 @@
 package com.example.HonbabSignal
 
-import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +11,6 @@ import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.RetrofitSevices.SignalOnService
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
 import retrofit2.Response
-import java.time.LocalDateTime
 
 
 class HomeFragment : Fragment() {
