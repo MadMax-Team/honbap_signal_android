@@ -45,7 +45,6 @@ class PhoneSignupActivity : Activity() {
                     Log.d("phoneSignupKeepBtn", "폰 번호 입력이 비어있음")
                 }
             }
-
         }
 
 
