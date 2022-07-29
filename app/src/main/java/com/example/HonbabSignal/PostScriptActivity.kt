@@ -4,8 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
-import android.widget.TextView
-import com.example.HonbabSignal.databinding.ActivityPopupBinding
+import com.example.HonbabSignal.RetrofitSevices.ReviewService
 import com.example.HonbabSignal.databinding.ActivityPostScriptBinding
 import retrofit2.Call
 import retrofit2.Callback
