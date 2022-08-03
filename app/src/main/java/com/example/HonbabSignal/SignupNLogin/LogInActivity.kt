@@ -1,25 +1,14 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.SignupNLogin
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.*
 import com.example.HonbabSignal.RetrofitSevices.LoginService
-import com.example.HonbabSignal.RetrofitSevices.SignUpService
 import com.example.HonbabSignal.databinding.ActivityLogInBinding
-import com.kakao.auth.AuthType
-import com.kakao.sdk.auth.AuthApiClient
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.model.AuthErrorCause
-import com.kakao.sdk.common.util.Utility
-import com.kakao.sdk.user.UserApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

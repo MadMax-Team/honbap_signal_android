@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/phone_signup_back_btn"
+        android:layout_width="40dp"
+        android:layout_height="24dp"
+        android:src="@drawable/icon_back"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/phone_signup_main_tv"/>
+
+    <TextView
+        android:id="@+id/phone_signup_main_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="핸드폰 번호를 입력해주세요"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_back_btn" />
+
+    <TextView
+        android:id="@+id/phone_signup_sub_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="입력해 주시는 번호로 인증번호가 전송됩니다."
+        android:textSize="12dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_main_tv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/phone_signup_phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="000-0000-0000"
+        android:textSize="18dp"
+        android:textColor="@color/light_gray"
+        android:layout_marginTop="50dp"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_sub_tv"/>
+
+
+    <TextView
+        android:id="@+id/phone_signup_input_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="인증번호를 입력해주세요."
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_phone_et"/>
+
+    <EditText
+        android:id="@+id/phone_signup_input_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="18dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_input_tv"/>
+
+    <Button
+        android:id="@+id/phone_signup_keep_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="계속하기"
+        android:textAlignment="center"
+        android:background="@color/honbab_main_color"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
