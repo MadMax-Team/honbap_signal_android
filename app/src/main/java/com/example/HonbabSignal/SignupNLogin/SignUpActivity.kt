@@ -108,7 +108,7 @@ class SignUpActivity : AppCompatActivity(){
             var userName : String = binding.signUpNameEt.text.toString()
             var birth : String = binding.signUpBirthYearEt.text.toString() + "년" + binding.signUpBirthMonthEt.text.toString() + "월" + binding.signUpBirthDayEt.text.toString() + "일"
             var email:String = binding.signUpEmailEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
-            var phoneNum : String = binding.signUpPhoneNumEt.text.toString()
+            var phoneNum : String = intent.getStringExtra("phoneNumber")!!
             var sex : String = binding.signUpSexEt.text.toString()
 
             var retrofit = getRetorfit()

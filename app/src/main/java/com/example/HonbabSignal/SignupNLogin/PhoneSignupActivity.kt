@@ -17,6 +17,7 @@ import retrofit2.Response
 class PhoneSignupActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityPhoneSignupBinding
+    lateinit var phoneNumber: String
 
 
    override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,12 @@ class PhoneSignupActivity : AppCompatActivity() {
             var SignUpService = retrofit.create(SignUpService::class.java)
 
             if (status == "인증번호 인증완료"){
+
+                //번호 뒤로 같이 넘겨주기
+
+
                 val intent = Intent(this, SignUpActivity::class.java)
+                intent.putExtra("phoneNumber",phoneNumber)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
             }
@@ -57,6 +63,17 @@ class PhoneSignupActivity : AppCompatActivity() {
                             when (respSign.code){
                                 5001 -> {
                                     Log.d("phoneSignup","인증번호 일치")
+                                    status = "인증번호 인증완료"
+                                    binding.phoneSignupMainTv.visibility = View.INVISIBLE
+                                    binding.phoneSignupSubTv.visibility = View.INVISIBLE
+                                    binding.phoneSignupPhoneEt.visibility = View.INVISIBLE
+                                    binding.phoneSignupInputTv.visibility = View.INVISIBLE
+                                    binding.phoneSignupInputEt.visibility = View.INVISIBLE
+                                    binding.phoneSignupSuccessIc.visibility = View.VISIBLE
+                                    binding.phoneSignupSuccessTv1.visibility = View.VISIBLE
+                                    binding.phoneSignupSuccessTv2.visibility = View.VISIBLE
+
+
                                 }
                                 5003 -> {
                                     Log.d("phoneSignup","인증번호 불일치")
@@ -70,8 +87,6 @@ class PhoneSignupActivity : AppCompatActivity() {
                         }
 
                     })
-                    //인증번호 일치 시 
-                    // status = "인증번호 인증완료"
                 }
             }
 
@@ -81,7 +96,7 @@ class PhoneSignupActivity : AppCompatActivity() {
                     binding.phoneSignupInputEt.visibility = View.VISIBLE
                     status = "인증번호 입력단계"
 
-                    var phoneNumber : String = binding.phoneSignupPhoneEt.text.toString()
+                    phoneNumber = binding.phoneSignupPhoneEt.text.toString()
 
 
                     SignUpService.phoneSignUp(
