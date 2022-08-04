@@ -75,6 +75,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phone_signup_input_tv"/>
 
+    <ImageView
+        android:id="@+id/phone_signup_success_ic"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/ic_honbap_phone_check"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/phone_signup_success_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="핸드폰 인증이 완료되었습니다!"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_success_ic"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/phone_signup_success_tv2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이어서 계속 가입 과정을 완료해주세요."
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_signup_success_tv1"/>
+
     <Button
         android:id="@+id/phone_signup_keep_btn"
         android:layout_width="match_parent"

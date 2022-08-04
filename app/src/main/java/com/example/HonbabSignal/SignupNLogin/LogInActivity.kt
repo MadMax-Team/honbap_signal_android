@@ -98,26 +98,24 @@ class LogInActivity : AppCompatActivity() {
         // 카카오 로그인 버튼
         binding.logInKakaoLoginButton.setOnClickListener {
 
-            val intent = Intent(this, KakaoLoginActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         //후기로 넘어가는 버튼
         binding.loginToPostScriptBtn.setOnClickListener {
 
-            val intent = Intent(this, PostScriptActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java)
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
         //map list로 넘어가는 버튼
         binding.loginToMapListBtn.setOnClickListener {
 
-            val intent = Intent(this, MapListActivity::class.java)
+            val intent = Intent(this, MapActivity::class.java)
             intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
+
         }
-
-
-
     }//onCreate꺼임
 }
