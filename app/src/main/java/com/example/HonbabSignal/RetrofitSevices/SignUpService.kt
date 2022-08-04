@@ -7,6 +7,13 @@ import retrofit2.http.*
 
 
 interface SignUpService {
+
+    @FormUrlEncoded
+    @POST("/app/send")
+    fun phoneSignUp(
+        @Field("phoneNumber") phoneNum: String
+    ): Call<SignUpAuthResponse>
+
     @FormUrlEncoded
     //기본 회원정보를 입력하는 POST
     @POST("/user/signup")

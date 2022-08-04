@@ -90,7 +90,7 @@ class LogInActivity : AppCompatActivity() {
         binding.homeSignUpTv.setOnClickListener {
             //Toast.makeText(activity, "Its toast!", Toast.LENGTH_SHORT).show();
 
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, PhoneSignupActivity::class.java)
             //intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }
