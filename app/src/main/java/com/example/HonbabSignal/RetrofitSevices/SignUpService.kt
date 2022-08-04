@@ -1,6 +1,7 @@
 package com.example.HonbabSignal.RetrofitSevices
 
 import com.example.HonbabSignal.SignUpAuthResponse
+import com.example.HonbabSignal.SignalInfoAuthResponse
 import com.example.HonbabSignal.UserIdxAuthResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -35,6 +36,17 @@ interface SignUpService {
         @Field("birth") birth : String,
         @Field("email") email : String,
         @Field("phoneNum") phoneNum : String,
+        @Field("sex") sex: String
+    ): Call<SignUpAuthResponse>
+
+    @POST("/user/signup")
+    fun SignUpUser(
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("userName") userName: String,
+        @Field("nickName") nickName: String,
+        @Field("birth") birth: String,
+        @Field("phoneNum") phoneNum: String,
         @Field("sex") sex: String
     ): Call<SignUpAuthResponse>
 
