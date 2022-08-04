@@ -8,10 +8,20 @@ import retrofit2.http.*
 
 interface SignUpService {
 
+    //번호 전송 POST
     @FormUrlEncoded
     @POST("/app/send")
     fun phoneSignUp(
         @Field("phoneNumber") phoneNum: String
+    ): Call<SignUpAuthResponse>
+
+
+    //인증 번호 전송 POST
+    @FormUrlEncoded
+    @POST("/app/verify")
+    fun phoneVerifySignUp(
+        @Field("phoneNumber") phoneNum: String,
+        @Field("verifyCode") verifyCode: String
     ): Call<SignUpAuthResponse>
 
     @FormUrlEncoded

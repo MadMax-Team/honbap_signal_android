@@ -28,6 +28,8 @@ class PhoneSignupActivity : AppCompatActivity() {
         binding.phoneSignupKeepBtn.setOnClickListener{
             Log.d("phoneSignupKeepBtn",binding.phoneSignupPhoneEt.text.toString())
 
+            var retrofit = getRetorfit()
+            var SignUpService = retrofit.create(SignUpService::class.java)
 
             if (status == "인증번호 인증완료"){
                 val intent = Intent(this, SignUpActivity::class.java)
@@ -38,8 +40,36 @@ class PhoneSignupActivity : AppCompatActivity() {
             if (status == "인증번호 입력단계") {
                 if (binding.phoneSignupInputEt.text.toString().isNotEmpty()) {
                     Log.d("phoneSignupKeepBtn", "인증 번호 입력완")
+                    var phoneNumber : String = binding.phoneSignupPhoneEt.text.toString()
+                    var verifyCode: String = binding.phoneSignupInputEt.text.toString()
 
-                        
+
+                    SignUpService.phoneVerifySignUp(
+                        phoneNumber,
+                        verifyCode
+                    ).enqueue(object: Callback<SignUpAuthResponse>{
+                        override fun onResponse(
+                            call: Call<SignUpAuthResponse>,
+                            response: Response<SignUpAuthResponse>
+                        ) {
+                            var respSign = response.body()!!
+                            Log.d("SignUpcode",respSign.code.toString())
+                            when (respSign.code){
+                                5001 -> {
+                                    Log.d("phoneSignup","인증번호 일치")
+                                }
+                                5003 -> {
+                                    Log.d("phoneSignup","인증번호 불일치")
+
+                                }
+                            }
+                        }
+
+                        override fun onFailure(call: Call<SignUpAuthResponse>, t: Throwable) {
+                            Log.d("phoneSignup","인증번호 확인 오류")
+                        }
+
+                    })
                     //인증번호 일치 시 
                     // status = "인증번호 인증완료"
                 }
@@ -52,8 +82,7 @@ class PhoneSignupActivity : AppCompatActivity() {
                     status = "인증번호 입력단계"
 
                     var phoneNumber : String = binding.phoneSignupPhoneEt.text.toString()
-                    var retrofit = getRetorfit()
-                    var SignUpService = retrofit.create(SignUpService::class.java)
+
 
                     SignUpService.phoneSignUp(
                         phoneNumber
