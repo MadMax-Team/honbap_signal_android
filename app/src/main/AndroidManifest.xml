@@ -30,6 +30,7 @@
             android:value="@string/kakao_app_key"/>
 
         <activity android:name="com.example.HonbabSignal.MainActivity"/>
+        <activity android:name="com.example.HonbabSignal.SignupNLogin.PhoneSignupActivity"/>
         <activity android:name="com.example.HonbabSignal.SignupNLogin.LogInActivity">
 
         </activity>
