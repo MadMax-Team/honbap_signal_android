@@ -2,11 +2,16 @@ package com.example.HonbabSignal
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.HonbabSignal.RetrofitSevices.MapService
 import com.example.HonbabSignal.adapter.MapSignalListRVAdapter
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
 import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MapListActivity :AppCompatActivity(){
 
@@ -23,20 +28,7 @@ class MapListActivity :AppCompatActivity(){
             finish()
             overridePendingTransition(0,0)
         }
-//        mapView = findViewById<MapView>(R.id.map_view)
-//        mapView.onCreate(savedInstanceState)
 
-
-//        //지도 사용권한을 받아옴
-//        locationSource = FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE)
-//
-//        val fm = supportFragmentManager
-//        val mapFragment = fm.findFragmentById(R.id.map) as MapFragment?
-//            ?: MapFragment.newInstance(NaverMapOptions().zoomControlEnabled(false))
-//                .also {
-//                    fm.beginTransaction().add(R.id.map, it).commit()
-//                }
-//        mapFragment.getMapAsync(this);
 
         //임시 데이터리스트 생성(서버 없어서 해봄)
         mapSignalListDatas.apply{
@@ -49,6 +41,9 @@ class MapListActivity :AppCompatActivity(){
             add(MapSignal(SignalMode.CUSTOM ,true, "웅",R.drawable.default_profile,"나와 25m","22분전","뉴페","긔욤","경양식","보쌈","서버"))
 
         }
+
+        getList()
+//        220dab12c567826e67c2895b00ea7ff525a1bc07
 
         //리사이클러뷰 어뎁터 세팅
         val mapSignalListRVAdapter = MapSignalListRVAdapter(mapSignalListDatas)
@@ -70,9 +65,6 @@ class MapListActivity :AppCompatActivity(){
 
 
 
-
-
-
 //        //recyclerView
 //        Log.d("say","make recyclerview")
 //        var listManager = GridLayoutManager(this,2)
@@ -84,6 +76,38 @@ class MapListActivity :AppCompatActivity(){
 //            layoutManager = listManager
 //            adapter = listAdapter
 //        }
+    }
+
+    fun getList(){
+        var retrofit = getRetorfit()
+        var MapService = retrofit.create(MapService::class.java)
+
+        var userIdx: Int = 1
+
+        MapService.getSignalInfo(userIdx)
+            .enqueue(object: Callback<SignalInfoAuthResponse>{
+                override fun onResponse(
+                    call: Call<SignalInfoAuthResponse>,
+                    response: Response<SignalInfoAuthResponse>
+                ) {
+                    var respIdx = response.body()!!
+                    Log.d("editingProfile_code", respIdx.code.toString())
+                    when (respIdx.code) {
+                        1000 -> {
+                            var signalUserIdxList = respIdx.result
+                            Log.d("MapListActivity", signalUserIdxList.toString())
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<SignalInfoAuthResponse>, t: Throwable) {
+                    Log.d("MapListActivity","실패")
+                }
+
+
+            })
+
     }
 
 }

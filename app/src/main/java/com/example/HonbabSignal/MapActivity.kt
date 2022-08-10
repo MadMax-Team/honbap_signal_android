@@ -4,6 +4,7 @@ import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.RetrofitSevices.MapService
 import com.example.HonbabSignal.databinding.ActivityMapBinding
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
 //import com.google.type.LatLng
@@ -12,6 +13,9 @@ import com.naver.maps.map.overlay.Align
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MapActivity: AppCompatActivity(), OnMapReadyCallback {
@@ -135,9 +139,29 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
 
         //좌표 변경 시 토스트로 표시
         naverMap.addOnLocationChangeListener { location ->
-//            Toast.makeText(this, "${location.latitude}, ${location.longitude}",
-//                Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "${location.latitude}, ${location.longitude}", Toast.LENGTH_SHORT)
+                .show()
+            var retrofit = getRetorfit()
 
+            var userIdx: Int = 1
+
+            var PatchMapService = retrofit.create(MapService::class.java)
+            var latitude = location.latitude
+            var longitude = location.longitude
+            PatchMapService.patchSignalFind(userIdx, latitude, longitude)
+                .enqueue(object : Callback<SignalFindAuthResponse> {
+                    override fun onResponse(
+                        call: Call<SignalFindAuthResponse>,
+                        response: Response<SignalFindAuthResponse>
+                    ) {
+                        var respMapPatch = response.body()!!
+
+                    }
+
+                    override fun onFailure(call: Call<SignalFindAuthResponse>, t: Throwable) {
+                        Log.d("map", "실패")
+                    }
+                })
 
         }
     }

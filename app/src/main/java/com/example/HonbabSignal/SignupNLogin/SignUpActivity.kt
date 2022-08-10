@@ -8,7 +8,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.ProfileActivity
+import com.example.HonbabSignal.RetrofitSevices.SignUpService
+import com.example.HonbabSignal.SignUpAuthResponse
+import com.example.HonbabSignal.UserInfoAuthResponse
 import com.example.HonbabSignal.databinding.ActivitySignUpBinding
+import com.example.HonbabSignal.getRetorfit
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class SignUpActivity : AppCompatActivity(){
@@ -101,19 +108,33 @@ class SignUpActivity : AppCompatActivity(){
             var userName : String = binding.signUpNameEt.text.toString()
             var birth : String = binding.signUpBirthYearEt.text.toString() + "년" + binding.signUpBirthMonthEt.text.toString() + "월" + binding.signUpBirthDayEt.text.toString() + "일"
             var email:String = binding.signUpEmailEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
-            var phoneNum : String = binding.signUpPhoneNumEt.text.toString()
+            var phoneNum : String = intent.getStringExtra("phoneNumber")!!
             var sex : String = binding.signUpSexEt.text.toString()
 
-            val intent = Intent(this, ProfileActivity::class.java)
-            //intent.putExtra("userId",userId)
-            intent.putExtra("password",password)
-            intent.putExtra("userName",userName)
-            intent.putExtra("birth",birth)
-            intent.putExtra("email",email)
-            intent.putExtra("phoneNum",phoneNum)
-            intent.putExtra("sex",sex)
-            startActivity(intent)
-            finish()
+            var retrofit = getRetorfit()
+            var SignUpService = retrofit.create(SignUpService::class.java)
+
+            SignUpService.SignUpUser(email, password, userName, "nickName", birth, phoneNum, sex)
+                .enqueue(object: Callback<SignUpAuthResponse>{
+                    override fun onResponse(
+                        call: Call<SignUpAuthResponse>,
+                        response: Response<SignUpAuthResponse>
+                    ) {
+                        val resp = response.body()!!
+                        
+                        when(resp.code){
+                            1000-> {
+                                Log.d("SignUp","성공")
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<SignUpAuthResponse>, t: Throwable) {
+                        Log.d("SignUp", "실패")
+                    }
+
+                })
+
 
         }
     }

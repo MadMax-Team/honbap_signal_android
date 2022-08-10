@@ -27,6 +27,21 @@ data class UserInfoDetail(@SerializedName("userId") val userId : String,
                           @SerializedName("updateAt") val updateAt : String,
                           @SerializedName("createAt") val createAt : String)
 
+data class SignalInfoAuthResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
+                                @SerializedName("code") val code: Int,
+                                @SerializedName("message") val message: String,
+                                @SerializedName("result") val result : List<String>)
+
+data class SignalInfoDetail(@SerializedName("userId") val userId: Int,
+//                          @SerializedName("userName") val userName : String,
+//                          @SerializedName("birth") val birth : String,
+//                          @SerializedName("email") val email : String,
+//                          @SerializedName("phoneNum") val phoneNum : String,
+//                          @SerializedName("sex") val sex : String,
+//                          @SerializedName("updateAt") val updateAt : String,
+//                          @SerializedName("createAt") val createAt : String
+                          )
+
 data class UserInfoPatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
                                  @SerializedName("code") val code : Int,
                                  @SerializedName("message") val message : String)

@@ -1,12 +1,30 @@
 package com.example.HonbabSignal.RetrofitSevices
 
 import com.example.HonbabSignal.SignUpAuthResponse
+import com.example.HonbabSignal.SignalInfoAuthResponse
 import com.example.HonbabSignal.UserIdxAuthResponse
 import retrofit2.Call
 import retrofit2.http.*
 
 
 interface SignUpService {
+
+    //번호 전송 POST
+    @FormUrlEncoded
+    @POST("/app/send")
+    fun phoneSignUp(
+        @Field("phoneNumber") phoneNum: String
+    ): Call<SignUpAuthResponse>
+
+
+    //인증 번호 전송 POST
+    @FormUrlEncoded
+    @POST("/app/verify")
+    fun phoneVerifySignUp(
+        @Field("phoneNumber") phoneNum: String,
+        @Field("verifyCode") verifyCode: String
+    ): Call<SignUpAuthResponse>
+
     @FormUrlEncoded
     //기본 회원정보를 입력하는 POST
     @POST("/user/signup")
@@ -18,6 +36,17 @@ interface SignUpService {
         @Field("birth") birth : String,
         @Field("email") email : String,
         @Field("phoneNum") phoneNum : String,
+        @Field("sex") sex: String
+    ): Call<SignUpAuthResponse>
+
+    @POST("/user/signup")
+    fun SignUpUser(
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("userName") userName: String,
+        @Field("nickName") nickName: String,
+        @Field("birth") birth: String,
+        @Field("phoneNum") phoneNum: String,
         @Field("sex") sex: String
     ): Call<SignUpAuthResponse>
 
