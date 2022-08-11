@@ -111,7 +111,7 @@ class SignUpActivity : AppCompatActivity(){
             var retrofit = getRetorfit()
             var signUpService = retrofit.create(SignUpService::class.java)
 
-            signUpService.signUpUser(email, password, userName, "nickName", birth, phoneNum, sex)
+            signUpService.signUpUser(email, password, userName, "nickName2", birth, phoneNum, sex)
                 .enqueue(object: Callback<SignUpAuthResponse>{
                     override fun onResponse(
                         call: Call<SignUpAuthResponse>,
