@@ -23,7 +23,7 @@
         app:cardCornerRadius="100dp">
 
         <ImageView
-            android:id="@+id/item_map_signal_list_profile_iv"
+            android:id="@+id/popup_profile_img_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
@@ -33,7 +33,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/item_map_signal_nickname_tv"
+        android:id="@+id/popup_nickname_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="코뿡"
@@ -53,6 +53,7 @@
 
 
     <TextView
+        android:id="@+id/popup_note_tv"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +76,7 @@
         android:layout_gravity="center">
 
         <TextView
-            android:id="@+id/item_map_signal_tag1_tv"
+            android:id="@+id/popup_tag1_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -90,7 +91,7 @@
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/item_map_signal_tag2_tv"
+            android:id="@+id/popup_tag2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="초밥"
@@ -105,7 +106,7 @@
             android:background="@drawable/layout_map_list_popup_tag"/>
 
         <TextView
-            android:id="@+id/item_map_signal_tag3_tv"
+            android:id="@+id/popup_tag3_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="고기"
@@ -131,7 +132,7 @@
         android:layout_gravity="center">
 
         <TextView
-            android:id="@+id/item_map_signal_tag4_tv"
+            android:id="@+id/popup_tag4_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="샤브샤브"
@@ -146,7 +147,7 @@
             android:background="@drawable/layout_map_list_popup_tag"/>
 
         <TextView
-            android:id="@+id/item_map_signal_tag5_tv"
+            android:id="@+id/popup_tag5_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="사이다"
