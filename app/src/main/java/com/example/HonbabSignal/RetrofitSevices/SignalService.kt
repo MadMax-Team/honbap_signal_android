@@ -8,11 +8,9 @@ import retrofit2.http.*
 interface SignalService {
 
     @FormUrlEncoded
-    @POST("/signal/{userIdx}/list")
+    @POST("/signal/list")
     fun addOnSignal(
-        @Path("userIdx") userIdx:Int,
-        @Field("sigPromiseTime") signalIdx: String, //DateTime
-        @Field("sigPromiseArea") applyIdx: String
+        @Header("x-access-token") jwt: String
     ): Call<SignalOnResponse>
 
     @DELETE("/signal/{userIdx}/list")

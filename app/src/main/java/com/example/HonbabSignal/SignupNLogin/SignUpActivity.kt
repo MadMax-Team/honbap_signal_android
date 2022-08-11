@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.*
 import com.example.HonbabSignal.RetrofitSevices.SignUpService
+import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.ActivitySignUpBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -111,7 +112,7 @@ class SignUpActivity : AppCompatActivity(){
             var retrofit = getRetorfit()
             var signUpService = retrofit.create(SignUpService::class.java)
 
-            signUpService.signUpUser(email, password, userName, "nickName2", birth, phoneNum, sex)
+            signUpService.signUpUser(email, password, userName,  birth, phoneNum, sex)
                 .enqueue(object: Callback<SignUpAuthResponse>{
                     override fun onResponse(
                         call: Call<SignUpAuthResponse>,
@@ -123,6 +124,45 @@ class SignUpActivity : AppCompatActivity(){
                         when(resp.code){
                             1000-> {
                                 Log.d("SignUp","성공")
+                                //회원가입 할 때 POST
+                                var SignalOnService = retrofit.create(SignalService::class.java)
+
+                                val userIdx: Int = 1
+                                var sigPromiseTime: String = "2022-01-02 11:11:11"
+                                var sigPromiseArea: String = "성수"
+
+                                val spf_jwt = getSharedPreferences("jwt",0)
+                                var jwt: String = spf_jwt.getString("jwt","").toString()
+
+                                SignalOnService.addOnSignal(jwt)
+                                    .enqueue(object: Callback<SignalOnResponse> {
+                                        override fun onResponse(
+                                            call: Call<SignalOnResponse>,
+                                            response: Response<SignalOnResponse>
+                                        ) {
+
+                                            var respIdx = response.body()!!
+                                            when (respIdx.code){
+                                                1000 -> {
+                                                    Log.d("HomeFragment", respIdx.code.toString())
+                                                }
+                                                2016 -> {
+                                                    Log.d("HomeFragment", respIdx.code.toString())
+                                                }
+                                                2017 -> {
+                                                    Log.d("HomeFragment", respIdx.code.toString())
+                                                }
+                                                4000 -> {
+                                                    Log.d("HomeFragment", respIdx.code.toString())
+                                                }
+                                            }
+                                        }
+
+                                        override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
+                                            Log.d("HomeFragment", "signal add onFailure")
+                                        }
+                                    })
+
 
                                 val intent = Intent(this@SignUpActivity, LogInActivity::class.java)
                                 intent.addFlags (Intent.FLAG_ACTIVITY_NO_ANIMATION)

@@ -30,79 +30,46 @@ class HomeFragment : Fragment() {
 
         fun retrofitPostSignal(){
             var retrofit = getRetorfit()
-            var SignalOnService = retrofit.create(SignalService::class.java)
 
-            val userIdx: Int = 1
-            var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "성수"
-
-            SignalOnService.addOnSignal(userIdx, sigPromiseTime, sigPromiseArea)
-                .enqueue(object: Callback<SignalOnResponse> {
-                    override fun onResponse(
-                        call: Call<SignalOnResponse>,
-                        response: Response<SignalOnResponse>
-                    ) {
-
-                        var respIdx = response.body()!!
-                        when (respIdx.code){
-                            1000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2016 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2017 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            4000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                        }
-                    }
-
-                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                        Log.d("HomeFragment", "signal add onFailure")
-                    }
-                })
         }
 
-        fun retrofitDeleteSignal(){
-            var retrofit = getRetorfit()
-            var SignalService = retrofit.create(SignalService::class.java)
-
-            val userIdx: Int = 1
-            var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "성수"
-
-            SignalService.addOnSignal(userIdx, sigPromiseTime, sigPromiseArea)
-                .enqueue(object: Callback<SignalOnResponse> {
-                    override fun onResponse(
-                        call: Call<SignalOnResponse>,
-                        response: Response<SignalOnResponse>
-                    ) {
-
-                        var respIdx = response.body()!!
-                        when (respIdx.code){
-                            1000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2016 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2017 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            4000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                        }
-                    }
-
-                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                        Log.d("HomeFragment", "signal add onFailure")
-                    }
-                })
-        }
+//        fun retrofitDeleteSignal(){
+//            var retrofit = getRetorfit()
+//            var SignalService = retrofit.create(SignalService::class.java)
+//
+//            val userIdx: Int = 1
+//            var sigPromiseTime: String = "2022-01-02 11:11:11"
+//            var sigPromiseArea: String = "성수"
+//
+//            SignalService.addOnSignal(userIdx, sigPromiseTime, sigPromiseArea)
+//                .enqueue(object: Callback<SignalOnResponse> {
+//                    override fun onResponse(
+//                        call: Call<SignalOnResponse>,
+//                        response: Response<SignalOnResponse>
+//                    ) {
+//
+//                        var respIdx = response.body()!!
+//                        when (respIdx.code){
+//                            1000 -> {
+//                                Log.d("HomeFragment", respIdx.code.toString())
+//                            }
+//                            2016 -> {
+//                                Log.d("HomeFragment", respIdx.code.toString())
+//                            }
+//                            2017 -> {
+//                                Log.d("HomeFragment", respIdx.code.toString())
+//                            }
+//                            4000 -> {
+//                                Log.d("HomeFragment", respIdx.code.toString())
+//                            }
+//                        }
+//                    }
+//
+//                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
+//                        Log.d("HomeFragment", "signal add onFailure")
+//                    }
+//                })
+//        }
 
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)

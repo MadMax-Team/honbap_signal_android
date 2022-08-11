@@ -174,15 +174,8 @@
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_my_dm.xml" value="0.36614583333333334" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_your_dm.xml" value="0.36614583333333334" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/toolbar_top.xml" value="0.36614583333333334" />
-        <entry key="app/src/main/res/drawable/background_signal_detail.xml" value="0.37196197509765627" />
-        <entry key="app/src/main/res/drawable/blackboarder_layout.xml" value="0.1135" />
-        <entry key="app/src/main/res/layout/activity_map_list.xml" value="0.1210479736328125" />
-        <entry key="app/src/main/res/layout/activity_popup.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_signal_dtatil.xml" value="0.30747528076171887" />
-        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.128125" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.128125" />
-        <entry key="app/src/main/res/layout/item_dm_list.xml" value="0.128125" />
         <entry key="app/src/main/res/layout/activity_phone_signup.xml" value="0.1480978260869565" />
+        <entry key="app/src/main/res/layout/activity_signal_dtatil.xml" value="0.2939971923828125" />
       </map>
     </option>
   </component>
