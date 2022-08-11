@@ -21,6 +21,10 @@ class PopupActivity : Activity(){
         super.onCreate(savedInstanceState)
         binding = ActivityPopupBinding.inflate(layoutInflater)
 
+        //인텐트로 넘어온 signal json가져오기
+        val signalInfo = intent.getStringExtra("signal")
+
+
         var dm = getApplicationContext().getResources().getDisplayMetrics();
 
         var width = (dm.widthPixels * 0.7); // Display 사이즈의 90%
