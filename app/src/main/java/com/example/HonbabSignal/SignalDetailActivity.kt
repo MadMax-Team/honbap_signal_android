@@ -9,7 +9,7 @@ import com.example.HonbabSignal.databinding.ActivitySignalDtatilBinding
 
 class SignalDetailActivity(
     context : Context,
-    private val okCallBack: (String) -> Unit,
+//    private val okCallBack: (String) -> Unit,
 ) : Dialog(context){ //뷰를 띄워야 하므로 dialog class는 context를 인자로 받는다.
 
     private lateinit var binding: ActivitySignalDtatilBinding
@@ -39,4 +39,10 @@ class SignalDetailActivity(
         //작성완료
         binding.signalDetailCompleteTv.setOnClickListener {  }
     }
+
+//    //사용하고 싶은 위치에서 이 함수로 뷰 보여주면 됨
+//    private fun showSignalDetail(){
+//        SignalDetailActivity(this){
+//        }.show()
+//    }
 }
