@@ -62,16 +62,6 @@ class SignUpActivity : AppCompatActivity(){
                 Toast.makeText(this, "이메일은 30자 이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            //2008: 휴대폰 번호를 입력해주세요.
-            if (binding.signUpPhoneNumEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "휴대폰 번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            //2009: 휴대폰 번호는 11자 이내로 입력해주세요.
-            if (binding.signUpPhoneNumEt.text.length > 11) {
-                Toast.makeText(this, "휴대폰 번호는 11자 이내로 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
             //2010: 비밀번호를 입력해주세요.
             if (binding.signUpPwdEt.text.toString().isEmpty()) {
                 Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -108,11 +98,12 @@ class SignUpActivity : AppCompatActivity(){
             var email:String = binding.signUpEmailEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
             var phoneNum : String = intent.getStringExtra("phoneNumber")!!
             var sex : String = binding.signUpSexEt.text.toString()
+            var nickName: String = binding.signUpNicknameEt.text.toString()
 
             var retrofit = getRetorfit()
             var signUpService = retrofit.create(SignUpService::class.java)
 
-            signUpService.signUpUser(email, password, userName,  birth, phoneNum, sex)
+            signUpService.signUpUser(email, password, userName, nickName, birth, phoneNum, sex)
                 .enqueue(object: Callback<SignUpAuthResponse>{
                     override fun onResponse(
                         call: Call<SignUpAuthResponse>,
@@ -125,43 +116,6 @@ class SignUpActivity : AppCompatActivity(){
                             1000-> {
                                 Log.d("SignUp","성공")
                                 //회원가입 할 때 POST
-                                var SignalOnService = retrofit.create(SignalService::class.java)
-
-                                val userIdx: Int = 1
-                                var sigPromiseTime: String = "2022-01-02 11:11:11"
-                                var sigPromiseArea: String = "성수"
-
-                                val spf_jwt = getSharedPreferences("jwt",0)
-                                var jwt: String = spf_jwt.getString("jwt","").toString()
-
-                                SignalOnService.addOnSignal(jwt)
-                                    .enqueue(object: Callback<SignalOnResponse> {
-                                        override fun onResponse(
-                                            call: Call<SignalOnResponse>,
-                                            response: Response<SignalOnResponse>
-                                        ) {
-
-                                            var respIdx = response.body()!!
-                                            when (respIdx.code){
-                                                1000 -> {
-                                                    Log.d("HomeFragment", respIdx.code.toString())
-                                                }
-                                                2016 -> {
-                                                    Log.d("HomeFragment", respIdx.code.toString())
-                                                }
-                                                2017 -> {
-                                                    Log.d("HomeFragment", respIdx.code.toString())
-                                                }
-                                                4000 -> {
-                                                    Log.d("HomeFragment", respIdx.code.toString())
-                                                }
-                                            }
-                                        }
-
-                                        override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                                            Log.d("HomeFragment", "signal add onFailure")
-                                        }
-                                    })
 
 
                                 val intent = Intent(this@SignUpActivity, LogInActivity::class.java)

@@ -321,44 +321,6 @@
 
     //
 
-    <EditText
-        android:id="@+id/sign_up_phone_num_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="35dp"
-        android:paddingStart="5dp"
-        android:background="@null"
-        android:hint="휴대폰 번호"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_birth_day_underscore_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <View
-        android:id="@+id/sign_up_phone_num_underscore_view"
-        android:layout_width="0dp"
-        android:layout_height="1px"
-        android:layout_marginTop="10dp"
-        android:background="#a8a8a8"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_phone_num_et"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_phone_num_et"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_phone_num_et"/>
-
-    <TextView
-        android:id="@+id/sign_up_phone_num_error_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="#EF0000"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_phone_num_underscore_view"/>
 
     <EditText
         android:id="@+id/sign_up_sex_et"
@@ -372,9 +334,8 @@
         android:hint="성별"
         android:inputType="text"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_up_phone_num_underscore_view"
-        />
+        app:layout_constraintTop_toBottomOf="@id/sign_up_birth_day_underscore_view"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <View
         android:id="@+id/sign_up_sex_underscore_view"
