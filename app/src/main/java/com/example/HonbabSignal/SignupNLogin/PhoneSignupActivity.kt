@@ -26,6 +26,13 @@ class PhoneSignupActivity : AppCompatActivity() {
        setContentView(binding.root)
         var status = "번호 입력단계"
 
+       binding.phoneSignupBackBtn.setOnClickListener{
+           val intent = Intent(this, LogInActivity::class.java)
+           intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+           startActivity(intent)
+       }
+
+
         binding.phoneSignupKeepBtn.setOnClickListener{
             Log.d("phoneSignupKeepBtn",binding.phoneSignupPhoneEt.text.toString())
 
