@@ -54,3 +54,11 @@ data class LoginAuthResponse(@SerializedName("isSuccess") val isSuccess : Boolea
 
 data class LoginInfo(@SerializedName("userIdx") val userIdx : Int,
                     @SerializedName("jwt") val jwt : String)
+
+data class userIdx(@SerializedName("userIdx") val userIdx : Int)
+
+data class LogininUserIdxResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
+                          @SerializedName("code") val code: Int,
+                          @SerializedName("message") val message: String,
+                          @SerializedName("result") val result : userIdx
+)
