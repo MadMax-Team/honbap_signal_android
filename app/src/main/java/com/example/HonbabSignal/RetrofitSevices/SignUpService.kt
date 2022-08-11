@@ -39,8 +39,9 @@ interface SignUpService {
         @Field("sex") sex: String
     ): Call<SignUpAuthResponse>
 
+    @FormUrlEncoded
     @POST("/user/signup")
-    fun SignUpUser(
+    fun signUpUser(
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("userName") userName: String,

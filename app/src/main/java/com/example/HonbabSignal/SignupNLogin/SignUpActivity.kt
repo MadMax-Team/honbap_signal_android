@@ -111,14 +111,15 @@ class SignUpActivity : AppCompatActivity(){
             var retrofit = getRetorfit()
             var signUpService = retrofit.create(SignUpService::class.java)
 
-            signUpService.signUp(email, password, userName, "nickName", birth, phoneNum, sex)
+            signUpService.signUpUser(email, password, userName, "nickName", birth, phoneNum, sex)
                 .enqueue(object: Callback<SignUpAuthResponse>{
                     override fun onResponse(
                         call: Call<SignUpAuthResponse>,
                         response: Response<SignUpAuthResponse>
                     ) {
                         val resp = response.body()!!
-                        
+                        Log.d("SignUp",resp.code.toString())
+
                         when(resp.code){
                             1000-> {
                                 Log.d("SignUp","성공")
