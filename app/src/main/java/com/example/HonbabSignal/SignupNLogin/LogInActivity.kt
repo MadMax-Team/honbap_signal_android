@@ -48,37 +48,13 @@ class LogInActivity : AppCompatActivity() {
                     when(respLogin.code){
                         1000-> {
 
-                            loginService.getUserIdx()
-                                .enqueue(object: Callback<LogininUserIdxResponse>{
-                                    override fun onResponse(
-                                        call: Call<LogininUserIdxResponse>,
-                                        response: Response<LogininUserIdxResponse>
-                                    ) {
 
-                                        var resp2 = response.body()!!
-                                        when (resp2.code){
-                                            1000 -> {
-
-                                                //sharedPreference에 userIdx를 넣어주었습니다.
-                                                val spf_userIdx = getSharedPreferences("userIdx",0)
-                                                val editor_userIdx = spf_userIdx.edit()
-                                                editor_userIdx.putInt("userIdx",resp2.result.userIdx)
-                                                editor_userIdx.apply()
-                                                Log.d("spf에 userIdx",spf_userIdx.getInt("userIdx",-1).toString())
-
-                                            }
-                                        }
-                                    }
-
-                                    override fun onFailure(
-                                        call: Call<LogininUserIdxResponse>,
-                                        t: Throwable
-                                    ) {
-                                        var dialog = AlertDialog.Builder(this@LogInActivity)
-                                        dialog.setTitle("userIdx Get해오는데 문제있음")
-                                    }
-
-                                })
+                            //sharedPreference에 userIdx를 넣어주었습니다.
+                            val spf_userIdx = getSharedPreferences("userIdx",0)
+                            val editor_userIdx = spf_userIdx.edit()
+                            editor_userIdx.putInt("userIdx",respLogin.result.userIdx)
+                            editor_userIdx.apply()
+                            Log.d("spf에 userIdx",spf_userIdx.getInt("userIdx",-1).toString())
 
                             //sharedPreference에 jwt를 넣어주었습니다.
 
