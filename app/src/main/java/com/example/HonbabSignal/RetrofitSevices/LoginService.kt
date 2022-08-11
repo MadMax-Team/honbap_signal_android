@@ -12,7 +12,7 @@ interface LoginService {
     @FormUrlEncoded
     @POST("/user/login")
     fun login(
-        @Field("userId") userId : String,
+        @Field("email") userId : String,
         @Field("password") password : String
     ): Call<LoginAuthResponse>
 
