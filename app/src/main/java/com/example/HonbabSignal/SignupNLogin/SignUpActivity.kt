@@ -1,6 +1,8 @@
 package com.example.HonbabSignal.SignupNLogin
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.ColorFilter
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -25,6 +27,8 @@ class SignUpActivity : AppCompatActivity(){
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var sex: String = "none"
+
         //실시간 글자 수 변경
         binding.signUpPwdCheckEt.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -47,6 +51,31 @@ class SignUpActivity : AppCompatActivity(){
                 }
             }
         })
+
+        //성별 버튼 체크 확인
+        binding.signUpSexManBtn.setOnClickListener {
+            if (sex == "F"){
+                binding.signUpSexWomanBtn.setBackgroundColor(Color.WHITE)
+                binding.signUpSexWomanBtn.setTextColor(Color.BLACK)
+            }
+
+            sex = "M"
+            binding.signUpSexManBtn.setBackgroundColor(Color.GRAY)
+            binding.signUpSexManBtn.setTextColor(Color.WHITE)
+
+        }
+
+        binding.signUpSexWomanBtn.setOnClickListener {
+            if (sex == "M"){
+                binding.signUpSexManBtn.setBackgroundColor(Color.WHITE)
+                binding.signUpSexManBtn.setTextColor(Color.BLACK)
+            }
+
+            sex = "F"
+            binding.signUpSexWomanBtn.setBackgroundColor(Color.GRAY)
+            binding.signUpSexWomanBtn.setTextColor(Color.WHITE)
+
+        }
 
         binding.signUpNextBtnTv.setOnClickListener {
 
@@ -71,11 +100,11 @@ class SignUpActivity : AppCompatActivity(){
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            //2011: 이름을 입력해주세요.
-            if (binding.signUpNameEt.text.toString().isEmpty()) {
-                Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+//            //2011: 이름을 입력해주세요.
+//            if (binding.signUpNameEt.text.toString().isEmpty()) {
+//                Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
             //2012: 생년월일을 입력해주세요.
             if (binding.signUpBirthYearEt.text.toString()
                     .isEmpty() || binding.signUpBirthMonthEt.text.toString().isEmpty()||binding.signUpBirthDayEt.text.toString().isEmpty()
@@ -84,20 +113,22 @@ class SignUpActivity : AppCompatActivity(){
                 return@setOnClickListener
             }
             //2013: 성별을 입력해주세요.
-            if (binding.signUpSexEt.text.toString().isEmpty()) {
+            if (sex == "none") {
                 Toast.makeText(this, "성별을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
 
+
             //정보세팅
             //var userId: String = binding.signUpIdEt.text.toString()
             var password : String = binding.signUpPwdEt.text.toString()
-            var userName : String = binding.signUpNameEt.text.toString()
+            //var userName : String = binding.signUpNameEt.text.toString()
+            var userName: String = "name"
             var birth : String = binding.signUpBirthYearEt.text.toString() + "년" + binding.signUpBirthMonthEt.text.toString() + "월" + binding.signUpBirthDayEt.text.toString() + "일"
             var email:String = binding.signUpEmailEt.text.toString() + "@" + binding.signUpDirectInputEt.text.toString()
             var phoneNum : String = intent.getStringExtra("phoneNumber")!!
-            var sex : String = binding.signUpSexEt.text.toString()
+
             var nickName: String = binding.signUpNicknameEt.text.toString()
 
             var retrofit = getRetorfit()

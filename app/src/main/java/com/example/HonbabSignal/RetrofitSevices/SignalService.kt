@@ -10,11 +10,14 @@ interface SignalService {
     @FormUrlEncoded
     @POST("/signal/list")
     fun addOnSignal(
-        @Header("x-access-token") jwt: String
+        @Header("x-access-token") jwt: String,
+        @Field("sigPromiseTime") sigPromiseTime: String,
+        @Field("sigPromiseArea") sigPromiseArea: String
     ): Call<SignalOnResponse>
 
-    @DELETE("/signal/{userIdx}/list")
+    @FormUrlEncoded
+    @DELETE("/signal/list")
     fun deleteSignal(
-        @Path("userIdx") userIdx: Int
+        @Header("x-access-token") jwt: String
     )
 }
