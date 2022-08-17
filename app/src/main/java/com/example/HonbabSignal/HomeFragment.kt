@@ -1,5 +1,6 @@
 package com.example.HonbabSignal
 
+import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -27,54 +28,41 @@ class HomeFragment : Fragment() {
     ): View {
 
 
+        var retrofit = getRetorfit()
 
-        fun retrofitPostSignal(){
-            var retrofit = getRetorfit()
-            var SignalOnService = retrofit.create(SignalService::class.java)
 
-            val userIdx: Int = 1
-            var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "성수"
+        var SignalService = retrofit.create(SignalService::class.java)
 
-            SignalOnService.addOnSignal(userIdx, sigPromiseTime, sigPromiseArea)
-                .enqueue(object: Callback<SignalOnResponse> {
-                    override fun onResponse(
-                        call: Call<SignalOnResponse>,
-                        response: Response<SignalOnResponse>
-                    ) {
 
-                        var respIdx = response.body()!!
-                        when (respIdx.code){
-                            1000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2016 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            2017 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                            4000 -> {
-                                Log.d("HomeFragment", respIdx.code.toString())
-                            }
-                        }
-                    }
+        val spf_jwt = this.getActivity()?.getSharedPreferences("jwt", Context.MODE_PRIVATE)
+        val jwt: String = spf_jwt?.getString("jwt","").toString()
+        Log.d("jwt",jwt)
 
-                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                        Log.d("HomeFragment", "signal add onFailure")
-                    }
-                })
-        }
 
         fun retrofitDeleteSignal(){
-            var retrofit = getRetorfit()
-            var SignalService = retrofit.create(SignalService::class.java)
 
-            val userIdx: Int = 1
+//            SignalService.deleteSignal(jwt)
+//                .enqueue(object : Callback<Void>{
+//                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+//                        TODO("Not yet implemented")
+//                    }
+//
+//                    override fun onFailure(call: Call<Void>, t: Throwable) {
+//                        TODO("Not yet implemented")
+//                    }
+//
+//                })
+
+        }
+
+
+
+        fun retrofitPostSignal(){
+
             var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "성수"
+            var sigPromiseArea: String = "건대"
 
-            SignalService.addOnSignal(userIdx, sigPromiseTime, sigPromiseArea)
+            SignalService.addOnSignal(jwt, sigPromiseTime, sigPromiseArea)
                 .enqueue(object: Callback<SignalOnResponse> {
                     override fun onResponse(
                         call: Call<SignalOnResponse>,
@@ -82,6 +70,7 @@ class HomeFragment : Fragment() {
                     ) {
 
                         var respIdx = response.body()!!
+                        Log.d("signalOn", respIdx.code.toString())
                         when (respIdx.code){
                             1000 -> {
                                 Log.d("HomeFragment", respIdx.code.toString())
@@ -120,6 +109,8 @@ class HomeFragment : Fragment() {
             binding.homeAfterSignalOffIv.visibility = View.VISIBLE
             binding.homeAfterLoginDmToMeLl.visibility = View.GONE
             binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+            retrofitDeleteSignal()
+
 
         }
 

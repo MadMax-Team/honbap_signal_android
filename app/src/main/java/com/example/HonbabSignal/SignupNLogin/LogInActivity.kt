@@ -50,11 +50,11 @@ class LogInActivity : AppCompatActivity() {
 
 
                             //sharedPreference에 userIdx를 넣어주었습니다.
-                            val spf_userIdx = getSharedPreferences("userIdx",0)
-                            val editor_userIdx = spf_userIdx.edit()
-                            editor_userIdx.putInt("userIdx",respLogin.result.userIdx)
-                            editor_userIdx.apply()
-                            Log.d("spf에 userIdx",spf_userIdx.getInt("userIdx",-1).toString())
+//                            val spf_userIdx = getSharedPreferences("userIdx",0)
+//                            val editor_userIdx = spf_userIdx.edit()
+//                            editor_userIdx.putInt("userIdx",respLogin.result.userIdx)
+//                            editor_userIdx.apply()
+//                            Log.d("spf에 userIdx",spf_userIdx.getInt("userIdx",-1).toString())
 
                             //sharedPreference에 jwt를 넣어주었습니다.
 
