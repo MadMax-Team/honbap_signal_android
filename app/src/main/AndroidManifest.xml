@@ -45,7 +45,7 @@
                     android:scheme="d522fa00d6dd755ce0565f62e2536a03" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.HonbabSignal.SplashActivity"
+        <activity android:name="com.example.HonbabSignal.SignupNLogin.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

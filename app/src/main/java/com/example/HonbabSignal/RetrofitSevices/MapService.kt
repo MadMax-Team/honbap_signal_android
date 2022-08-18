@@ -16,8 +16,8 @@ interface MapService {
         @Field("longitude") longitude: Double
     ): Call<SignalFindAuthResponse>
 
-    @GET("/signalFind/list/{userIdx}")
+    @GET("/signalFind/list")
     fun getSignalInfo(
-        @Path("userIdx") userIdx: Int
+        @Header("x-access-token") jwt: String,
     ): Call<SignalInfoAuthResponse>
 }

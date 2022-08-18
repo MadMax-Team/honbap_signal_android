@@ -174,7 +174,7 @@
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/popup_signal_btn"
-            android:text="시그널 알림 보내기"
+            android:text="시그널 보내기"
             android:textSize="10sp"
             android:gravity="center"
             android:background="@color/honbab_main_color"

@@ -182,7 +182,9 @@
         <entry key="app/src/main/res/layout/activity_signal_check.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signal_detail.xml" value="0.16041666666666668" />
         <entry key="app/src/main/res/layout/activity_signal_dtatil.xml" value="0.2939971923828125" />
+        <entry key="app/src/main/res/layout/dialog_signal_check.xml" value="0.335" />
         <entry key="app/src/main/res/layout/dialog_signal_detail.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/dialog_signal_finish.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16041666666666668" />
         <entry key="app/src/main/res/layout/frament_home_after_login.xml" value="0.16041666666666668" />
       </map>

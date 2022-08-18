@@ -1,5 +1,6 @@
 package com.example.HonbabSignal.Map
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,6 +25,10 @@ class MapListActivity :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityMapListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val spf_jwt = this.getSharedPreferences("jwt", Context.MODE_PRIVATE)
+        val jwt: String = spf_jwt?.getString("jwt","").toString()
+        Log.d("jwt",jwt)
 
         binding.mapListBackBtn.setOnClickListener {
             finish()
@@ -71,7 +76,7 @@ class MapListActivity :AppCompatActivity(){
 
         }
 
-        getList()
+        getList(jwt)
 //        220dab12c567826e67c2895b00ea7ff525a1bc07
 
         //리사이클러뷰 어뎁터 세팅
@@ -107,13 +112,13 @@ class MapListActivity :AppCompatActivity(){
 //        }
     }
 
-    fun getList(){
+    fun getList(jwt: String){
         var retrofit = getRetorfit()
         var MapService = retrofit.create(MapService::class.java)
 
-        var userIdx: Int = 1
 
-        MapService.getSignalInfo(userIdx)
+
+        MapService.getSignalInfo(jwt)
             .enqueue(object: Callback<SignalInfoAuthResponse>{
                 override fun onResponse(
                     call: Call<SignalInfoAuthResponse>,
@@ -125,6 +130,14 @@ class MapListActivity :AppCompatActivity(){
                         1000 -> {
                             var signalUserIdxList = respIdx.result
                             Log.d("MapListActivity", signalUserIdxList.toString())
+
+                            mapSignalListDatas.apply{
+                                add(
+                                    MapSignal(
+                                        SignalMode.DEFAULT,true,"곤",
+                                        R.drawable.geon_profile,"나와 111m","4분전","일식","돈까스","젤리","20대","초콜릿")
+                                )
+                            }
 
                         }
                     }

@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="시그널을 켜시면 내 프로필이 반경 10km에 있는 상대방에게 보이며, DM 요청과 시그널 요청이 올 수 있습니다."
         android:layout_margin="10dp"
+        android:textAlignment="center"
         android:padding="20dp"
         app:layout_constraintTop_toBottomOf="@id/signal_check_tv"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +58,10 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/signal_check_complete_tv"

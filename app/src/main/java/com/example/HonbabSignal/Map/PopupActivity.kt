@@ -7,10 +7,13 @@ import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
 import com.example.HonbabSignal.databinding.ActivityPopupBinding
+import com.example.HonbabSignal.getRetorfit
 
 class PopupActivity : Activity(){
     lateinit var binding: ActivityPopupBinding
     lateinit var txtText:TextView
+
+    var retrofit = getRetorfit()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +26,10 @@ class PopupActivity : Activity(){
 
         var width = (dm.widthPixels * 0.7); // Display 사이즈의 90%
         var height = (dm.heightPixels * 0.7); // Display 사이즈의 90%
+
+        binding.popupNicknameTv.text = "name"
+        binding.popupNoteTv.text = ""
+
 
         getWindow().getAttributes().width = width.toInt();
         getWindow().getAttributes().height = height.toInt();
@@ -41,7 +48,7 @@ class PopupActivity : Activity(){
 
         binding.popupSignalBtn.setOnClickListener{
             Toast.makeText(this@PopupActivity, "시그널이 보내졌습니다.", Toast.LENGTH_SHORT).show()
-            //retrofitPostSignal()
+            retrofitSendSignal()
 
         }
 
@@ -49,5 +56,9 @@ class PopupActivity : Activity(){
             Toast.makeText(this@PopupActivity, "DM이 보내졌습니다.", Toast.LENGTH_SHORT).show()
         }
     }
+
+}
+
+fun retrofitSendSignal(){
 
 }

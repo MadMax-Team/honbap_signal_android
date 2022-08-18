@@ -1,5 +1,6 @@
 package com.example.HonbabSignal.Signal
 
+import CustomDialog3
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -70,6 +71,8 @@ class CustomDialog2 : DialogFragment() {
                 })
 
             dismiss()
+            val dialog = CustomDialog3()
+            dialog.show(parentFragmentManager, "CustomDialog2")
         }
 
         return view
