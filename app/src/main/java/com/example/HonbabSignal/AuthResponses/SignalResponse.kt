@@ -1,4 +1,4 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.AuthResponses
 
 import com.google.gson.annotations.SerializedName
 

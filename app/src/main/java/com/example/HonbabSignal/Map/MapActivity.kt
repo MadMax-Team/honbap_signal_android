@@ -1,12 +1,14 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.Map
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.HonbabSignal.R
 import com.example.HonbabSignal.RetrofitSevices.MapService
+import com.example.HonbabSignal.SignalFindAuthResponse
 import com.example.HonbabSignal.databinding.ActivityMapBinding
-import com.example.HonbabSignal.databinding.ActivityMapListBinding
+import com.example.HonbabSignal.getRetorfit
 //import com.google.type.LatLng
 import com.naver.maps.map.*
 import com.naver.maps.map.overlay.Align

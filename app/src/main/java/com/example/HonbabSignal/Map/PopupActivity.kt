@@ -1,17 +1,12 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.Map
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
-import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.ActivityPopupBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class PopupActivity : Activity(){
     lateinit var binding: ActivityPopupBinding
@@ -39,7 +34,7 @@ class PopupActivity : Activity(){
         setContentView(binding.root);
 
         binding.popupBackBtn.setOnClickListener {
-            val intent = Intent(this,MapListActivity::class.java)
+            val intent = Intent(this, MapListActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
         }

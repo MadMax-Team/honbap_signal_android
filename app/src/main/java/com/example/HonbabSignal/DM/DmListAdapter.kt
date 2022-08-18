@@ -1,9 +1,7 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.DM
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.HonbabSignal.databinding.ItemDmListBinding
 
@@ -31,7 +29,7 @@ class DmListAdapter(private val friendList: ArrayList<Friend>) :
 
     // 뷰홀더에 Data 를 binding 위아래로 스크롤 할 때마다 엄청나게 호출
     // 뷰홀더가 매개변수로 들어와서 자식뷰에 접근가능 => 데이터 바인딩
-    override fun onBindViewHolder(holder: DmListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(friendList[position])
 
         //adapter 내부에서 클릭 시 반응하면 외부에선 떨어짐

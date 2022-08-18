@@ -1,4 +1,4 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.Signal
 
 import android.app.Dialog
 import android.content.Context

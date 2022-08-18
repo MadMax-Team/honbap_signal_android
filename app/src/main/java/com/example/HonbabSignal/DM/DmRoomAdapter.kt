@@ -1,11 +1,10 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.DM
 
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.HonbabSignal.databinding.ItemMyDmBinding
 import com.example.HonbabSignal.databinding.ItemYourDmBinding
@@ -21,7 +20,7 @@ class DmRoomAdapter(val context: Context, val arrayList: ArrayList<DmModel>)
     }
 
     //리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
-    private lateinit var mItemClickListner: DmRoomAdapter.MyDmitemClickListener
+    private lateinit var mItemClickListner: MyDmitemClickListener
 
     fun addItem(item: DmModel) {//아이템 추가
         if (arrayList != null) {
@@ -74,7 +73,7 @@ class DmRoomAdapter(val context: Context, val arrayList: ArrayList<DmModel>)
 
     //내가친 채팅 뷰홀더
     inner class Holder1(val binding: ItemMyDmBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(dmModel:DmModel){
+        fun bind(dmModel: DmModel){
             binding.itemMyDmText.text = dmModel.script
         }
     }

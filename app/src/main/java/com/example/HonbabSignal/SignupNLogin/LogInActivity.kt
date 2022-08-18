@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.HonbabSignal.*
+import com.example.HonbabSignal.Map.MapActivity
 import com.example.HonbabSignal.RetrofitSevices.LoginService
 import com.example.HonbabSignal.databinding.ActivityLogInBinding
 import retrofit2.Call

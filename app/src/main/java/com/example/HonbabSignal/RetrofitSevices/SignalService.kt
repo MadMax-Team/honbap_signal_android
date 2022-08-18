@@ -1,7 +1,7 @@
 package com.example.HonbabSignal.RetrofitSevices
 
 //import com.google.type.DateTime
-import com.example.HonbabSignal.SignalOnResponse
+import com.example.HonbabSignal.AuthResponses.SignalOnResponse
 import retrofit2.Call
 import retrofit2.http.*
 
