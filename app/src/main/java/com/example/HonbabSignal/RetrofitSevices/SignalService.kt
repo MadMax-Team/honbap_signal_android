@@ -17,11 +17,10 @@ interface SignalService {
         @Field("sigPromiseArea") sigPromiseArea: String
     ): Call<SignalOnResponse>
 
-    @FormUrlEncoded
     @DELETE("/signal/list")
     fun deleteSignal(
         @Header("x-access-token") jwt: String
-    )
+    ): Call<Void>
 
     @FormUrlEncoded
     @PATCH("/signal/list")

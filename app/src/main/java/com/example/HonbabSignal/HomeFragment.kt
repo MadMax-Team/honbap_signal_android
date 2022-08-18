@@ -44,17 +44,17 @@ class HomeFragment : Fragment() {
 
         fun retrofitDeleteSignal(){
 
-//            SignalService.deleteSignal(jwt)
-//                .enqueue(object : Callback<Void>{
-//                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-//                        TODO("Not yet implemented")
-//                    }
-//
-//                    override fun onFailure(call: Call<Void>, t: Throwable) {
-//                        TODO("Not yet implemented")
-//                    }
-//
-//                })
+            SignalService.deleteSignal(jwt)
+                .enqueue(object:Callback<Void>{
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Log.d("delete","success")
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Log.d("delete","error")
+                    }
+
+                })
 
         }
 
@@ -62,8 +62,8 @@ class HomeFragment : Fragment() {
 
         fun retrofitPostSignal(){
 
-            var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "건대"
+            var sigPromiseTime: String = ""
+            var sigPromiseArea: String = ""
 
             SignalService.addOnSignal(jwt, sigPromiseTime, sigPromiseArea)
                 .enqueue(object: Callback<SignalOnResponse> {
