@@ -1,6 +1,8 @@
 package com.example.HonbabSignal
 
+import CustomDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.AuthResponses.SignalOnResponse
+import com.example.HonbabSignal.Map.MapListActivity
+import com.example.HonbabSignal.Map.PopupActivity
 import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
 import retrofit2.Call
@@ -101,6 +105,9 @@ class HomeFragment : Fragment() {
             binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
             binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
             retrofitPostSignal()
+
+            val dialog = CustomDialog()
+            dialog.show(parentFragmentManager, "CustomDialog")
 
         }
         binding.homeAfterSignalOnIv.setOnClickListener {

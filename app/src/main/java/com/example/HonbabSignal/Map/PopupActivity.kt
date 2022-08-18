@@ -39,34 +39,6 @@ class PopupActivity : Activity(){
             startActivity(intent)
         }
 
-//        fun retrofitPostSignal(){
-//            var retrofit = getRetorfit()
-//            var SignalService = retrofit.create(SignalService::class.java)
-//            var userIdx: Int = 1
-//            var signalIdx: String = "1"
-//            var applyIdx: String = "1"
-//
-//            SignalService.addSignal(userIdx, signalIdx, applyIdx )
-//                .enqueue(object: Callback<SignalResponse> {
-//                    override fun onResponse(
-//                        call: Call<SignalResponse>,
-//                        response: Response<SignalResponse>
-//                    ) {
-//
-//                        var respIdx = response.body()!!
-//                        when (respIdx.code){
-//                            1000 -> {
-//                                Log.d("PopupActivity",respIdx.code.toString())
-//                            }
-//
-//                        }
-//                    }
-//
-//                    override fun onFailure(call: Call<SignalResponse>, t: Throwable) {
-//                        Log.d("PopupActivity", "signal add onFailure")
-//                    }
-//                })
-//        }
 
         binding.popupSignalBtn.setOnClickListener{
             Toast.makeText(this@PopupActivity, "시그널이 보내졌습니다.", Toast.LENGTH_SHORT).show()
