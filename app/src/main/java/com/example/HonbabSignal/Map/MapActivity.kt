@@ -1,4 +1,5 @@
 package com.example.HonbabSignal.Map
+import android.content.Context
 import android.os.Bundle
 import android.content.Intent
 import android.util.Log
@@ -138,19 +139,21 @@ class MapActivity: AppCompatActivity(), OnMapReadyCallback {
         //마커표시
 
 
+        val spf_jwt = this.getSharedPreferences("jwt", Context.MODE_PRIVATE)
+        val jwt: String = spf_jwt?.getString("jwt","").toString()
+        Log.d("jwt",jwt)
 
         //좌표 변경 시 토스트로 표시
         naverMap.addOnLocationChangeListener { location ->
-            Toast.makeText(this, "${location.latitude}, ${location.longitude}", Toast.LENGTH_SHORT)
-                .show()
-            var retrofit = getRetorfit()
+//            Toast.makeText(this, "${location.latitude}, ${location.longitude}", Toast.LENGTH_SHORT)
+//                .show()
 
-            var userIdx: Int = 1
+            var retrofit = getRetorfit()
 
             var PatchMapService = retrofit.create(MapService::class.java)
             var latitude = location.latitude
             var longitude = location.longitude
-            PatchMapService.patchSignalFind(userIdx, latitude, longitude)
+            PatchMapService.patchSignalFind(jwt, latitude, longitude)
                 .enqueue(object : Callback<SignalFindAuthResponse> {
                     override fun onResponse(
                         call: Call<SignalFindAuthResponse>,
