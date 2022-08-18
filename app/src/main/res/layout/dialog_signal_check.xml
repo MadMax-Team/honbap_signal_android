@@ -71,10 +71,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginEnd="30dp"/>
+
     </LinearLayout>
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

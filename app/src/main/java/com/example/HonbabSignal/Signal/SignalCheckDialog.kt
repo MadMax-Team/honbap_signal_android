@@ -22,9 +22,11 @@ class CustomDialog : DialogFragment() {
             dismiss()    // 대화상자를 닫는 함수
         }
         binding.signalCheckCompleteTv.setOnClickListener {
+
             dismiss()
             val dialog = CustomDialog2()
             dialog.show(parentFragmentManager, "CustomDialog2")
+
         }
 
         return view

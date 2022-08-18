@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="306dp"
-    android:layout_height="518dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/background_signal_detail"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,6 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"/>
+
     <TextView
         android:id="@+id/signal_detail_title_main_tv"
         android:layout_width="wrap_content"
@@ -26,6 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="30dp"
         android:layout_marginStart="20dp"/>
+
     <TextView
         android:id="@+id/signal_detail_title_sub_tv"
         android:layout_width="wrap_content"
@@ -35,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/signal_detail_title_main_tv"
         app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
         android:layout_marginTop="10dp"/>
+
     //약속시간
     <TextView
         android:id="@+id/signal_detail_time_tv"
@@ -46,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/signal_detail_title_sub_tv"
         app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
         android:layout_marginTop="66dp"/>
+
     <EditText
         android:id="@+id/signal_detail_time_et"
         android:layout_width="0dp"
@@ -56,6 +60,7 @@
         app:layout_constraintTop_toTopOf="@id/signal_detail_time_tv"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
+
     //만날장소
     <TextView
         android:id="@+id/signal_detail_location_tv"
@@ -67,6 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/signal_detail_time_tv"
         app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
         android:layout_marginTop="7dp"/>
+
     <EditText
         android:id="@+id/signal_detail_location_et"
         android:layout_width="0dp"
@@ -77,16 +83,19 @@
         app:layout_constraintTop_toTopOf="@id/signal_detail_location_tv"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
+
     //식사희망장소/메뉴
     <TextView
         android:id="@+id/signal_detail_prefer_location_menu_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="식사희망장소/메뉴 : \n(선호메뉴)"
+        android:text="메뉴: "
+        android:textColor="@color/black"
+        android:layout_marginTop="7dp"
         android:textSize="13sp"
         app:layout_constraintTop_toBottomOf="@id/signal_detail_location_tv"
-        app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
-        android:layout_marginTop="27dp"/>
+        app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv" />
+
     <EditText
         android:id="@+id/signal_detail_prefer_location_menu_et"
         android:layout_width="0dp"
@@ -97,72 +106,38 @@
         app:layout_constraintTop_toTopOf="@id/signal_detail_prefer_location_menu_tv"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"/>
-    //선호성별
-    <TextView
-        android:id="@+id/signal_detail_prefer_gender_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="선호성별 : "
-        android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@id/signal_detail_prefer_location_menu_tv"
-        app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
-        android:layout_marginTop="7dp"/>
-    <EditText
-        android:id="@+id/signal_detail_prefer_gender_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:background="@null"
-        app:layout_constraintStart_toEndOf="@id/signal_detail_prefer_gender_tv"
-        app:layout_constraintTop_toTopOf="@id/signal_detail_prefer_gender_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp"/>
-    //나이대
-    <TextView
-        android:id="@+id/signal_detail_prefer_age_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="나이대 : "
-        android:textSize="13sp"
-        app:layout_constraintTop_toBottomOf="@id/signal_detail_prefer_gender_tv"
-        app:layout_constraintStart_toStartOf="@id/signal_detail_title_main_tv"
-        android:layout_marginTop="7dp"/>
-    <EditText
-        android:id="@+id/signal_detail_prefer_age_et"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:background="@null"
-        app:layout_constraintStart_toEndOf="@id/signal_detail_prefer_age_tv"
-        app:layout_constraintTop_toTopOf="@id/signal_detail_prefer_age_tv"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10dp"/>
+
     //버튼두개
     <LinearLayout
         android:id="@+id/signal_detail_buttons_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:weightSum="2"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signal_detail_prefer_location_menu_tv"
         app:layout_constraintEnd_toEndOf="parent">
         <TextView
             android:id="@+id/signal_detail_pass_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="건너뛰기"
+            android:textAlignment="center"
             android:textColor="@color/honbab_main_color"
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"/>
+
         <TextView
             android:id="@+id/signal_detail_complete_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="작성완료"
+            android:textAlignment="center"
             android:textColor="@color/honbab_main_color"
             android:textSize="14sp"
             android:textStyle="bold"
