@@ -1,14 +1,17 @@
 package com.example.HonbabSignal
 
+import CustomDialog
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.HonbabSignal.AuthResponses.SignalOnResponse
+import com.example.HonbabSignal.Map.MapListActivity
+import com.example.HonbabSignal.Map.PopupActivity
 import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
 import retrofit2.Call
@@ -41,17 +44,17 @@ class HomeFragment : Fragment() {
 
         fun retrofitDeleteSignal(){
 
-//            SignalService.deleteSignal(jwt)
-//                .enqueue(object : Callback<Void>{
-//                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-//                        TODO("Not yet implemented")
-//                    }
-//
-//                    override fun onFailure(call: Call<Void>, t: Throwable) {
-//                        TODO("Not yet implemented")
-//                    }
-//
-//                })
+            SignalService.deleteSignal(jwt)
+                .enqueue(object:Callback<Void>{
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        Log.d("delete","success")
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                        Log.d("delete","error")
+                    }
+
+                })
 
         }
 
@@ -59,8 +62,8 @@ class HomeFragment : Fragment() {
 
         fun retrofitPostSignal(){
 
-            var sigPromiseTime: String = "2022-01-02 11:11:11"
-            var sigPromiseArea: String = "건대"
+            var sigPromiseTime: String = ""
+            var sigPromiseArea: String = ""
 
             SignalService.addOnSignal(jwt, sigPromiseTime, sigPromiseArea)
                 .enqueue(object: Callback<SignalOnResponse> {
@@ -102,6 +105,9 @@ class HomeFragment : Fragment() {
             binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
             binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
             retrofitPostSignal()
+
+            val dialog = CustomDialog()
+            dialog.show(parentFragmentManager, "CustomDialog")
 
         }
         binding.homeAfterSignalOnIv.setOnClickListener {

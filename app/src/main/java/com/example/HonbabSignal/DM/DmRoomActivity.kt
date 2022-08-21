@@ -1,4 +1,4 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.DM
 
 import android.os.Bundle
 import android.util.Log

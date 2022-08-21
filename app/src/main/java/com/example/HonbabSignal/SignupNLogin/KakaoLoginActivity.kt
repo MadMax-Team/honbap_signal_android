@@ -1,10 +1,8 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.SignupNLogin
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Message
-import android.text.Layout
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient

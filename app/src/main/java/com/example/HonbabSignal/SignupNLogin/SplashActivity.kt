@@ -1,11 +1,10 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.SignupNLogin
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.example.HonbabSignal.SignupNLogin.LogInActivity
 import com.example.HonbabSignal.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {

@@ -45,21 +45,21 @@
                     android:scheme="d522fa00d6dd755ce0565f62e2536a03" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.HonbabSignal.SplashActivity"
+        <activity android:name="com.example.HonbabSignal.SignupNLogin.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.HonbabSignal.MapListActivity"/>
+        <activity android:name="com.example.HonbabSignal.Map.MapListActivity"/>
         <activity android:name="com.example.HonbabSignal.SignupNLogin.SignUpActivity"/>
-        <activity android:name="com.example.HonbabSignal.DmRoomActivity"/>
+        <activity android:name="com.example.HonbabSignal.DM.DmRoomActivity"/>
         <activity android:name="com.example.HonbabSignal.ProfileActivity"/>
         <activity android:name="com.example.HonbabSignal.EditingProfileActivity"/>
-        <activity android:name="com.example.HonbabSignal.MapActivity"/>
-        <activity android:name="com.example.HonbabSignal.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
-        <activity android:name="com.example.HonbabSignal.KakaoLoginActivity"/>
+        <activity android:name="com.example.HonbabSignal.Map.MapActivity"/>
+        <activity android:name="com.example.HonbabSignal.Map.PopupActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.example.HonbabSignal.SignupNLogin.KakaoLoginActivity"/>
         <activity android:name="com.example.HonbabSignal.UserInfoModifyActivity"/>
         <activity android:name="com.example.HonbabSignal.PostScriptActivity" />
     </application>

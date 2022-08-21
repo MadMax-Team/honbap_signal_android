@@ -9,15 +9,15 @@ import retrofit2.http.*
 interface MapService {
 
     @FormUrlEncoded
-    @PATCH("/signalFind/{userIdx}")
+    @PATCH("/signalFind")
     fun patchSignalFind(
-        @Path("userIdx") userIdx: Int,
+        @Header("x-access-token") jwt: String,
         @Field("latitude") latitude: Double,
         @Field("longitude") longitude: Double
     ): Call<SignalFindAuthResponse>
 
-    @GET("/signalFind/list/{userIdx}")
+    @GET("/signalFind/list")
     fun getSignalInfo(
-        @Path("userIdx") userIdx: Int
+        @Header("x-access-token") jwt: String,
     ): Call<SignalInfoAuthResponse>
 }

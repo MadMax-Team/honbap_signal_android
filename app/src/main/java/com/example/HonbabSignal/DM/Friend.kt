@@ -1,4 +1,4 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.DM
 
 data class Friend(
     val name : String? = null,

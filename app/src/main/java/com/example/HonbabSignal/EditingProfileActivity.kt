@@ -124,7 +124,8 @@ class EditingProfileActivity : AppCompatActivity() {
         binding.editingSaveBtn.setOnClickListener {
 
             Log.d("editingProfile", "save btn click")
-            EditingProfileService.patchProfile(userIdx, profileImg, taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce ).enqueue(object: Callback<ProfilePatchResponse>{
+            EditingProfileService.patchProfile(userIdx, profileImg, taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce )
+                .enqueue(object: Callback<ProfilePatchResponse>{
                 override fun onResponse(
                     call: Call<ProfilePatchResponse>,
                     response: Response<ProfilePatchResponse>
