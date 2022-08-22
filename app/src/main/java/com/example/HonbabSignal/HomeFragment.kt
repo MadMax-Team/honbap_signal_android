@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.AuthResponses.SignalOnResponse
-import com.example.HonbabSignal.Map.MapListActivity
+import com.example.HonbabSignal.DM.Signal
 import com.example.HonbabSignal.Map.PopupActivity
 import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
@@ -21,19 +21,32 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
+    var signalToMeList = ArrayList<Signal>()
+    val dmToMeList = ArrayList<Signal>()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
-
     ): View {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        signalToMeList.apply{
+            add(Signal("고악",3))
+        }
+
+
+//        // 더미데이터랑 adapter 연결
+//        val dmListAdapter = DmListAdapter(friendDatas)
+//        // 리사이클러뷰에 adapter 연결
+//        binding.dmListFragmentRecyclerview.adapter = dmListAdapter
+
+        val signalListAdapter = HomeSignalListAdapter(signalToMeList)
+        binding.homeSignalToMeList.adapter = signalListAdapter
 
         var retrofit = getRetorfit()
-
-
         var SignalService = retrofit.create(SignalService::class.java)
 
 
@@ -57,8 +70,6 @@ class HomeFragment : Fragment() {
                 })
 
         }
-
-
 
         fun retrofitPostSignal(){
 
@@ -97,13 +108,14 @@ class HomeFragment : Fragment() {
         }
 
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+
 
         binding.homeAfterSignalOffIv.setOnClickListener {
             binding.homeAfterSignalOffIv.visibility = View.GONE
             binding.homeAfterSignalOnIv.visibility = View.VISIBLE
-            binding.homeAfterLoginSignalToMeLl.visibility = View.VISIBLE
-            binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+            binding.homeSignalToMeList.visibility = View.VISIBLE
+            //binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
+            binding.homeSignalToMeNoneList.visibility = View.GONE
             retrofitPostSignal()
 
             val dialog = CustomDialog()
@@ -113,20 +125,15 @@ class HomeFragment : Fragment() {
         binding.homeAfterSignalOnIv.setOnClickListener {
             binding.homeAfterSignalOnIv.visibility = View.GONE
             binding.homeAfterSignalOffIv.visibility = View.VISIBLE
-            binding.homeAfterLoginDmToMeLl.visibility = View.GONE
-            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+            binding.homeSignalToMeList.visibility = View.GONE
+            binding.homeSignalToMeNoneList.visibility = View.VISIBLE
+            //binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
             retrofitDeleteSignal()
 
 
         }
 
-        binding.homeAfterLoginSignalToMeAcceptBtn.setOnClickListener{
-            binding.homeAfterLoginCurrentMyMatchingStatusTv.text = "\""+binding.homeAfterLoginSignalToMeProfileNameTv.text.toString()+"\""+"님과 매칭되었습니다!★"
-            binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
-            binding.homeAfterLoginAfterMatchingInfoLl.visibility = View.VISIBLE
-            binding.homeAfterLoginAfterMatchingSeeProfile.visibility = View.VISIBLE
 
-        }
 
         return binding.root
     }

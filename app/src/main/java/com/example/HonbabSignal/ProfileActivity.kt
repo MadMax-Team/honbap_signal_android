@@ -126,13 +126,13 @@ class ProfileActivity : AppCompatActivity() {
                                                     Log.d("정보세팅은 끝","밑으로 프로필 업 레트로핏 실행 +현재 nickName : "+ nickName)
 
                                                     signUpService.profileUp(
+                                                        userIntroduce,
                                                         taste,
                                                         hateFood,
                                                         interest,
                                                         avgSpeed,
                                                         preferArea,
-                                                        mbti,
-                                                        userIntroduce
+
                                                     ).enqueue(object : Callback<SignUpAuthResponse> {
                                                         override fun onResponse(call: Call<SignUpAuthResponse>, response: Response<SignUpAuthResponse>) {
                                                             var respProfile = response.body()!!
