@@ -1,6 +1,7 @@
 package com.example.HonbabSignal
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -51,6 +52,11 @@ class EditingProfileActivity : AppCompatActivity() {
         setupSpinner()
         setupSpinnerHandler()
 
+        val spf_jwt = this.getSharedPreferences("jwt", Context.MODE_PRIVATE)
+        val jwt: String = spf_jwt?.getString("jwt","").toString()
+        Log.d("jwt",jwt)
+
+
         //img upload
         activityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -78,9 +84,9 @@ class EditingProfileActivity : AppCompatActivity() {
         var retrofit = getRetorfit()
 
         var EditingProfileService = retrofit.create(EditingProfileService::class.java)
-        var userIdx: Int = 33
+
         Log.d("editingProfile","retrofit")
-        EditingProfileService.getUserIdx(userIdx)
+        EditingProfileService.getUserIdx(jwt)
             .enqueue(object: Callback<ProfileAuthResponse>{
                 override fun onResponse(
                     call: Call<ProfileAuthResponse>,
@@ -91,6 +97,8 @@ class EditingProfileActivity : AppCompatActivity() {
                     when (respIdx.code) {
                         1000 -> {
                             Log.d("editingProfile","success")
+                            Log.d("editingProfile", respIdx.result.toString())
+
                             nickName = respIdx.result.nickName
                             userIntroduce = respIdx.result.userIntroduce
                             hateFood = respIdx.result.hateFood
@@ -124,7 +132,7 @@ class EditingProfileActivity : AppCompatActivity() {
         binding.editingSaveBtn.setOnClickListener {
 
             Log.d("editingProfile", "save btn click")
-            EditingProfileService.patchProfile(userIdx, profileImg, taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce )
+            EditingProfileService.patchProfile( jwt, profileImg, taste, hateFood, interest, avgSpeed, preferArea, mbti, userIntroduce )
                 .enqueue(object: Callback<ProfilePatchResponse>{
                 override fun onResponse(
                     call: Call<ProfilePatchResponse>,

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="306dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_signal_detail"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <TextView
+        android:id="@+id/signal_finish_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "프로필 설정"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toTopOf="@id/make_profile_introduce_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_introduce_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="소개글"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/signal_finish_tv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_introduce_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="자신을 소개할 수 있는 글을 작성해주세요."
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_introduce_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_like_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="선호음"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_introduce_et"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_like_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="직접입력"
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_like_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_dislike_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="불호음식"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_like_et"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_dislike_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="직접입력"
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_dislike_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_area_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="선호장소"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_dislike_et"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_area_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="직접입력"
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_area_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_mbti_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="MBTI"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_area_et"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_mbti_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="직접입력"
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_mbti_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/make_profile_interest_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="관심사"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_mbti_et"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/make_profile_interest_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/layout_memo"
+        android:hint="직접입력"
+        android:textSize="15sp"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/make_profile_interest_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+        <Button
+        android:id="@+id/signal_finish_complete_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/honbab_main_color"
+        android:text="프로필 설정 완료"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp" app:layout_constraintTop_toBottomOf="@id/make_profile_interest_et"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

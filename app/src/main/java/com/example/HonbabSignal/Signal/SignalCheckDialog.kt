@@ -20,6 +20,8 @@ class CustomDialog : DialogFragment() {
 
         binding.signalCheckPassTv.setOnClickListener {
             dismiss()    // 대화상자를 닫는 함수
+            val dialog = CustomDialog3()
+            dialog.show(parentFragmentManager, "CustomDialog2")
         }
         binding.signalCheckCompleteTv.setOnClickListener {
 
