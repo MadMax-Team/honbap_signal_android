@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     var signalToMeList = ArrayList<Signal>()
     val dmToMeList = ArrayList<Signal>()
+    val signalFromMeList = ArrayList<Signal>()
 
 
 
@@ -37,14 +38,19 @@ class HomeFragment : Fragment() {
             add(Signal("고악",3))
         }
 
+        dmToMeList.apply {
+            add(Signal("디엠1",12))
+            add(Signal("dm2",12))
+        }
 
-//        // 더미데이터랑 adapter 연결
-//        val dmListAdapter = DmListAdapter(friendDatas)
-//        // 리사이클러뷰에 adapter 연결
-//        binding.dmListFragmentRecyclerview.adapter = dmListAdapter
 
-        val signalListAdapter = HomeSignalListAdapter(signalToMeList)
-        binding.homeSignalToMeList.adapter = signalListAdapter
+        val signalToMeListAdapter = HomeSignalListAdapter(signalToMeList)
+        val dmToMeListAdapter = HomeSignalListAdapter(dmToMeList)
+        val signalFromMeListAdapter = HomeSignalListAdapter(signalFromMeList)
+
+        binding.homeSignalToMeList.adapter = signalToMeListAdapter
+        binding.homeDmToMeList.adapter = dmToMeListAdapter
+        binding.homeSignalFromMeList.adapter = signalFromMeListAdapter
 
         var retrofit = getRetorfit()
         var SignalService = retrofit.create(SignalService::class.java)
