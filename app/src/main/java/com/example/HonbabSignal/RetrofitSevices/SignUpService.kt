@@ -57,20 +57,18 @@ interface SignUpService {
         @Path("userId") userId:String
     ):Call<UserIdxAuthResponse>
 
-
     //유저의 프로필 정보를 업로드 하는 POST
     @FormUrlEncoded
     @POST("/user/signup/plusinfo")
     fun profileUp(
-        @Field("userIdx") userIdx : Int,
-        @Field("nickName") nickName:String,
-        @Field("profileImg") profileImg:String,
-        @Field("taste") taste:String,
-        @Field("hateFood") hateFood:String,
-        @Field("interest") interest:String,
-        @Field("avgSpeed") avgSpeed:String,
-        @Field("preferArea") PreferArea:String,
-        @Field("mbti") mbti:String,
-        @Field("userIntroduce") userIntroduce:String
+        //@Field("userIdx") userIdx : Int,
+        //@Field("profileImg") profileImg:String,
+        @Field("userIntroduce") userIntroduce: String,
+        @Field("taste") taste: String,
+        @Field("hateFood") hateFood: String,
+        @Field("interest") interest: String,
+        //@Field("avgSpeed") avgSpeed: String,
+        @Field("preferArea") PreferArea: String,
+        @Field("mbti") mbti: String,
     ):Call<SignUpAuthResponse>
 }

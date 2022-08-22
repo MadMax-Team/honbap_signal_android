@@ -12,6 +12,7 @@ interface EditingProfileService {
         @Header("x-access-token") jwt: String,
     ): Call<ProfileAuthResponse>
 
+
     @FormUrlEncoded
     @PATCH("/user/mypage")
     fun patchProfile(
