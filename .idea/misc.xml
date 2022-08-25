@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.11121103117505995" />
         <entry key="..\:/HonbabSignalAndroid/honbap_signal_android/app/src/main/res/layout/activity_log_in.xml" value="0.3129528985507246" />
         <entry key="..\:/HonbabSignalAndroid/honbap_signal_android/app/src/main/res/layout/activity_map.xml" value="0.36614583333333334" />
         <entry key="..\:/HonbabSignalAndroid/honbap_signal_android/app/src/main/res/layout/activity_map_list.xml" value="0.36614583333333334" />
@@ -174,6 +175,11 @@
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_my_dm.xml" value="0.36614583333333334" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/item_your_dm.xml" value="0.36614583333333334" />
         <entry key="..\:/honbabsignal/honbap_signal_android/app/src/main/res/layout/toolbar_top.xml" value="0.36614583333333334" />
+        <entry key="app/src/main/res/drawable/layout_memo.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/layout_round.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/layout_round_white.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/layout_stroke.xml" value="0.1275" />
+        <entry key="app/src/main/res/layout/activity_editing_profile.xml" value="0.1890625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_phone_signup.xml" value="0.1480978260869565" />
         <entry key="app/src/main/res/layout/activity_popup.xml" value="0.24524637858072917" />
@@ -182,11 +188,17 @@
         <entry key="app/src/main/res/layout/activity_signal_check.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_signal_detail.xml" value="0.16041666666666668" />
         <entry key="app/src/main/res/layout/activity_signal_dtatil.xml" value="0.2939971923828125" />
+        <entry key="app/src/main/res/layout/dialog_make_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_signal_check.xml" value="0.335" />
         <entry key="app/src/main/res/layout/dialog_signal_detail.xml" value="0.335" />
         <entry key="app/src/main/res/layout/dialog_signal_finish.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.16041666666666668" />
+        <entry key="app/src/main/res/layout/fragment_dm_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/frament_home_after_login.xml" value="0.16041666666666668" />
+        <entry key="app/src/main/res/layout/item_home_profile.xml" value="0.16979166666666667" />
+        <entry key="app/src/main/res/layout/item_map_signal_list_custom.xml" value="0.17083333333333334" />
+        <entry key="app/src/main/res/layout/item_map_signal_list_default.xml" value="0.17083333333333334" />
+        <entry key="app/src/main/res/layout/toolbar_top.xml" value="0.17083333333333334" />
       </map>
     </option>
   </component>

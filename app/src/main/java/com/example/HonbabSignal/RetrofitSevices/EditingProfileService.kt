@@ -7,15 +7,16 @@ import retrofit2.http.*
 interface EditingProfileService {
 
     //프로필 정보들을 받아옴
-    @GET("/user/mypage/{userIdx}")
+    @GET("/user/mypage")
     fun getUserIdx(
-        @Path("userIdx") userIdx:Int
+        @Header("x-access-token") jwt: String,
     ): Call<ProfileAuthResponse>
 
+
     @FormUrlEncoded
-    @PATCH("/user/mypage/{userIdx}")
+    @PATCH("/user/mypage")
     fun patchProfile(
-        @Path("userIdx") userIdx:Int,
+        @Header("x-access-token") jwt: String,
         @Field("profileImg") profileImg : String,
         @Field("taste") taste : String,
         @Field("hateFood") hateFood : String,
