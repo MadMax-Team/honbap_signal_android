@@ -44,7 +44,6 @@ class MapListActivity :AppCompatActivity() {
                             for (i in respIdx.result) {
                                 Log.d("i", i.nickName.toString())
 
-
                                 mapSignalListDatas.apply {
                                     add(
                                         MapSignal(

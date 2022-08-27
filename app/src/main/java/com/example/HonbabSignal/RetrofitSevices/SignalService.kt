@@ -6,6 +6,7 @@ import com.example.HonbabSignal.AuthResponses.SignalOnResponse
 import com.example.HonbabSignal.ProfileAuthResponse
 import com.example.HonbabSignal.ProfilePatchResponse
 import com.example.HonbabSignal.ProfileSignalIdxResponse
+import com.example.HonbabSignal.ProfileSignalNicknameResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -46,4 +47,9 @@ interface SignalService {
     fun getSignalIdx(
         @Header("x-access-token") jwt: String,
     ): Call<ProfileSignalIdxResponse>
+
+    @GET("/signal/applylist")
+    fun getSignalToMe(
+        @Header("x-access-token") jwt: String,
+    ): Call<ProfileSignalNicknameResponse>
 }

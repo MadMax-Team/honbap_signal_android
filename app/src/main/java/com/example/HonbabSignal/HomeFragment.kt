@@ -52,6 +52,16 @@ class HomeFragment : Fragment() {
 
     }
 
+    fun setAdapter(){
+        var signalToMeListAdapter = HomeSignalListAdapter(signalToMeList)
+        var dmToMeListAdapter = HomeSignalListAdapter(dmToMeList)
+        var signalFromMeListAdapter = HomeSignalListAdapter(signalFromMeList)
+
+        binding.homeSignalToMeList.adapter = signalToMeListAdapter
+        binding.homeDmToMeList.adapter = dmToMeListAdapter
+        binding.homeSignalFromMeList.adapter = signalFromMeListAdapter
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,9 +69,6 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        signalToMeList.apply{
-            add(Signal("고악",3))
-        }
 
         dmToMeList.apply {
             add(Signal("디엠1",12))
@@ -73,17 +80,7 @@ class HomeFragment : Fragment() {
             add(Signal("dm2s",12))
         }
 
-
-        val signalToMeListAdapter = HomeSignalListAdapter(signalToMeList)
-        val dmToMeListAdapter = HomeSignalListAdapter(dmToMeList)
-        val signalFromMeListAdapter = HomeSignalListAdapter(signalFromMeList)
-
-        binding.homeSignalToMeList.adapter = signalToMeListAdapter
-        binding.homeDmToMeList.adapter = dmToMeListAdapter
-        binding.homeSignalFromMeList.adapter = signalFromMeListAdapter
-
-
-
+        setAdapter()
 
         val spf_jwt = this.getActivity()?.getSharedPreferences("jwt", Context.MODE_PRIVATE)
         val jwt: String = spf_jwt?.getString("jwt","").toString()
@@ -146,8 +143,37 @@ class HomeFragment : Fragment() {
                 })
         }
 
+        fun setSignalToMe(){
+
+            signalService.getSignalToMe(jwt)
+                .enqueue(object: Callback<ProfileSignalNicknameResponse>{
+                    override fun onResponse(
+                        call: Call<ProfileSignalNicknameResponse>,
+                        response: Response<ProfileSignalNicknameResponse>
+                    ) {
+                        var resp = response.body()!!
+                        for (i in resp.result){
+                            signalToMeList.apply{
+                                add(Signal(i.nickName,0))
+                            }
+                        }
+                        setAdapter()
 
 
+                    }
+
+                    override fun onFailure(
+                        call: Call<ProfileSignalNicknameResponse>,
+                        t: Throwable
+                    ) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+        }
+
+
+        setSignalToMe()
 
         binding.homeAfterSignalOffIv.setOnClickListener {
             binding.homeAfterSignalOffIv.visibility = View.GONE
