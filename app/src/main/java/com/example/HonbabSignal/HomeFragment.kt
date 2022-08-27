@@ -2,7 +2,6 @@ package com.example.HonbabSignal
 
 import CustomDialog
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,21 +10,47 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.HonbabSignal.AuthResponses.SignalOnResponse
 import com.example.HonbabSignal.DM.Signal
-import com.example.HonbabSignal.Map.PopupActivity
 import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.properties.Delegates
 
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
+    var signalIdxList = ArrayList<Int>()
     var signalToMeList = ArrayList<Signal>()
-    val dmToMeList = ArrayList<Signal>()
-    val signalFromMeList = ArrayList<Signal>()
+    private val dmToMeList = ArrayList<Signal>()
+    private val signalFromMeList = ArrayList<Signal>()
+    var retrofit = getRetorfit()
+    var signalService = retrofit.create(SignalService::class.java)
+
+    private fun getSignalIdx(jwt: String){
 
 
+        Log.d("getSignalIdx", "함수 실행")
+        Log.d("getSignalIdx-jwt",jwt)
+
+        signalService.getSignalIdx(jwt)
+            .enqueue(object: Callback<ProfileSignalIdxResponse>{
+                override fun onResponse(
+                    call: Call<ProfileSignalIdxResponse>,
+                    response: Response<ProfileSignalIdxResponse>
+                ) {
+                    var resp = response.body()!!
+                    Log.d("getSignalIdx",resp.toString())
+
+                }
+
+                override fun onFailure(call: Call<ProfileSignalIdxResponse>, t: Throwable) {
+                    Log.d("getSignalIdx","error")
+                }
+
+            })
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +68,11 @@ class HomeFragment : Fragment() {
             add(Signal("dm2",12))
         }
 
+        signalFromMeList.apply {
+            add(Signal("내가 보낸",12))
+            add(Signal("dm2s",12))
+        }
+
 
         val signalToMeListAdapter = HomeSignalListAdapter(signalToMeList)
         val dmToMeListAdapter = HomeSignalListAdapter(dmToMeList)
@@ -52,8 +82,7 @@ class HomeFragment : Fragment() {
         binding.homeDmToMeList.adapter = dmToMeListAdapter
         binding.homeSignalFromMeList.adapter = signalFromMeListAdapter
 
-        var retrofit = getRetorfit()
-        var SignalService = retrofit.create(SignalService::class.java)
+
 
 
         val spf_jwt = this.getActivity()?.getSharedPreferences("jwt", Context.MODE_PRIVATE)
@@ -63,13 +92,17 @@ class HomeFragment : Fragment() {
 
         fun retrofitDeleteSignal(){
 
-            SignalService.deleteSignal(jwt)
-                .enqueue(object:Callback<Void>{
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+            getSignalIdx(jwt)
+
+            Log.d("signalIdx", signalIdxList.toString())
+
+            signalService.deleteSignal(jwt, signalIdxList)
+                .enqueue(object:Callback<SignalOnResponse>{
+                    override fun onResponse(call: Call<SignalOnResponse>, response: Response<SignalOnResponse>) {
                         Log.d("delete","success")
                     }
 
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
                         Log.d("delete","error")
                     }
 
@@ -82,7 +115,7 @@ class HomeFragment : Fragment() {
             var sigPromiseTime: String = ""
             var sigPromiseArea: String = ""
 
-            SignalService.addOnSignal(jwt, sigPromiseTime, sigPromiseArea)
+            signalService.addOnSignal(jwt, sigPromiseTime, sigPromiseArea)
                 .enqueue(object: Callback<SignalOnResponse> {
                     override fun onResponse(
                         call: Call<SignalOnResponse>,
@@ -119,9 +152,16 @@ class HomeFragment : Fragment() {
         binding.homeAfterSignalOffIv.setOnClickListener {
             binding.homeAfterSignalOffIv.visibility = View.GONE
             binding.homeAfterSignalOnIv.visibility = View.VISIBLE
+
             binding.homeSignalToMeList.visibility = View.VISIBLE
-            //binding.homeAfterLoginDmToMeLl.visibility = View.VISIBLE
             binding.homeSignalToMeNoneList.visibility = View.GONE
+
+            binding.homeDmToMeList.visibility = View.VISIBLE
+            binding.homeDmToMeNoneList.visibility = View.GONE
+
+            binding.homeSignalFromMeList.visibility = View.VISIBLE
+            binding.homeSignalToMeNoneList.visibility = View.GONE
+
             retrofitPostSignal()
 
             val dialog = CustomDialog()
@@ -131,9 +171,16 @@ class HomeFragment : Fragment() {
         binding.homeAfterSignalOnIv.setOnClickListener {
             binding.homeAfterSignalOnIv.visibility = View.GONE
             binding.homeAfterSignalOffIv.visibility = View.VISIBLE
+
             binding.homeSignalToMeList.visibility = View.GONE
             binding.homeSignalToMeNoneList.visibility = View.VISIBLE
-            //binding.homeAfterLoginSignalToMeLl.visibility = View.GONE
+
+            binding.homeDmToMeList.visibility = View.GONE
+            binding.homeDmToMeNoneList.visibility = View.VISIBLE
+
+            binding.homeSignalFromMeList.visibility = View.GONE
+            binding.homeSignalFromMeNoneList.visibility = View.VISIBLE
+
             retrofitDeleteSignal()
 
 

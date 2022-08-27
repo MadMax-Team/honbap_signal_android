@@ -5,7 +5,7 @@
 //import android.view.ViewGroup
 //import android.widget.Toast
 //import androidx.recyclerview.widget.RecyclerView
-//import com.example.HonbabSignal.MapSignal
+//import com.example.HonbabSignal.Map.MapSignal
 //import com.example.HonbabSignal.Map.PopupActivity
 //import com.example.HonbabSignal.R
 //import kotlinx.android.synthetic.main.item_map_signal_list.view.*

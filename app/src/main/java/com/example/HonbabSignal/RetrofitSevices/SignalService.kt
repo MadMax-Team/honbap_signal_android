@@ -3,7 +3,9 @@ package com.example.HonbabSignal.RetrofitSevices
 //import com.google.type.DateTime
 import android.text.Editable
 import com.example.HonbabSignal.AuthResponses.SignalOnResponse
+import com.example.HonbabSignal.ProfileAuthResponse
 import com.example.HonbabSignal.ProfilePatchResponse
+import com.example.HonbabSignal.ProfileSignalIdxResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,8 +21,9 @@ interface SignalService {
 
     @DELETE("/signal/list")
     fun deleteSignal(
-        @Header("x-access-token") jwt: String
-    ): Call<Void>
+        @Header("x-access-token") jwt: String,
+        @Field("signalIdx") signalIdx: ArrayList<Int>
+    ): Call<SignalOnResponse>
 
     @FormUrlEncoded
     @PATCH("/signal/list")
@@ -30,4 +33,9 @@ interface SignalService {
         @Field("sigPromiseArea") sigPromiseArea: String,
         @Field("sigStart") sigStart: String
     ): Call<ProfilePatchResponse>
+
+    @GET("/mysignal")
+    fun getSignalIdx(
+        @Header("x-access-token") jwt: String,
+    ): Call<ProfileSignalIdxResponse>
 }

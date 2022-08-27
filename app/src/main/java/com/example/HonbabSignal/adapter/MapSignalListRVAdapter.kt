@@ -3,8 +3,8 @@ package com.example.HonbabSignal.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.HonbabSignal.MapSignal
-import com.example.HonbabSignal.SignalMode
+import com.example.HonbabSignal.Map.MapSignal
+import com.example.HonbabSignal.Map.SignalMode
 import com.example.HonbabSignal.databinding.ItemMapSignalListCustomBinding
 import com.example.HonbabSignal.databinding.ItemMapSignalListDefaultBinding
 
@@ -29,15 +29,11 @@ class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : Re
 
         fun bind(signal : MapSignal){
             //지금 프로필 이미지 url로 들어가있지 않음 -> 향후 변경해야함
-            binding.itemMapSignalListDefaultProfileIv.setImageResource(signal.profileImageUrl!!)
-            binding.itemMapSignalListDefaultNicknameTv.text = signal.name
-            binding.itemMapSignalListDefaultLocationTv.text = signal.location
-            binding.itemMapSignalListDefaultTimeTv.text = signal.time
-            binding.itemMapSignalListDefaultTag1Tv.text = signal.tag1
-            binding.itemMapSignalListDefaultTag2Tv.text = signal.tag2
-            binding.itemMapSignalListDefaultTag3Tv.text = signal.tag3
-            binding.itemMapSignalListDefaultTag4Tv.text = signal.tag4
-            binding.itemMapSignalListDefaultTag5Tv.text = signal.tag5
+            //binding.itemMapSignalListDefaultProfileIv.setImageResource(signal.profileImageUrl!!)
+            binding.itemMapSignalListDefaultNicknameTv.text = signal.nickName
+            //binding.itemMapSignalListDefaultLocationTv.text = signal.location
+            //binding.itemMapSignalListDefaultTimeTv.text = signal.time
+
 
         }
     }
@@ -46,15 +42,11 @@ class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : Re
     RecyclerView.ViewHolder(binding.root){
 
         fun bind(signal : MapSignal){
-            binding.itemMapSignalListCustomProfileIv.setImageResource(signal.profileImageUrl!!)
-            binding.itemMapSignalListCustomNicknameTv.text = signal.name
-            binding.itemMapSignalListCustomLocationTv.text = signal.location
-            binding.itemMapSignalListCustomTimeTv.text = signal.time
-            binding.itemMapSignalListCustomTag1Tv.text = signal.tag1
-            binding.itemMapSignalListCustomTag2Tv.text = signal.tag2
-            binding.itemMapSignalListCustomTag3Tv.text = signal.tag3
-            binding.itemMapSignalListCustomTag4Tv.text = signal.tag4
-            binding.itemMapSignalListCustomTag5Tv.text = signal.tag5
+            //binding.itemMapSignalListCustomProfileIv.setImageResource(signal.profileImageUrl!!)
+            binding.itemMapSignalListCustomNicknameTv.text = signal.nickName
+            //binding.itemMapSignalListCustomLocationTv.text = signal.location
+            //binding.itemMapSignalListCustomTimeTv.text = signal.time
+
         }
 
     }
@@ -84,7 +76,7 @@ class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : Re
     }
     //viewHolder에 데이터 바인딩 할때마다 호출
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(signalList[position].mode){
+        when(signalList[position].checkSigWrite){
             SignalMode.DEFAULT->{
                 (holder as DefaultViewHolder).bind(signalList[position])
                 holder.itemView.setOnClickListener { mItemClickListner.onItemClick(signalList[position]) }
@@ -101,6 +93,6 @@ class MapSignalListRVAdapter(private var signalList : ArrayList<MapSignal>) : Re
 
     //ViewType 설정
     override fun getItemViewType(position: Int): Int {
-        return signalList[position].mode
+        return signalList[position].checkSigWrite
     }
 }

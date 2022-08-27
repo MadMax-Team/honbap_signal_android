@@ -1,18 +1,22 @@
-package com.example.HonbabSignal
+package com.example.HonbabSignal.Map
 
 data class MapSignal(
-    var mode : Int = SignalMode.DEFAULT,
-    var isUpdated : Boolean = true,
-    var name : String? = null,
-    var profileImageUrl : Int? = null,
-    var location : String? = null,
-    var time: String? = null,
-    var tag1: String? = null,
-    var tag2: String? = null,
-    var tag3: String? = null,
-    var tag4: String? = null,
-    var tag5: String? = null,
+    var checkSigWrite: Int = SignalMode.DEFAULT,
+    //var profileImg: String,
+    var nickName: String? = null,
+    var taste: String,
+    var hateFood: String,
+    var interest: String,
+    var avgSpeed: String,
+    var preferArea: String,
+    var mbti: String,
+    var userIntroduce: String,
+    var signalIdx: Int,
+    var userIdx: Int,
+    var sigPromiseTime: String? = null,
+    var sigPromiseArea: String? = null,
 )
+
 object SignalMode{
     const val DEFAULT = 0 //아무것도 입력안함
     const val CUSTOM = 1 //상세 정보 다 입력함

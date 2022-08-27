@@ -1,5 +1,6 @@
 package com.example.HonbabSignal
 
+import com.example.HonbabSignal.Map.MapSignal
 import com.google.gson.annotations.SerializedName
 
 ////회원정보와 프로필의 업로드에 필요한 output정의
@@ -30,7 +31,7 @@ data class UserInfoDetail(@SerializedName("userId") val userId : String,
 data class SignalInfoAuthResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
                                 @SerializedName("code") val code: Int,
                                 @SerializedName("message") val message: String,
-                                @SerializedName("result") val result : List<String>)
+                                @SerializedName("result") val result : List<MapSignal>)
 
 data class SignalInfoDetail(@SerializedName("userId") val userId: Int,
 //                          @SerializedName("userName") val userName : String,
