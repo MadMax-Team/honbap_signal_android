@@ -3,11 +3,14 @@ package com.example.HonbabSignal.Map
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
 import com.example.HonbabSignal.databinding.ActivityPopupBinding
 import com.example.HonbabSignal.getRetorfit
+import com.google.gson.JsonArray
+import java.io.Serializable
 
 class PopupActivity : Activity(){
     lateinit var binding: ActivityPopupBinding
@@ -20,15 +23,25 @@ class PopupActivity : Activity(){
         binding = ActivityPopupBinding.inflate(layoutInflater)
 
         //인텐트로 넘어온 signal json가져오기
-        val signalInfo = intent.getStringExtra("signal")
-
         var dm = getApplicationContext().getResources().getDisplayMetrics();
 
         var width = (dm.widthPixels * 0.7); // Display 사이즈의 90%
         var height = (dm.heightPixels * 0.7); // Display 사이즈의 90%
 
-        binding.popupNicknameTv.text = "name"
-        binding.popupNoteTv.text = ""
+
+        //넘어온 정보 세팅
+        //정보 예시: {"avgSpeed":"20","checkSigWrite":0,"hateFood":"mushroo,","interest":"","mbti":"isfj","nickName":"woongtest","preferArea":"anyang","sigPromiseArea":"테스트","sigPromiseTime":"2022-07-06T14:59:59.000Z",
+        // "signalIdx":9,"taste":"burger","userIdx":3,"userIntroduce":"반가워요~!"}
+        val nickName = intent.getStringExtra("nickName")
+        val avgSpeed = intent.getStringExtra("avgSpeed")
+        val hateFood = intent.getStringExtra("hateFood")
+        val signalIdx = intent.getIntExtra("signalIdx",-1)
+        val userIdx = intent.getIntExtra("userIdx",-1)
+
+
+
+        binding.popupNicknameTv.text = nickName
+        binding.popupNoteTv.text = signalIdx.toString()
 
 
         getWindow().getAttributes().width = width.toInt();

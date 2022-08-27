@@ -92,6 +92,24 @@ class MapListActivity :AppCompatActivity() {
         val mapSignalListRVAdapter = MapSignalListRVAdapter(mapSignalListDatas)
         binding.mapSignalListRecyclerviewGrid.adapter = mapSignalListRVAdapter
         binding.mapSignalListRecyclerviewGrid.layoutManager = GridLayoutManager(this@MapListActivity, 2)
+
+        //리사이클러뷰 클릭관련 함수정의
+        mapSignalListRVAdapter.setMyItemClickListener(object :
+            MapSignalListRVAdapter.MyItemClickListner {
+            override fun onItemClick(signal: MapSignal) {
+                var intent = Intent(this@MapListActivity, PopupActivity::class.java)
+
+                intent.putExtra("nickName",signal.nickName)
+                intent.putExtra("avgSpeed",signal.avgSpeed)
+                intent.putExtra("hateFood",signal.hateFood)
+                intent.putExtra("signalIdx",signal.signalIdx)
+                intent.putExtra("userIdx",signal.userIdx)
+
+
+                startActivity(intent)
+            }
+        })
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,19 +137,6 @@ class MapListActivity :AppCompatActivity() {
 
         Log.d("MapListActivity_m", mapSignalListDatas.toString())
 
-
-
-//        //리사이클러뷰 클릭관련 함수정의
-//        mapSignalListRVAdapter.setMyItemClickListener(object :
-//            MapSignalListRVAdapter.MyItemClickListner {
-//            override fun onItemClick(signal: MapSignal) {
-//                var intent = Intent(this@MapListActivity, PopupActivity::class.java)
-//                val gson = Gson()
-//                val signalJson = gson.toJson(signal)
-//                intent.putExtra("signal", signalJson)
-//                startActivity(intent)
-//            }
-//        })
     }
 }
 
