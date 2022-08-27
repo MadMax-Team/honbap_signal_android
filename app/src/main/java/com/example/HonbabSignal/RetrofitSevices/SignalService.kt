@@ -19,6 +19,14 @@ interface SignalService {
         @Field("sigPromiseArea") sigPromiseArea: String
     ): Call<SignalOnResponse>
 
+    @FormUrlEncoded
+    @POST("/signal/applylist")
+    fun addSignal(
+        @Header("x-access-token") jwt: String?,
+        @Field("signalIdx") signalIdx: Int,
+        @Field("applyedIdx") applyedIdx: Int
+    ) : Call<SignalOnResponse>
+
     @DELETE("/signal/list")
     fun deleteSignal(
         @Header("x-access-token") jwt: String,

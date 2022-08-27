@@ -22,6 +22,7 @@ class MapListActivity :AppCompatActivity() {
     lateinit var binding: ActivityMapListBinding
     lateinit var myIdx: String
     var mapSignalListDatas = ArrayList<MapSignal>()
+    lateinit var jwt: String
 
     private fun getList(jwt: String, mapSignalListDatas: ArrayList<MapSignal>) {
         var retrofit = getRetorfit()
@@ -99,6 +100,7 @@ class MapListActivity :AppCompatActivity() {
             override fun onItemClick(signal: MapSignal) {
                 var intent = Intent(this@MapListActivity, PopupActivity::class.java)
 
+                intent.putExtra("jwt",jwt)
                 intent.putExtra("nickName",signal.nickName)
                 intent.putExtra("avgSpeed",signal.avgSpeed)
                 intent.putExtra("hateFood",signal.hateFood)
@@ -121,7 +123,7 @@ class MapListActivity :AppCompatActivity() {
         setContentView(binding.root)
 
         val spf_jwt = this.getSharedPreferences("jwt", Context.MODE_PRIVATE)
-        val jwt: String = spf_jwt?.getString("jwt", "").toString()
+        jwt = spf_jwt?.getString("jwt", "").toString()
         Log.d("jwt", jwt)
 
         binding.mapListBackBtn.setOnClickListener {
