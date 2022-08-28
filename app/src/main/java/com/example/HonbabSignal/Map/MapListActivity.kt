@@ -8,9 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.HonbabSignal.*
 import com.example.HonbabSignal.RetrofitSevices.MapService
-import com.example.HonbabSignal.adapter.MapSignalListRVAdapter
 import com.example.HonbabSignal.databinding.ActivityMapListBinding
-import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

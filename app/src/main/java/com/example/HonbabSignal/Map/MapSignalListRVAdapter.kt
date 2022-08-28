@@ -1,10 +1,8 @@
-package com.example.HonbabSignal.adapter
+package com.example.HonbabSignal.Map
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.HonbabSignal.Map.MapSignal
-import com.example.HonbabSignal.Map.SignalMode
 import com.example.HonbabSignal.databinding.ItemMapSignalListCustomBinding
 import com.example.HonbabSignal.databinding.ItemMapSignalListDefaultBinding
 

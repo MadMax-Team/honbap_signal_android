@@ -172,6 +172,10 @@ class HomeFragment : Fragment() {
                 })
         }
 
+        fun setSignalFromMe(){
+
+        }
+
 
         setSignalToMe()
 
