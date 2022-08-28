@@ -44,7 +44,7 @@
             android:id="@+id/popup_nickname_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="코뿡"
+            android:text="nickName"
             android:fontFamily="@font/pretendard_extra_bold"
             android:textColor="@color/black"
             android:textStyle="bold"
