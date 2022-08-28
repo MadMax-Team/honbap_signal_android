@@ -52,6 +52,9 @@ class PopupActivity : Activity(){
         val sigPromiseArea = intent.getStringExtra("sigPromiseArea")
         val sigPromiseTime = intent.getStringExtra("sigPromiseTime")
         val checkSigWrite = intent.getIntExtra("checkSigWrite",0)
+        val mbti = intent.getStringExtra("mbti")
+        val preferArea = intent.getStringExtra("preferArea")
+
 
         if (checkSigWrite == 1){
             binding.popupCheckSigWrtieLl.visibility = View.VISIBLE
@@ -63,6 +66,10 @@ class PopupActivity : Activity(){
 
         binding.popupNicknameTv.text = nickName
         binding.popupNoteTv.text = userIntroduce
+        binding.popupTasteTv.text = taste
+        binding.popupHatefoodTv.text = hateFood
+        binding.popupPreferAreaTv.text = preferArea
+        binding.popupMbtiTv.text = mbti
 
 
         getWindow().getAttributes().width = width.toInt();
@@ -84,10 +91,6 @@ class PopupActivity : Activity(){
             Toast.makeText(this@PopupActivity, "시그널이 보내졌습니다.", Toast.LENGTH_SHORT).show()
             retrofitSendSignal(jwt,signalIdx,userIdx)
 
-        }
-
-        binding.popupDmBtn.setOnClickListener{
-            Toast.makeText(this@PopupActivity, "DM이 보내졌습니다.", Toast.LENGTH_SHORT).show()
         }
     }
 

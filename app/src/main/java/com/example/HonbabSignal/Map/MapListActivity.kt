@@ -110,6 +110,8 @@ class MapListActivity :AppCompatActivity() {
                 intent.putExtra("sigPromiseArea",signal.sigPromiseArea)
                 intent.putExtra("sigPromiseTime",signal.sigPromiseTime)
                 intent.putExtra("checkSigWrite",signal.checkSigWrite)
+                intent.putExtra("mbti", signal.mbti)
+                intent.putExtra("preferArea",signal.preferArea)
 
 
                 startActivity(intent)
