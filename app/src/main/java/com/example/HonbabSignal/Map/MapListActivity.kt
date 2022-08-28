@@ -101,10 +101,15 @@ class MapListActivity :AppCompatActivity() {
 
                 intent.putExtra("jwt",jwt)
                 intent.putExtra("nickName",signal.nickName)
+                intent.putExtra("userIntroduce",signal.userIntroduce)
                 intent.putExtra("avgSpeed",signal.avgSpeed)
                 intent.putExtra("hateFood",signal.hateFood)
                 intent.putExtra("signalIdx",signal.signalIdx)
                 intent.putExtra("userIdx",signal.userIdx)
+                intent.putExtra("taste",signal.taste)
+                intent.putExtra("sigPromiseArea",signal.sigPromiseArea)
+                intent.putExtra("sigPromiseTime",signal.sigPromiseTime)
+                intent.putExtra("checkSigWrite",signal.checkSigWrite)
 
 
                 startActivity(intent)

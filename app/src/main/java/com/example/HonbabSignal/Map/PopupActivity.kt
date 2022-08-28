@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.widget.TextView
 import android.widget.Toast
@@ -42,15 +43,26 @@ class PopupActivity : Activity(){
         // "signalIdx":9,"taste":"burger","userIdx":3,"userIntroduce":"반가워요~!"}
         val jwt: String? = intent.getStringExtra("jwt")
         val nickName = intent.getStringExtra("nickName")
+        val userIntroduce = intent.getStringExtra("userIntroduce")
         val avgSpeed = intent.getStringExtra("avgSpeed")
         val hateFood = intent.getStringExtra("hateFood")
         val signalIdx = intent.getIntExtra("signalIdx",-1)
         val userIdx = intent.getIntExtra("userIdx",-1)
+        val taste = intent.getStringExtra("taste")
+        val sigPromiseArea = intent.getStringExtra("sigPromiseArea")
+        val sigPromiseTime = intent.getStringExtra("sigPromiseTime")
+        val checkSigWrite = intent.getIntExtra("checkSigWrite",0)
 
-
+        if (checkSigWrite == 1){
+            binding.popupCheckSigWrtieLl.visibility = View.VISIBLE
+            binding.popupSigPromiseAreaTv.text= sigPromiseArea
+            binding.popupSigPromiseTimeTv.text = sigPromiseTime
+        }else{
+            binding.popupCheckSigWrtieLl.visibility = View.GONE
+        }
 
         binding.popupNicknameTv.text = nickName
-        binding.popupNoteTv.text = signalIdx.toString()
+        binding.popupNoteTv.text = userIntroduce
 
 
         getWindow().getAttributes().width = width.toInt();
