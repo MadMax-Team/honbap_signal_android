@@ -62,6 +62,7 @@ class HomeSignalListAdapter(private val signalList: ArrayList<Signal>) :
         }
         fun bind(signal: Signal) {
             binding.itemHomeProfileNicknameTv.text = signal.nickname
+            //binding.itemHomeProfileIv
         }
     }
 }

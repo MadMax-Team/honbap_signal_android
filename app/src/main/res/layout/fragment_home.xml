@@ -123,6 +123,7 @@
                 android:textSize="20sp"
                 android:visibility="gone"
                 app:layout_constraintTop_toBottomOf="@id/home_signal_to_me_tv" />
+
         </LinearLayout>
 
         //나에게 온 디엠

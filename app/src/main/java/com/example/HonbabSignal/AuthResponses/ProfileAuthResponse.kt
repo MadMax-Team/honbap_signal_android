@@ -23,6 +23,22 @@ data class ProfileAuthResponse(@SerializedName("isSuccess") val isSuccess: Boole
                                @SerializedName("result") val result : AuthProfile
                                )
 
+data class ProfileSignalIdxResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
+                               @SerializedName("code") val code: Int,
+                               @SerializedName("message") val message: String,
+                               @SerializedName("result") val result : List<SignalIdxList>
+)
+
+data class SignalIdxList(@SerializedName("signalIdx") val signalIdx: Int)
+
+data class ProfileSignalNicknameResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
+                                    @SerializedName("code") val code: Int,
+                                    @SerializedName("message") val message: String,
+                                    @SerializedName("result") val result : List<SignalNicknameList>
+)
+
+data class SignalNicknameList(@SerializedName("nickName") val nickName: String)
+
 data class ProfilePatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
                                 @SerializedName("code") val code : Int,
                                 @SerializedName("message") val message : String)
