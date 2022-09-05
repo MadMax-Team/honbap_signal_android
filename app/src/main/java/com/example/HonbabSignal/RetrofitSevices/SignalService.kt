@@ -51,4 +51,11 @@ interface SignalService {
     fun getSignalToMe(
         @Header("x-access-token") jwt: String,
     ): Call<ProfileSignalNicknameResponse>
+
+    @FormUrlEncoded
+    @POST("/signal/info")
+    fun getSignalInfoFromNickname(
+        @Field("nickName") nickName: String
+    ): Call<SignalInfoFromNicknameResponse>
+
 }

@@ -42,3 +42,22 @@ data class SignalNicknameList(@SerializedName("nickName") val nickName: String)
 data class ProfilePatchResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
                                 @SerializedName("code") val code : Int,
                                 @SerializedName("message") val message : String)
+
+data class SignalInfoFromNicknameResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
+                                  @SerializedName("code") val code : Int,
+                                  @SerializedName("message") val message : String,
+                                  @SerializedName("result") val result: SignalProfileInfo
+
+)
+
+data class SignalProfileInfo(@SerializedName("userIdx") val userIdx : Int,
+                       @SerializedName("profileImg") val profileImg: String,
+                       @SerializedName("taste") val taste: String,
+                       @SerializedName("hateFood") val hateFood: String,
+                       @SerializedName("interest") val interest: String,
+                       @SerializedName("avgSpeed") val avgSpeed: String,
+                       @SerializedName("preferArea") val preferArea: String,
+                       @SerializedName("mbti") val mbti: String,
+                       @SerializedName("userIntroduce") val userIntroduce: String,
+                             @SerializedName("updateAt") val updateAt : String,
+                       @SerializedName("nickName") val nickName : String,)

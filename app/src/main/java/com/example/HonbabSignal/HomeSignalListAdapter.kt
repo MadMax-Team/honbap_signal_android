@@ -8,7 +8,11 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.HonbabSignal.DM.Signal
 import com.example.HonbabSignal.Map.PopupActivity
+import com.example.HonbabSignal.RetrofitSevices.SignalService
 import com.example.HonbabSignal.databinding.ItemHomeProfileBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeSignalListAdapter(private val signalList: ArrayList<Signal>) :
     RecyclerView.Adapter<HomeSignalListAdapter.ViewHolder>()
@@ -33,7 +37,7 @@ class HomeSignalListAdapter(private val signalList: ArrayList<Signal>) :
     // 뷰홀더가 매개변수로 들어와서 자식뷰에 접근가능 => 데이터 바인딩
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(signalList[position])
-        holder.onClick()
+        holder.onClick(signalList[position])
         //adapter 내부에서 클릭 시 반응하면 외부에선 떨어짐
         //그래서 interface 사용함함
 
@@ -42,21 +46,81 @@ class HomeSignalListAdapter(private val signalList: ArrayList<Signal>) :
     //리사이클러뷰 마지막을 알 수 있음
     override fun getItemCount() : Int = signalList.size
 
+
+
     //inner class로 뷰홀더
     //item 뷰 객체들을 잡고있는 그릇(?)
     inner class ViewHolder(val binding: ItemHomeProfileBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun onClick(){
+        val retrofit = getRetorfit()
+        var signalService = retrofit.create(SignalService::class.java)
+        var userIdx: Int = 0
+
+
+        fun onClick(signal: Signal){
+            //프로필버튼 클릭시
             binding.itemHomeProfileProfileBtn.setOnClickListener {
-                //프로필 버튼
+
                 val intent = Intent(binding.itemHomeProfileProfileBtn.context, PopupActivity::class.java)
                 Log.d("homeSignalListAdapter","profile click")
+                val nickname:String = signal.nickname.toString()
+                signalService.getSignalInfoFromNickname(nickname)
+                    .enqueue(object: Callback<SignalInfoFromNicknameResponse>{
+                        override fun onResponse(
+                            call: Call<SignalInfoFromNicknameResponse>,
+                            response: Response<SignalInfoFromNicknameResponse>
+                        ) {
+                            var resp = response.body()!!
+                            Log.d("getInfoFromNickName",resp.result.toString())
+
+
+                        }
+
+                        override fun onFailure(
+                            call: Call<SignalInfoFromNicknameResponse>,
+                            t: Throwable
+                        ) {
+                            Log.d(
+                                "getInfoFromNickName",
+                                t.message.toString()
+                            )
+                        }
+
+                    })
+
+
                 startActivity(binding.itemHomeProfileProfileBtn.context,intent,null)
 
             }
 
+            // 수락버튼 클릭시
             binding.itemHomeProfileMatchBtn.setOnClickListener {
-                //수락버튼
+                val nickname:String = signal.nickname.toString()
+                signalService.getSignalInfoFromNickname(nickname)
+                    .enqueue(object: Callback<SignalInfoFromNicknameResponse>{
+                        override fun onResponse(
+                            call: Call<SignalInfoFromNicknameResponse>,
+                            response: Response<SignalInfoFromNicknameResponse>
+                        ) {
+                            var resp = response.body()!!
+                            userIdx = resp.result.userIdx
+                            Log.d("matchBtnClick",userIdx.toString())
+                            //userIdx 받아왔고 이후 dm 연결 하면 됩니다!
+
+                        }
+
+                        override fun onFailure(
+                            call: Call<SignalInfoFromNicknameResponse>,
+                            t: Throwable
+                        ) {
+                            Log.d(
+                                "getInfoFromNickName",
+                                t.message.toString()
+                            )
+                        }
+
+                    })
+
             }
 
         }
