@@ -26,7 +26,7 @@ data class ProfileAuthResponse(@SerializedName("isSuccess") val isSuccess: Boole
 data class ProfileSignalIdxResponse(@SerializedName("isSuccess") val isSuccess: Boolean,
                                @SerializedName("code") val code: Int,
                                @SerializedName("message") val message: String,
-                               @SerializedName("result") val result : List<SignalIdxList>
+                               @SerializedName("result") val result : ArrayList<SignalIdxList>
 )
 
 data class SignalIdxList(@SerializedName("signalIdx") val signalIdx: Int)

@@ -15,20 +15,37 @@ import com.example.HonbabSignal.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.properties.Delegates
+
 
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
-    var signalIdxList = ArrayList<Int>()
+
     var signalToMeList = ArrayList<Signal>()
     private val dmToMeList = ArrayList<Signal>()
     private val signalFromMeList = ArrayList<Signal>()
+    var signalIdxList = ArrayList<SignalIdxList>()
     var retrofit = getRetorfit()
     var signalService = retrofit.create(SignalService::class.java)
+    lateinit var jwt: String
 
-    private fun getSignalIdx(jwt: String){
+    fun deleteSignal(signalIdx: SignalIdxList){
+        Log.d("deleteSignal",signalIdx.toString())
+        signalService.deleteSignal(jwt, signalIdx)
+            .enqueue(object:Callback<SignalOnResponse>{
+                override fun onResponse(call: Call<SignalOnResponse>, response: Response<SignalOnResponse>) {
+                    Log.d("delete","success")
+                }
 
+                override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
+                    Log.d("delete","error")
+                }
+
+            })
+
+    }
+
+    private fun retrofitDeleteSignal(jwt: String){
 
         Log.d("getSignalIdx", "함수 실행")
         Log.d("getSignalIdx-jwt",jwt)
@@ -40,7 +57,13 @@ class HomeFragment : Fragment() {
                     response: Response<ProfileSignalIdxResponse>
                 ) {
                     var resp = response.body()!!
+
                     Log.d("getSignalIdx",resp.toString())
+                    for (i in resp.result){
+                        Log.d("getSignalIdx-i",i.signalIdx.toString())
+                        deleteSignal(i)
+
+                    }
 
                 }
 
@@ -49,6 +72,8 @@ class HomeFragment : Fragment() {
                 }
 
             })
+
+        Log.d("getSinalIdx","함수 끝")
 
     }
 
@@ -83,29 +108,11 @@ class HomeFragment : Fragment() {
         setAdapter()
 
         val spf_jwt = this.getActivity()?.getSharedPreferences("jwt", Context.MODE_PRIVATE)
-        val jwt: String = spf_jwt?.getString("jwt","").toString()
+        jwt = spf_jwt?.getString("jwt","").toString()
         Log.d("jwt",jwt)
 
 
-        fun retrofitDeleteSignal(){
 
-            getSignalIdx(jwt)
-
-            Log.d("signalIdx", signalIdxList.toString())
-
-            signalService.deleteSignal(jwt, signalIdxList)
-                .enqueue(object:Callback<SignalOnResponse>{
-                    override fun onResponse(call: Call<SignalOnResponse>, response: Response<SignalOnResponse>) {
-                        Log.d("delete","success")
-                    }
-
-                    override fun onFailure(call: Call<SignalOnResponse>, t: Throwable) {
-                        Log.d("delete","error")
-                    }
-
-                })
-
-        }
 
         fun retrofitPostSignal(){
 
@@ -211,7 +218,7 @@ class HomeFragment : Fragment() {
             binding.homeSignalFromMeList.visibility = View.GONE
             binding.homeSignalFromMeNoneList.visibility = View.VISIBLE
 
-            retrofitDeleteSignal()
+            retrofitDeleteSignal(jwt)
 
 
         }
