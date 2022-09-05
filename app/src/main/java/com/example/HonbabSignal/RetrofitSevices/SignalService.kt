@@ -25,10 +25,12 @@ interface SignalService {
         @Field("applyedIdx") applyedIdx: Int
     ) : Call<SignalOnResponse>
 
-    @DELETE("/signal/list")
+    @FormUrlEncoded
+    @HTTP(method="DELETE", hasBody=true, path="/signal/list")
+    //@DELETE("/signal/list")
     fun deleteSignal(
         @Header("x-access-token") jwt: String,
-        @Field("signalIdx") signalIdx: SignalIdxList
+        @Field("signalIdx") signalIdx: Int
     ): Call<SignalOnResponse>
 
     @FormUrlEncoded

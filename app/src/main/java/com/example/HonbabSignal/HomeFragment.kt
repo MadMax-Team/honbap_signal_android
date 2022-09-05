@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
 
     fun deleteSignal(signalIdx: SignalIdxList){
         Log.d("deleteSignal",signalIdx.toString())
-        signalService.deleteSignal(jwt, signalIdx)
+        signalService.deleteSignal(jwt, signalIdx.signalIdx)
             .enqueue(object:Callback<SignalOnResponse>{
                 override fun onResponse(call: Call<SignalOnResponse>, response: Response<SignalOnResponse>) {
                     Log.d("delete","success")
