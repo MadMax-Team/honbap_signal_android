@@ -16,15 +16,13 @@ import retrofit2.Response
 
 
 class MapListActivity :AppCompatActivity() {
-
     lateinit var binding: ActivityMapListBinding
-    lateinit var myIdx: String
     var mapSignalListDatas = ArrayList<MapSignal>()
     lateinit var jwt: String
+    var retrofit = getRetorfit()
+    var MapService = retrofit.create(MapService::class.java)
 
     private fun getList(jwt: String, mapSignalListDatas: ArrayList<MapSignal>) {
-        var retrofit = getRetorfit()
-        var MapService = retrofit.create(MapService::class.java)
 
         MapService.getSignalInfo(jwt)
             .enqueue(object : Callback<SignalInfoAuthResponse> {
@@ -36,7 +34,6 @@ class MapListActivity :AppCompatActivity() {
                     Log.d("editingProfile_code", respIdx.code.toString())
                     when (respIdx.code) {
                         1000 -> {
-
 
                             Log.d("MapListActivity", respIdx.result.toString())
                             for (i in respIdx.result) {
@@ -120,12 +117,10 @@ class MapListActivity :AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Log.d("mapSignal", "onCreate")
-
         binding = ActivityMapListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //jwt
         val spf_jwt = this.getSharedPreferences("jwt", Context.MODE_PRIVATE)
         jwt = spf_jwt?.getString("jwt", "").toString()
         Log.d("jwt", jwt)
@@ -135,13 +130,8 @@ class MapListActivity :AppCompatActivity() {
             overridePendingTransition(0, 0)
         }
 
-
-        //임시 데이터리스트 생성(서버 없어서 해봄)
-
-
         getList(jwt, mapSignalListDatas)
 
-        Log.d("MapListActivity_m", mapSignalListDatas.toString())
 
     }
 }
