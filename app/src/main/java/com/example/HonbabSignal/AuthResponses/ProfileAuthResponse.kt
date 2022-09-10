@@ -43,6 +43,17 @@ data class ProfilePatchResponse(@SerializedName("isSuccess") val isSuccess : Boo
                                 @SerializedName("code") val code : Int,
                                 @SerializedName("message") val message : String)
 
+data class defaultResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
+                           @SerializedName("code") val code : Int,
+                           @SerializedName("message") val message : String)
+
+data class dmRoomListResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
+                           @SerializedName("code") val code : Int,
+                           @SerializedName("message") val message : String,
+                            @SerializedName("result") val result: List<RoomIdList>)
+
+data class RoomIdList(@SerializedName("roomId") val roomId:String)
+
 data class SignalInfoFromNicknameResponse(@SerializedName("isSuccess") val isSuccess : Boolean,
                                   @SerializedName("code") val code : Int,
                                   @SerializedName("message") val message : String,

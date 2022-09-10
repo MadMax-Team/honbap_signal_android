@@ -77,10 +77,10 @@ class HomeFragment : Fragment() {
 
     }
 
-    fun setAdapter(){
-        var signalToMeListAdapter = HomeSignalListAdapter(signalToMeList)
-        var dmToMeListAdapter = HomeSignalListAdapter(dmToMeList)
-        var signalFromMeListAdapter = HomeSignalListAdapter(signalFromMeList)
+    fun setAdapter(jwt: String){
+        var signalToMeListAdapter = HomeSignalListAdapter(signalToMeList, jwt)
+        var dmToMeListAdapter = HomeSignalListAdapter(dmToMeList, jwt)
+        var signalFromMeListAdapter = HomeSignalListAdapter(signalFromMeList, jwt)
 
         binding.homeSignalToMeList.adapter = signalToMeListAdapter
         binding.homeDmToMeList.adapter = dmToMeListAdapter
@@ -105,11 +105,13 @@ class HomeFragment : Fragment() {
             add(Signal("dm2s",12))
         }
 
-        setAdapter()
-
         val spf_jwt = this.getActivity()?.getSharedPreferences("jwt", Context.MODE_PRIVATE)
         jwt = spf_jwt?.getString("jwt","").toString()
         Log.d("jwt",jwt)
+
+        setAdapter(jwt)
+
+
 
 
 
@@ -164,7 +166,7 @@ class HomeFragment : Fragment() {
                                 add(Signal(i.nickName,0))
                             }
                         }
-                        setAdapter()
+                        setAdapter(jwt)
 
 
                     }

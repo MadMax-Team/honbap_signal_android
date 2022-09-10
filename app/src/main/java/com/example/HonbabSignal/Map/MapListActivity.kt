@@ -36,7 +36,7 @@ class MapListActivity :AppCompatActivity() {
                     Log.d("editingProfile_code", respIdx.code.toString())
                     when (respIdx.code) {
                         1000 -> {
-                            var signalUserIdxList = respIdx.result
+
 
                             Log.d("MapListActivity", respIdx.result.toString())
                             for (i in respIdx.result) {

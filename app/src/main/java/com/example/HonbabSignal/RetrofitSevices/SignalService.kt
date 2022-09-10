@@ -58,4 +58,19 @@ interface SignalService {
         @Field("nickName") nickName: String
     ): Call<SignalInfoFromNicknameResponse>
 
+
+    //쪽지방 생성
+    @FormUrlEncoded
+    @POST("/msg")
+    fun makeDmRoom(
+        @Header("x-access-token") jwt: String,
+        @Field("matchIdx") matchIdx: Int //시그널 신청한 사람의 식별자 (시그널 보낸 사람/ 수락한 사람 아님)
+    ): Call<defaultResponse>
+
+
+    //쪽지방 확인
+    @GET("/msg")
+    fun getDmRoomList(
+        @Header("x-access-token") jwt: String
+    ): Call<dmRoomListResponse>
 }
