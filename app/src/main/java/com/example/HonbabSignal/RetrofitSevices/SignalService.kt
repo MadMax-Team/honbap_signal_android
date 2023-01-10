@@ -2,11 +2,8 @@ package com.example.HonbabSignal.RetrofitSevices
 
 //import com.google.type.DateTime
 import android.text.Editable
+import com.example.HonbabSignal.*
 import com.example.HonbabSignal.AuthResponses.SignalOnResponse
-import com.example.HonbabSignal.ProfileAuthResponse
-import com.example.HonbabSignal.ProfilePatchResponse
-import com.example.HonbabSignal.ProfileSignalIdxResponse
-import com.example.HonbabSignal.ProfileSignalNicknameResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -28,10 +25,12 @@ interface SignalService {
         @Field("applyedIdx") applyedIdx: Int
     ) : Call<SignalOnResponse>
 
-    @DELETE("/signal/list")
+    @FormUrlEncoded
+    @HTTP(method="DELETE", hasBody=true, path="/signal/list")
+    //@DELETE("/signal/list")
     fun deleteSignal(
         @Header("x-access-token") jwt: String,
-        @Field("signalIdx") signalIdx: ArrayList<Int>
+        @Field("signalIdx") signalIdx: Int
     ): Call<SignalOnResponse>
 
     @FormUrlEncoded
@@ -52,4 +51,26 @@ interface SignalService {
     fun getSignalToMe(
         @Header("x-access-token") jwt: String,
     ): Call<ProfileSignalNicknameResponse>
+
+    @FormUrlEncoded
+    @POST("/signal/info")
+    fun getSignalInfoFromNickname(
+        @Field("nickName") nickName: String
+    ): Call<SignalInfoFromNicknameResponse>
+
+
+    //쪽지방 생성
+    @FormUrlEncoded
+    @POST("/msg")
+    fun makeDmRoom(
+        @Header("x-access-token") jwt: String,
+        @Field("matchIdx") matchIdx: Int //시그널 신청한 사람의 식별자 (시그널 보낸 사람/ 수락한 사람 아님)
+    ): Call<defaultResponse>
+
+
+    //쪽지방 확인
+    @GET("/msg")
+    fun getDmRoomList(
+        @Header("x-access-token") jwt: String
+    ): Call<dmRoomListResponse>
 }

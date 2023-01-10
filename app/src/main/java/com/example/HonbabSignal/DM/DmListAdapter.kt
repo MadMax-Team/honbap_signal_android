@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.HonbabSignal.databinding.ItemDmListBinding
 
-class DmListAdapter(private val friendList: ArrayList<Friend>) :
+class DmListAdapter(private val friendList: ArrayList<DmRoom>) :
     RecyclerView.Adapter<DmListAdapter.ViewHolder>()
 {
 
     //클릭 인터페이스 정의
     interface MyitemClickListener{
-        fun onItemClick(friend: Friend)
+        fun onItemClick(friend: DmRoom)
     }
 
     //리스너 객체를 전달받는 함수랑 리스너 객체를 저장할 변수
@@ -33,7 +33,7 @@ class DmListAdapter(private val friendList: ArrayList<Friend>) :
         holder.bind(friendList[position])
 
         //adapter 내부에서 클릭 시 반응하면 외부에선 떨어짐
-        //그래서 interface 사용함함
+        //그래서 interface 사용함함이
        holder.itemView.setOnClickListener {mItemClickListner.onItemClick(friendList[position])}
     }
 
@@ -43,7 +43,7 @@ class DmListAdapter(private val friendList: ArrayList<Friend>) :
     //inner class로 뷰홀더
     //item 뷰 객체들을 잡고있는 그릇(?)
     inner class ViewHolder(val binding: ItemDmListBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(friend: Friend) {
+        fun bind(friend: DmRoom) {
             binding.itemDmListFriendNameTv.text = friend.name
             binding.itemDmListFriendLastStringTv.text = friend.lastString
             binding.itemDmListFriendProfileImg.setImageResource(friend.profileImageUrl!!)

@@ -1,6 +1,5 @@
 package com.example.HonbabSignal.SignupNLogin
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -12,7 +11,6 @@ import androidx.fragment.app.DialogFragment
 import com.example.HonbabSignal.RetrofitSevices.SignUpService
 import com.example.HonbabSignal.SignUpAuthResponse
 import com.example.HonbabSignal.databinding.DialogMakeProfileBinding
-import com.example.HonbabSignal.databinding.DialogSignalFinishBinding
 import com.example.HonbabSignal.getRetorfit
 import retrofit2.Call
 import retrofit2.Callback
@@ -64,6 +62,9 @@ class MakeProfileDialog : DialogFragment() {
                         1000 -> {
                             Log.d("makeProfile", "success")
                             dismiss()    // 대화상자를 닫는 함수
+
+                            val dialog = MakeProfileDoneDialog()
+                            dialog.show(parentFragmentManager, "MakeProfileDoneDialog")
                         }
                         }
 
